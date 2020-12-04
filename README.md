@@ -1,16 +1,18 @@
 # Index
 
+// TODO: AGREGAR
+https://www.reactandtypescript.dev/examples/react-router#withrouter
+https://github.com/thedaviddias/Front-End-Checklist
+
 - [Index](#index)
-- [Microservice Template](#microservice-template)
+- [React Front Template](#react-front-template)
 - [Tools](#tools)
   - [Typescript](#typescript)
   - [Eslint](#eslint)
+  - [Stylelint](#stylelint)
   - [Prettier](#prettier)
   - [Jest](#jest)
-  - [Docker](#docker)
-  - [pm2](#pm2)
   - [Husky](#husky)
-  - [Swagger and TypeDoc](#swagger-and-typedoc)
 - [Folder structure and usage](#folder-structure-and-usage)
   - [Root Directories](#root-directories)
   - [Root Files](#root-files)
@@ -49,11 +51,11 @@
 - [Scripts](#scripts)
 - [License](#license)
 
-# Microservice Template
+# React Front Template
 
-This is the template for an internal microservice written in typescript. It's aimed to only be used by other microservices, being always behind an API gateway, reverse proxy, etc.
+This is the template for React applications.
 
-In the /src-sample dir you will find a complete example on how this system could work, with methods related with sequelize and mongoose.
+In the /src-sample dir you will find a complete example on how this system could work.
 Even though you can use /src and /test from the scratch, it would be nice take a look frequently to src-sample and tests-sample. These dirs contains some functional samples on how to use the package.
 
 # Tools
@@ -77,6 +79,16 @@ Read the docs: [Eslint docs](https://eslint.org/).
 
 VSCode plugin: [here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 
+## Stylelint
+
+For CSS and SCSS code styling, just like eslint but for styles. Its configuration can be found in .stylelintrc.json. You can read how to configure it [here](https://stylelint.io/user-guide/usage/options).
+
+We use the AirBnb style guide for coding: [Guide docs](https://github.com/airbnb/css).
+
+Read the docs: [Stylelint docs](https://stylelint.io/user-guide/get-started).
+
+VSCode plugin: [here](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint).
+
 ## Prettier
 
 It's an opinionated code formatter used for making the code prettier. Also, this way all the developers will be following the same style guides. It's configured in the .prettierrc file. You can read how to configure it [here](https://prettier.io/docs/en/configuration.html).
@@ -93,57 +105,36 @@ For unit testing it uses Jest. It will look for all the files which their names 
 
 Read the docs: [Jest docs](https://jestjs.io/).
 
-## Docker
-
-This template aims to be executed in a container environment like Docker. That's why you can see a dockerfile. You can see how to configure it here: [dockerfile docs](https://docs.docker.com/engine/reference/builder/).
-
-Read the docs: [Docker docs](https://docs.docker.com/).
-
-## pm2
-
-If you don't run in docker, the best approach is to run the application with a process manager (it will restart your application if it fails, start at system boot, run them in background, etc.). We use pm2 for this purpose.
-
-**Note**: If you are going to use pm2, remember to configure how many instances you will want running!
-
-Read the docs: [pm2](https://pm2.keymetrics.io/docs/usage/quick-start/).
-
 ## Husky
 
 It uses husky to add a hook to git, so it runs eslint and prettier before commiting every time.
-
-## Swagger and TypeDoc
-
-If you use Open API 3.0, Swagger allows you to document an API in a very interesting way.
-Also, we use TypeDoc for docummenting typescript code.
-Read the docs: [Swagger](https://swagger.io/docs/specification/about/) and [TypeDoc](http://typedoc.org).
 
 # Folder structure and usage
 
 ## Root Directories
 
-- **build**: Has the compiled code and it's prepared to work. It contains the files that will be published in npmjs when you use "npm publish". This directory is removed and remade everytime you run "npm run build", so never put something that cannot be erased there.
-- **docs**: Contains the different docs (for the API, the code and the testings).
+- **build**: Has the compiled code and it's prepared to work. This directory is removed and remade everytime you run "npm run build", so never put something that cannot be erased there.
+- **docs**: Contains the different docs (code and the testings).
 - **node_modules**: It's the standard node_modules folder for node JS.
 - **package_utils**: It contains some scripts we need at package config.
-- **persisted**: It contains the different files that the service needs to persist. For example, this directory could be a Docker volume.
+- **dev**: Contains some utils needed to develop in the system.
 - **src**: It contains the source of the package. It's the code to be compiled when you run "npm run build".
 - **tests**: Contains all the different files what will be tested when you use "npm run test". Jest will look for all the files finishing with ".test.ts".
 
 ## Root Files
 
-- **.env** and **.env-sample**: Contains the different environment variables to be loaded with dotenv. .env-sample it's just a way to show how env should look like. **NEVER** upload the .env file to anywhere.
 - **.eslintrc.json**: Contains all the configuration for [eslintrc]((https://eslint.org/docs/user-guide/configuring).
 - **.gitignore**: Contains all the files and directories that won't be upstreamed to git. How to configure: [gitignore](https://git-scm.com/docs/gitignore).
 - **.npmrc**: Contains how npm wil work. How to configure: [npmrc](https://docs.npmjs.com/configuring-npm/npmrc.html).
 - **.pretierrc**: Contains prettier configuration. How to configure: [prettierrc](https://prettier.io/docs/en/configuration.html)
 - **CHANGELOG.md, LICENSE and README.md**: Standard files that have information about how to use the package (this file), the changes in each release and the license.
-- **dockerfile**: It contains how to load this app in a docker environment. How to configure: [dockerfile docs](https://docs.docker.com/engine/reference/builder/).
 - **jestconfig.json**: Contains Jest configuration. How to configure: [jestconfig](https://jestjs.io/docs/en/configuration).
 - **jesthtmlreporter.json**: Contains the configuration for the testings output files.
 - **package.json**: Node Package configuration. How to configure: [npm](https://docs.npmjs.com/creating-a-package-json-file).
-- **pm2.config.json**: It contains the instructions to start with pm2 loading the environment variables. How to configure: [pm2](https://pm2.keymetrics.io/docs/usage/quick-start/).
 - **tsconfig.json**: Contains TypeScript configuration. How to configure: [tsconfig](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 - **typedoc.json**: Contains the typedoc configuration.
+
+// TODO: ADD WEBPACK, STYLELINT, ETC.
 
 ## Files in /src
 

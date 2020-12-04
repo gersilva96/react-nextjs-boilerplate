@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const sass = require('sass');
+
+const srcPath = path.resolve(__dirname, 'src');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -24,7 +27,10 @@ module.exports = {
           { loader: 'style-loader' },
           {
             loader: 'css-loader',
-            options: { modules: true },
+            options: {
+              modules: { localIdentName: '[local]' },
+              sourceMap: true,
+            },
           },
         ],
       },
@@ -34,9 +40,24 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader',
-            options: { modules: true },
+            options: {
+              modules: { localIdentName: '[local]' },
+              sourceMap: true,
+            },
           },
-          'sass-loader',
+          {
+            loader: 'postcss-loader',
+            options: { sourceMap: true },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              // Prefer `dart-sass`
+              implementation: sass,
+              sassOptions: { includePaths: ['./src'] },
+            },
+          },
         ],
       },
     ],
@@ -52,6 +73,9 @@ module.exports = {
     port: 3000,
   },
   resolve: {
+    alias: {
+      '~': srcPath,
+    },
     extensions: ['.js', '.ts', '.jsx', '.tsx'],
   },
 };

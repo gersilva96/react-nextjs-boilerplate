@@ -7,10 +7,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import styles from './index.scss';
+import Views from './views';
 
 const App = () => {
-  return <h1 className={styles.title}>Starting app!</h1>;
+  return (
+    <React.StrictMode>
+      <Views />
+    </React.StrictMode>
+  );
 };
 
 ReactDOM.render(<App />, document.getElementById('root'));

@@ -18,14 +18,22 @@
     "mail": ""
   },
   "scripts": {
+    "_clean": "node ./package_utils/cleanBuild.js",
+    "_control": "npm run lint && npm run format && npm run test:unit",
     "lint": "eslint src -c .eslintrc.json --ext .ts --ext .tsx --ext js --ext .jsx --fix --cache && stylelint src/**/*.{css,scss} --config .stylelintrc.json --aei --fix",
     "format": "prettier --write --config .prettierrc src",
+    "test:unit": "cross-env JEST_HTML_REPORTER_OUTPUT_PATH=docs/tests/unit.html jest --no-cache --forceExit --config jestconfig.json --detectOpenHandles ./tests/unit",
     "dev": "webpack serve --config=webpack.config.dev.js",
-    "build": "webpack --config=webpack.config.prod.js"
+    "compile": "npm run _clean && webpack --config=webpack.config.prod.js",
+    "build": " npm run _control && npm run compile && npm run generate-docs && npm audit --production  && echo \"Finished!\"",
+    "generate-docs": "ts-node ./package_utils/generateAPIDocs.ts && typedoc --options ./typedoc.json && node ./package_utils/cleanTypedocDocs.js"
   },
   "dependencies": {
+    "dart-sass": "1.25.0",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-router": "5.2.0",
+    "react-router-dom": "5.2.0"
   },
   "devDependencies": {
     "@babel/core": "7.12.9",
@@ -36,8 +44,10 @@
     "@types/node": "14.0.14",
     "@types/react": "16.9.41",
     "@types/react-dom": "16.9.8",
+    "@types/react-router-dom": "5.1.6",
     "@typescript-eslint/eslint-plugin": "3.10.1",
     "@typescript-eslint/parser": "3.10.1",
+    "autoprefixer": "10.0.4",
     "babel-loader": "8.2.1",
     "cross-env": "7.0.2",
     "css-loader": "5.0.1",
@@ -46,15 +56,17 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-import": "^2.21.2",
-    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-prettier": "3.2.0",
     "eslint-plugin-react": "7.20.0",
     "html-loader": "1.3.2",
     "html-webpack-plugin": "4.5.0",
     "husky": "4.2.5",
     "jest": "^26.1.0",
     "jest-html-reporter": "3.2.0",
-    "node-sass": "5.0.0",
-    "prettier": "^2.0.5",
+    "postcss": "8.1.13",
+    "postcss-loader": "4.1.0",
+    "prettier": "2.2.1",
+    "sass": "1.29.0",
     "sass-loader": "10.1.0",
     "style-loader": "2.0.0",
     "stylelint": "^13.6.1",
@@ -71,9 +83,6 @@
   "files": [
     "build/**/*"
   ],
-  "_moduleAliases": {
-    "~": "build"
-  },
   "husky": {
     "hooks": {
       "pre-commit": "npm run lint && npm run format && npm run test:unit"

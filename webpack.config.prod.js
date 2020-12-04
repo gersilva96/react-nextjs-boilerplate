@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
+const sass = require('sass');
+
+const srcPath = path.resolve(__dirname, 'src');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -22,7 +25,9 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader',
-            options: { modules: true },
+            options: {
+              modules: { localIdentName: '[local]' },
+            },
           },
         ],
       },
@@ -32,14 +37,27 @@ module.exports = {
           'style-loader',
           {
             loader: 'css-loader',
-            options: { modules: true },
+            options: {
+              modules: { localIdentName: '[local]' },
+            },
           },
-          'sass-loader',
+          'postcss-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              // Prefer `dart-sass`
+              implementation: sass,
+              sassOptions: { includePaths: ['./src'] },
+            },
+          },
         ],
       },
     ],
   },
   resolve: {
+    alias: {
+      '~': srcPath,
+    },
     extensions: ['.js', '.ts', '.jsx', '.tsx'],
   },
 };
