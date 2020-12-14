@@ -1,3 +1,8 @@
+# Docs
+docs/tests/**/*
+docs/code/**/*
+docs/api/swagger/content.js
+
 # Locks
 yarn.lock
 package-lock.json
