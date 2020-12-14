@@ -12,7 +12,16 @@
     "strict": true,
     "baseUrl": "./",
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": ["src/*"],
+      "@constants/*": ["src/constants/*"],
+      "@controller/*": ["src/controller/*"],
+      "@errors/*": ["src/errors/*"],
+      "@internationalization/*": ["src/internationalization/*"],
+      "@model/*": ["src/model/*"],
+      "@services/*": ["src/services/*"],
+      "@types/*": ["src/types/*"],
+      "@utils/*": ["src/utils/*"],
+      "@views/*": ["src/views/*"],
     },
     "typeRoots": ["node_modules/@types", "src/types"],
     "forceConsistentCasingInFileNames": true,
