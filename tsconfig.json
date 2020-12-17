@@ -22,6 +22,7 @@
       "@types/*": ["src/types/*"],
       "@utils/*": ["src/utils/*"],
       "@views/*": ["src/views/*"],
+      "@redux/*": ["src/redux/*"],
     },
     "typeRoots": ["node_modules/@types", "src/types"],
     "forceConsistentCasingInFileNames": true,

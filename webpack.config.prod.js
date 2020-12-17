@@ -12,6 +12,7 @@ const servicesPath = path.resolve(__dirname, 'src', 'services');
 const typesPath = path.resolve(__dirname, 'src', 'types');
 const utilsPath = path.resolve(__dirname, 'src', 'utils');
 const viewsPath = path.resolve(__dirname, 'src', 'views');
+const reduxPath = path.resolve(__dirname, 'src', 'redux');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -75,6 +76,7 @@ module.exports = {
       '@types': typesPath,
       '@utils': utilsPath,
       '@views': viewsPath,
+      '@redux': reduxPath,
     },
     extensions: ['.js', '.ts', '.jsx', '.tsx'],
   },
