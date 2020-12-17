@@ -4,16 +4,20 @@
  * It has the start of the application.
  */
 
-import React from 'react';
+import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import store from '@redux/store';
 
 import Views from './views';
 
 const App = () => {
   return (
-    <React.StrictMode>
-      <Views />
-    </React.StrictMode>
+    <Provider store={store}>
+      <StrictMode>
+        <Views />
+      </StrictMode>
+    </Provider>
   );
 };
 
