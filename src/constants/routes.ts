@@ -3,6 +3,8 @@
  *  @hidden
  */
 
-export const MAIN = '/';
+const MAIN = '/';
+const TEST = '/test';
+const COUNTER = '/counter';
 
-export default { MAIN };
+export default { MAIN, TEST, COUNTER };
