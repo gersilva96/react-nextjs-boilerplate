@@ -1,60 +1,43 @@
 /**
  * @packageDocumentation
  * @module Controller/Counter
- * Interacts with the counter.
+ * Interacts with the counter model.
  */
 
-import { counter, store } from '~/model';
+import counterActions from '~/model/actions/counter';
 
-class Counter {
+const counter = {
   /**
    * Gets the counter value.
    */
-  get(): number {
-    return store.getState().counter.value;
-  }
+  get: (): number => counterActions.get(),
 
   /**
    * Sets the number to zero.
    */
-  restore(): number {
-    store.dispatch(counter.restore());
-    return this.get();
-  }
+  restore: (): number => counterActions.restore(),
 
   /**
    * Increments the counter and returns the result.
    */
-  increment(): number {
-    store.dispatch(counter.increment());
-    return this.get();
-  }
+  increment: (): number => counterActions.increment(),
 
   /**
    * Increments the counter by amount and returns the result.
+   * @param amount Amount to be modified by.
    */
-  incrementByAmount(amount: number): number {
-    const incrementAction = counter.incrementByAmount(amount);
-    store.dispatch(incrementAction);
-    return this.get();
-  }
+  incrementByAmount: (amount: number): number => counterActions.incrementByAmount(amount),
 
   /**
    * Decrements the counter and returns the result.
    */
-  decrement(): number {
-    store.dispatch(counter.decrement());
-    return this.get();
-  }
+  decrement: (): number => counterActions.decrement(),
 
   /**
    * Decrements the counter by amount and returns the result.
+   * @param amount Amount to be modified by.
    */
-  decrementByAmount(amount: number): number {
-    const decrementAction = counter.decrementByAmount(amount);
-    store.dispatch(decrementAction);
-    return this.get();
-  }
-}
+  decrementByAmount: (amount: number): number => counterActions.decrementByAmount(amount),
+};
 
-export default new Counter();
+export default counter;

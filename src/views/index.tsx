@@ -5,7 +5,7 @@
  */
 
 import React, { FunctionComponent } from 'react';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom';
 import ROUTES from '@constants/routes';
 import CounterScreen from '@views/screens/Counter';
 import styles from './index.scss';
@@ -29,6 +29,7 @@ const Router: FunctionComponent = () => {
         <Route exact path={ROUTES.COUNTER}>
           <CounterScreen />
         </Route>
+        <Route render={() => <Redirect to={ROUTES.MAIN} />} />
       </BrowserRouter>
     </div>
   );

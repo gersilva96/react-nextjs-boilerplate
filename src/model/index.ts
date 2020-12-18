@@ -1,10 +1,10 @@
 /**
  * @packageDocumentation
  * @hidden
- * Lets you access the store and the features.
+ * Lets you access the store and model actions.
  */
 
-import * as counterActions from './features/counterSlice';
+import counterActions from './actions/counter';
 import reduxStore from './store';
 
 export const counter = counterActions;
