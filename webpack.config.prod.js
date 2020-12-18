@@ -35,7 +35,7 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: { localIdentName: '[local]' },
+              modules: true,
             },
           },
         ],
@@ -47,7 +47,7 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: { localIdentName: '[local]' },
+              modules: true,
             },
           },
           'postcss-loader',

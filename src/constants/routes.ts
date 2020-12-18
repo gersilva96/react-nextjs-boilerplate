@@ -3,8 +3,9 @@
  *  @hidden
  */
 
-const MAIN = '/';
+// TODO: MODIFICAR ESTO
+const MAIN = '/main';
 const TEST = '/test';
-const COUNTER = '/counter';
+const COUNTER = '/';
 
 export default { MAIN, TEST, COUNTER };

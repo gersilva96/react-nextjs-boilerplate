@@ -7,7 +7,7 @@
 import React, { FunctionComponent } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 import ROUTES from '@constants/routes';
-import CounterScreen from '@views/screens/CounterScreen';
+import CounterScreen from '@views/screens/Counter';
 import styles from './index.scss';
 
 const Router: FunctionComponent = () => {
