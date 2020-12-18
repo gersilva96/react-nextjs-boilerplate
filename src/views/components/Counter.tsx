@@ -6,7 +6,7 @@ import {
   incrementByAmount,
   decrementByAmount,
   counterSelector,
-} from '@redux/features/counterSlice';
+} from '@model/features/counterSlice';
 
 const Counter = (): JSX.Element => {
   const dispatch = useDispatch();
