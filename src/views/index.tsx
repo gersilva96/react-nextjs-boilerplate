@@ -5,31 +5,34 @@
  */
 
 import React, { FunctionComponent } from 'react';
-import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
+
 import ROUTES from '@constants/routes';
 import CounterScreen from '@views/screens/Counter';
+import Header from '@views/components/Header';
+import MainScreen from '@views/screens/Main';
 import styles from './index.scss';
 
 const Router: FunctionComponent = () => {
   return (
     <div className={styles.mainContainer}>
       <BrowserRouter>
-        <Route exact path={ROUTES.MAIN}>
-          <div>CACA</div>
-          <Link to={ROUTES.COUNTER}>
-            <button>Counter Screen</button>
-          </Link>
-          <Link to={'/test2'}>
-            <button>Test2 route</button>
-          </Link>
-        </Route>
-        <Route exact path={'/test2'}>
-          <div>CACA2</div>
-        </Route>
-        <Route exact path={ROUTES.COUNTER}>
-          <CounterScreen />
-        </Route>
-        <Route render={() => <Redirect to={ROUTES.MAIN} />} />
+        <Header />
+        <Switch>
+          <Route exact path={ROUTES.MAIN}>
+            <MainScreen />
+          </Route>
+          <Route exact path={ROUTES.COUNTER}>
+            <CounterScreen />
+          </Route>
+          <Route exact path={ROUTES.TODOS}>
+            <div>TODOS</div>
+          </Route>
+          <Route exact path={ROUTES.NASA}>
+            <div>NASA</div>
+          </Route>
+          <Route render={() => <Redirect to={ROUTES.MAIN} />} />
+        </Switch>
       </BrowserRouter>
     </div>
   );

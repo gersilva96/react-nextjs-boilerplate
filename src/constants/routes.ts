@@ -4,7 +4,8 @@
  */
 
 const MAIN = '/';
-const TEST = '/test';
 const COUNTER = '/counter';
+const TODOS = '/todos';
+const NASA = '/nasa';
 
-export default { MAIN, TEST, COUNTER };
+export default { MAIN, TODOS, NASA, COUNTER };

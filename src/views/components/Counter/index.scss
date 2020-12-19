@@ -1,1 +1,5 @@
-/* COUNTER STYLE */
+@use 'scss/utils/containers' as containers;
+
+.container {
+  @include containers.center-horizontal;
+}

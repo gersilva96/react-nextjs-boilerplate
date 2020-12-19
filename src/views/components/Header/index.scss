@@ -1,0 +1,16 @@
+@use 'scss/variables/fontSizes' as fontSizes;
+@use 'scss/utils/containers' as containers;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  z-index: 1000;
+  @include containers.full-container-width;
+}
+
+.headerOption {
+  font-size: fontSizes.$large;
+  padding: 15px;
+  // TODO: ADD STYLE
+}

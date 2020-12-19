@@ -6,3 +6,13 @@
   top: 0;
   @include containers.full-viewport-size;
 }
+
+.header {
+  @include containers.set-height(20vh);
+  @include containers.full-container-width;
+}
+
+.body {
+  @include containers.set-height(80vh);
+  @include containers.full-container-width;
+}

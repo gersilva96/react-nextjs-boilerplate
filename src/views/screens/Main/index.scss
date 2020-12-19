@@ -1,0 +1,20 @@
+@use 'scss/utils/containers' as containers;
+@use 'scss/variables/fontSizes' as fontSizes;
+
+.container {
+  @include containers.full-container-size;
+}
+
+.title {
+  font-size: fontSizes.$xlarge;
+  margin: 10px 0px;
+  text-align: center;
+  @include containers.full-container-width;
+}
+
+.description {
+  font-size: fontSizes.$large;
+  margin: 10px 0px;
+  text-align: center;
+  @include containers.full-container-width;
+}
