@@ -6,13 +6,14 @@
 
 import React from 'react';
 
+import i18n from '~/internationalization';
 import styles from './index.scss';
 
 const MainScreen = (): JSX.Element => {
   return (
     <div className={styles.container}>
-      <div className={styles.title}>TODO: TITULO</div>
-      <div className={styles.description}>TODO: DESCRIPTION</div>
+      <div className={styles.title}>{i18n.get('MAIN_TITLE')}</div>
+      <div className={styles.description}>{i18n.get('MAIN_DESCRIPTION')} </div>
     </div>
   );
 };

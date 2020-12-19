@@ -1,7 +1,7 @@
 @use 'scss/variables/fontSizes' as fontSizes;
 @use 'scss/utils/containers' as containers;
 
-.header {
+.navbar {
   display: flex;
   flex-direction: row;
   justify-content: space-around;

@@ -7,6 +7,7 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+
 import store from '@model/store';
 
 import './index.scss';
@@ -22,4 +23,13 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById('root'));
+/**
+ * Starts the app.
+ */
+const start = async function start() {
+  // TODO: Can do something async here.
+
+  ReactDOM.render(<App />, document.getElementById('root'));
+};
+
+start();

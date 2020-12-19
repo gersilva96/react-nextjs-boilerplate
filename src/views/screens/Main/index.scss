@@ -1,5 +1,30 @@
 @use 'scss/utils/containers' as containers;
 @use 'scss/variables/fontSizes' as fontSizes;
+@use 'scss/variables/mediaQuerySizes' as mediaQuerySizes;
+
+@media #{mediaQuerySizes.$mobile} {
+  .container {
+    background-color: #ffffcc;
+  }
+}
+
+@media #{mediaQuerySizes.$small-mobile} {
+  .container {
+    background-color: #ffcccc;
+  }
+}
+
+@media #{mediaQuerySizes.$tablet} {
+  .container {
+    background-color: #ccffcc;
+  }
+}
+
+@media #{mediaQuerySizes.$desktop} {
+  .container {
+    background-color: #ccccff;
+  }
+}
 
 .container {
   @include containers.full-container-size;

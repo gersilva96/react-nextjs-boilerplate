@@ -1,7 +1,7 @@
 /**
  * @packageDocumentation
- * @module Views/Components/Header
- * UI that has the header.
+ * @module Views/Components/NavBar
+ * UI that has the NavBar.
  */
 
 import React from 'react';
@@ -12,9 +12,9 @@ import styles from './index.scss';
 
 const { ROUTES } = CONSTANTS;
 
-const Header = (): JSX.Element => {
+const NavBar = (): JSX.Element => {
   return (
-    <div className={styles.header}>
+    <div className={styles.navbar}>
       <Link to={ROUTES.MAIN}>
         <div className={styles.headerOption}>Main</div>
       </Link>
@@ -31,4 +31,4 @@ const Header = (): JSX.Element => {
   );
 };
 
-export default Header;
+export default NavBar;

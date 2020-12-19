@@ -9,7 +9,7 @@ import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
 import ROUTES from '@constants/routes';
 import CounterScreen from '@views/screens/Counter';
-import Header from '@views/components/Header';
+import NavBar from '@views/components/NavBar';
 import MainScreen from '@views/screens/Main';
 import styles from './index.scss';
 
@@ -17,7 +17,7 @@ const Router: FunctionComponent = () => {
   return (
     <div className={styles.mainContainer}>
       <BrowserRouter>
-        <Header />
+        <NavBar />
         <Switch>
           <Route exact path={ROUTES.MAIN}>
             <MainScreen />
