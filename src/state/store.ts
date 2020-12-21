@@ -1,8 +1,16 @@
+/**
+ * @packageDocumentation
+ * @module State/store
+ * Contains the store for state.
+ */
+
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '@model/features/counterSlice';
+import counterReducer from '@state/features/counterSlice';
+import todosReducer from '@state/features/todoSlice';
 
 const reducer = {
   counter: counterReducer,
+  todos: todosReducer,
 };
 
 const store = configureStore({

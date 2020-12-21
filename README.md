@@ -251,7 +251,7 @@ The /model directory contains three main parts:
 
 - **db**: This dir contains database connections. For example, if you have to connect to mongo or sqlite, it contains mongoose or sequelize. All the model layer can have the database connection by this dir.
 - **orm**: It contains the different ORM data models. For example, if your app will need books, the model Book must be stablished here (as a sequelize.model or mongoose.model).
-- **actions**: Every action needed on the model (like CRUD actions, count, etc.) should be here. It works as an abstraction layer on ORM to modularize model. So, the main part to interact with the model should be in model/actions.
+- **actions**: Every action needed on the model (like CRUD actions, count, etc.) should be here. It works as an abstraction layer on ORM to modularize model. So, the main part to interact with the model should be in state/actions.
 
 Also, you will se a file:
 
@@ -309,7 +309,7 @@ So, to make easier the use of models, wherever you add or update something in a 
 So, for example:
 
 ```javascript
-import handleError from '~/model/handleError';
+import handleError from '~/state/handleError';
 
 // CODE...
 

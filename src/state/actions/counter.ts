@@ -1,11 +1,11 @@
 /**
  * @packageDocumentation
- * @module Model/Actions/Counter
- * Interacts with the counter model.
+ * @module State/Actions/Counter
+ * Interacts with the counter state.
  */
 
-import * as counter from '~/model/features/counterSlice';
-import store from '~/model/store';
+import * as counter from '~/state/features/counterSlice';
+import store from '~/state/store';
 
 /**
  * Gets the counter result.

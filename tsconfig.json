@@ -17,11 +17,11 @@
       "@controller/*": ["src/controller/*"],
       "@errors/*": ["src/errors/*"],
       "@internationalization/*": ["src/internationalization/*"],
-      "@model/*": ["src/model/*"],
+      "@state/*": ["src/state/*"],
       "@services/*": ["src/services/*"],
       "@types/*": ["src/types/*"],
       "@utils/*": ["src/utils/*"],
-      "@views/*": ["src/views/*"],
+      "@views/*": ["src/views/*"]
     },
     "typeRoots": ["node_modules/@types", "src/types"],
     "forceConsistentCasingInFileNames": true,

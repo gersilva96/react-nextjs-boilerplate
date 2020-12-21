@@ -8,7 +8,8 @@ import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import store from '@model/store';
+import todos from './controller/todos';
+import store from '@state/store';
 
 import './index.scss';
 import Views from './views';
@@ -28,6 +29,9 @@ const App = () => {
  */
 const start = async function start() {
   // TODO: Can do something async here.
+
+  // TODO: Initialization of the app.
+  todos.getFromLocalStorage();
 
   ReactDOM.render(<App />, document.getElementById('root'));
 };

@@ -11,6 +11,7 @@ import ROUTES from '@constants/routes';
 import CounterScreen from '@views/screens/Counter';
 import NavBar from '@views/components/NavBar';
 import MainScreen from '@views/screens/Main';
+import TODOsScreen from '@views/screens/TODOs';
 import styles from './index.scss';
 
 const Router: FunctionComponent = () => {
@@ -26,7 +27,7 @@ const Router: FunctionComponent = () => {
             <CounterScreen />
           </Route>
           <Route exact path={ROUTES.TODOS}>
-            <div>TODOS</div>
+            <TODOsScreen />
           </Route>
           <Route exact path={ROUTES.NASA}>
             <div>NASA</div>

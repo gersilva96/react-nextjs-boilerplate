@@ -1,6 +1,12 @@
 /* eslint-disable no-param-reassign */
+/**
+ * @packageDocumentation
+ * @module State/Features/Counter
+ * Contains the counter feature.
+ */
+
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { RootState } from '@model/store';
+import { RootState } from '@state/store';
 
 type CounterState = {
   value: number;

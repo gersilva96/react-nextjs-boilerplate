@@ -4,7 +4,7 @@
  * Interacts with the counter model.
  */
 
-import counterActions from '~/model/actions/counter';
+import counterActions from '~/state/actions/counter';
 
 const counter = {
   /**
