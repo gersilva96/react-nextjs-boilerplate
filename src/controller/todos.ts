@@ -7,7 +7,7 @@
 
 import todosActions, { TODOsList } from '@state/actions/todos';
 import i18n from '~/internationalization';
-import localStorage from '~/state/storage/localStorage';
+import localStorage from '~/utils/localStorage';
 import { TODOType } from '~/types/TODO';
 
 /**

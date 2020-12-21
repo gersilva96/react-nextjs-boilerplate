@@ -7,14 +7,11 @@
 import counterActions from './actions/counter';
 import todosActions from './actions/todos';
 
-import tmpLocalStorage from './storage/localStorage';
-
 import reduxStore from './store';
 
 export const counter = counterActions;
 export const todos = todosActions;
 
-export const localStorage = tmpLocalStorage;
 export const store = reduxStore;
 
 // TODO: Add the different elements to use as a Facade.
@@ -33,4 +30,4 @@ const actions = {
   todos,
 };
 
-export default { actions, localStorage, store };
+export default { actions, store };
