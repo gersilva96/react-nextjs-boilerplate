@@ -18,22 +18,26 @@ const Router: FunctionComponent = () => {
   return (
     <div className={styles.mainContainer}>
       <BrowserRouter>
-        <NavBar />
-        <Switch>
-          <Route exact path={ROUTES.MAIN}>
-            <MainScreen />
-          </Route>
-          <Route exact path={ROUTES.COUNTER}>
-            <CounterScreen />
-          </Route>
-          <Route exact path={ROUTES.TODOS}>
-            <TODOsScreen />
-          </Route>
-          <Route exact path={ROUTES.NASA}>
-            <div>NASA</div>
-          </Route>
-          <Route render={() => <Redirect to={ROUTES.MAIN} />} />
-        </Switch>
+        <div className={styles.header}>
+          <NavBar />
+        </div>
+        <div className={styles.body}>
+          <Switch>
+            <Route exact path={ROUTES.MAIN}>
+              <MainScreen />
+            </Route>
+            <Route exact path={ROUTES.COUNTER}>
+              <CounterScreen />
+            </Route>
+            <Route exact path={ROUTES.TODOS}>
+              <TODOsScreen />
+            </Route>
+            <Route exact path={ROUTES.NASA}>
+              <div>NASA</div>
+            </Route>
+            <Route render={() => <Redirect to={ROUTES.MAIN} />} />
+          </Switch>
+        </div>
       </BrowserRouter>
     </div>
   );
