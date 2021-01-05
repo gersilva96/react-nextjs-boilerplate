@@ -7,7 +7,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { todoSelector } from '@state/features/todoSlice';
+import { todoSelector } from '~/state/features/todoSlice';
 import todoController from '~/controller/todos';
 import internationalization from '~/internationalization';
 import styles from './index.scss';

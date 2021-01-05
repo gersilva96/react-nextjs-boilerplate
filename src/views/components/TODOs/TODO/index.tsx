@@ -1,14 +1,14 @@
 /**
  * @packageDocumentation
  * @module Views/Components/TODOs/TODO
- * Component that contaisn one TO DO.
+ * Component that contains one TO DO.
  */
 
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 
-import { todoSelector } from '@state/features/todoSlice';
+import { todoSelector } from '~/state/features/todoSlice';
 import todosController from '~/controller/todos';
 import styles from './index.scss';
 

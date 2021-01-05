@@ -4,15 +4,11 @@
  * Contains the counter screen.
  */
 
-import React, { Fragment } from 'react';
-import Counter from '@views/components/Counter';
+import React from 'react';
+import Counter from '~/views/components/Counter';
 
 const CounterScreen = (): JSX.Element => {
-  return (
-    <Fragment>
-      <Counter />
-    </Fragment>
-  );
+  return <Counter />;
 };
 
 export default CounterScreen;
