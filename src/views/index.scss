@@ -8,11 +8,11 @@
 }
 
 .header {
-  @include containers.set-height(20vh);
+  @include containers.set-height(10vh);
   @include containers.full-container-width;
 }
 
 .body {
-  @include containers.set-height(80vh);
+  @include containers.set-height(90vh);
   @include containers.full-container-width;
 }
