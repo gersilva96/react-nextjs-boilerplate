@@ -17,6 +17,10 @@ const resources = {
       // TODOS SCREEN
       TODOS_TITLE: 'Tareas pendientes',
       TODOS_ASKING_NAME: '¿Cuál es el nombre de la tarea a realizar?',
+
+      // NASAAPOD SCREEN
+      NASAAPOD_TITLE: 'NASA APOD',
+      NASAAPOD_MEDIA_NOT_FOUND: 'Imagen o video no encontrados',
     },
   },
   en: {
@@ -31,6 +35,10 @@ const resources = {
       // TODOS SCREEN
       TODOS_TITLE: 'Pendings tasks',
       TODOS_ASKING_NAME: 'What is the name of the "TO DO"?',
+
+      // NASAAPOD SCREEN
+      NASAAPOD_TITLE: 'NASA APOD',
+      NASAAPOD_MEDIA_NOT_FOUND: 'Image or video not found',
     },
   },
 };
