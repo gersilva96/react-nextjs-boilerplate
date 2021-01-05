@@ -13,15 +13,6 @@
     "baseUrl": "./",
     "paths": {
       "~/*": ["src/*"],
-      "@constants/*": ["src/constants/*"],
-      "@controller/*": ["src/controller/*"],
-      "@errors/*": ["src/errors/*"],
-      "@internationalization/*": ["src/internationalization/*"],
-      "@state/*": ["src/state/*"],
-      "@services/*": ["src/services/*"],
-      "@types/*": ["src/types/*"],
-      "@utils/*": ["src/utils/*"],
-      "@views/*": ["src/views/*"]
     },
     "typeRoots": ["node_modules/@types", "src/types"],
     "forceConsistentCasingInFileNames": true,
