@@ -6,6 +6,6 @@
 const MAIN = '/';
 const COUNTER = '/counter';
 const TODOS = '/todos';
-const NASA = '/nasa';
+const NASA_APOD = '/nasa-apod';
 
-export default { MAIN, TODOS, NASA, COUNTER };
+export default { MAIN, COUNTER, TODOS, NASA_APOD };
