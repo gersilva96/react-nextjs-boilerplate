@@ -20,7 +20,7 @@ const get = function get() {
 /**
  * Actions that can be made in the todos.
  */
-const actions = {
+const todosActions = {
   /**
    * Gets the todos values.
    */
@@ -72,4 +72,4 @@ const actions = {
   },
 };
 
-export default actions;
+export default todosActions;
