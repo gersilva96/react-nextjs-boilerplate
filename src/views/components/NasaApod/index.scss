@@ -1,0 +1,21 @@
+@use 'scss/utils/containers' as containers;
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  @include containers.center-horizontal();
+
+  .dateInput {
+    margin-bottom: 20px;
+  }
+
+  .wrapper {
+    @include containers.full-container-height();
+
+    .link {
+      border: none;
+      @include containers.full-container-size();
+    }
+  }
+}
