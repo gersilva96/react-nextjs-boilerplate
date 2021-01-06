@@ -6,6 +6,7 @@
 
 import nasaApodActions from '~/state/actions/nasaApod';
 import nasaApodService from '~/services/nasaApod';
+import moment from 'moment';
 
 const nasaApodController = {
   /**
@@ -16,7 +17,7 @@ const nasaApodController = {
   /**
    * Gets the date value.
    */
-  getDate: (): string => nasaApodActions.getDate(),
+  getDate: (): Date => nasaApodActions.getDate(),
 
   /**
    * Gets the status of loading
@@ -30,7 +31,8 @@ const nasaApodController = {
     try {
       const date = nasaApodController.getDate();
       nasaApodActions.setLoading(true);
-      const img: string = await nasaApodService.get(date);
+      const formattedDate = moment(date).format('YYYY-MM-DD');
+      const img: string = await nasaApodService.get(formattedDate);
       nasaApodActions.setImage(img);
       nasaApodActions.setLoading(false);
     } catch (error) {
@@ -43,7 +45,7 @@ const nasaApodController = {
    * Sets and gets the date value.
    * @param date Date to be setted.
    */
-  setDate: (date: string): string => {
+  setDate: (date: Date): Date => {
     nasaApodActions.setDate(date);
     return nasaApodActions.getDate();
   },

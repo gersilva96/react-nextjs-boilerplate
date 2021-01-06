@@ -5,17 +5,18 @@
  */
 
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import DatePicker from 'react-datepicker';
-import moment from 'moment';
+import { nasaApodSelector } from '~/state/features/nasaApodSlice';
 import nasaApodController from '~/controller/nasaApod';
 import styles from '../index.scss';
 
 const DateInput = (): JSX.Element => {
-  const [startDate, setStartDate] = useState(new Date());
-  const handleChange = (date: Date) => {
-    setStartDate(date);
-    const formatDate = moment(date).format('YYYY-MM-DD');
-    nasaApodController.setDate(formatDate);
+  const { date } = useSelector(nasaApodSelector);
+  const [startDate, setStartDate] = useState(date);
+  const handleChange = (newDate: Date) => {
+    setStartDate(newDate);
+    nasaApodController.setDate(newDate);
   };
   return (
     <DatePicker
