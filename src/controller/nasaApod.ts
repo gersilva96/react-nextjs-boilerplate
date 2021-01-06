@@ -4,9 +4,9 @@
  * Interacts with the NasaApod state.
  */
 
+import moment from 'moment';
 import nasaApodActions from '~/state/actions/nasaApod';
 import nasaApodService from '~/services/nasaApod';
-import moment from 'moment';
 
 const nasaApodController = {
   /**
