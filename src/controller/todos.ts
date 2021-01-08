@@ -5,7 +5,7 @@
  * Saves contents in the local storage.
  */
 
-import todosActions, { TODOsList } from '@state/actions/todos';
+import todosActions, { TODOsList } from '~/state/actions/todos';
 import i18n from '~/internationalization';
 import localStorage from '~/state/storage/localStorage';
 import { TODOType } from '~/types/TODO';
@@ -13,7 +13,7 @@ import { TODOType } from '~/types/TODO';
 /**
  * Actions to execute on the TODOS.
  */
-const actions = {
+const todosController = {
   /**
    * Gets the todos values.
    */
@@ -72,4 +72,4 @@ const actions = {
   },
 };
 
-export default actions;
+export default todosController;

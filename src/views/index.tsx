@@ -7,11 +7,12 @@
 import React, { FunctionComponent } from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
-import ROUTES from '@constants/routes';
-import CounterScreen from '@views/screens/Counter';
-import NavBar from '@views/components/NavBar';
-import MainScreen from '@views/screens/Main';
-import TODOsScreen from '@views/screens/TODOs';
+import ROUTES from '~/constants/routes';
+import CounterScreen from '~/views/screens/Counter';
+import NavBar from '~/views/components/NavBar';
+import MainScreen from '~/views/screens/Main';
+import TODOsScreen from '~/views/screens/TODOs';
+import NasaApodScreen from '~/views/screens/NasaApod';
 import styles from './index.scss';
 
 const Router: FunctionComponent = () => {
@@ -32,8 +33,8 @@ const Router: FunctionComponent = () => {
             <Route exact path={ROUTES.TODOS}>
               <TODOsScreen />
             </Route>
-            <Route exact path={ROUTES.NASA}>
-              <div>NASA</div>
+            <Route exact path={ROUTES.NASA_APOD}>
+              <NasaApodScreen />
             </Route>
             <Route render={() => <Redirect to={ROUTES.MAIN} />} />
           </Switch>

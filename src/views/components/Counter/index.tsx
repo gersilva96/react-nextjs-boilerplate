@@ -7,8 +7,8 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { counterSelector } from '@state/features/counterSlice';
-import counterController from '@controller/counter';
+import { counterSelector } from '~/state/features/counterSlice';
+import counterController from '~/controller/counter';
 import styles from './index.scss';
 
 const CounterUI = (): JSX.Element => {

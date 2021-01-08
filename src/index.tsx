@@ -9,7 +9,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
 import todos from './controller/todos';
-import store from '@state/store';
+import store from '~/state/store';
 
 import './index.scss';
 import Views from './views';

@@ -24,7 +24,7 @@ const NavBar = (): JSX.Element => {
       <Link to={ROUTES.TODOS}>
         <div className={styles.headerOption}>TODOS</div>
       </Link>
-      <Link to={ROUTES.NASA}>
+      <Link to={ROUTES.NASA_APOD}>
         <div className={styles.headerOption}>NASA API</div>
       </Link>
     </div>

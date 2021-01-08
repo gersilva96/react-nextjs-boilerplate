@@ -17,7 +17,7 @@ const get = function get() {
 /**
  * Actions that can be made in the counter.
  */
-const actions = {
+const counterActions = {
   /**
    * Gets the counter value.
    */
@@ -68,4 +68,4 @@ const actions = {
   },
 };
 
-export default actions;
+export default counterActions;

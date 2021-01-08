@@ -1,12 +1,12 @@
 /**
  * @packageDocumentation
  * @module Controller/Counter
- * Interacts with the counter model.
+ * Interacts with the counter state.
  */
 
 import counterActions from '~/state/actions/counter';
 
-const counter = {
+const counterController = {
   /**
    * Gets the counter value.
    */
@@ -40,4 +40,4 @@ const counter = {
   decrementByAmount: (amount: number): number => counterActions.decrementByAmount(amount),
 };
 
-export default counter;
+export default counterController;

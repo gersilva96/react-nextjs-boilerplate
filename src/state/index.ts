@@ -6,6 +6,7 @@
 
 import counterActions from './actions/counter';
 import todosActions from './actions/todos';
+import nasaApodActions from './actions/nasaApod';
 
 import tmpLocalStorage from './storage/localStorage';
 
@@ -13,6 +14,7 @@ import reduxStore from './store';
 
 export const counter = counterActions;
 export const todos = todosActions;
+export const nasaApod = nasaApodActions;
 
 export const localStorage = tmpLocalStorage;
 export const store = reduxStore;
@@ -31,6 +33,11 @@ const actions = {
    * Todos actions.
    */
   todos,
+
+  /**
+   * NasaApod actions.
+   */
+  nasaApod,
 };
 
 export default { actions, localStorage, store };

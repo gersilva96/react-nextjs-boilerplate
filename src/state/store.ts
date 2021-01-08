@@ -5,12 +5,14 @@
  */
 
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '@state/features/counterSlice';
-import todosReducer from '@state/features/todoSlice';
+import counterReducer from '~/state/features/counterSlice';
+import todosReducer from '~/state/features/todoSlice';
+import nasaApodReducer from '~/state/features/nasaApodSlice';
 
 const reducer = {
   counter: counterReducer,
   todos: todosReducer,
+  nasaApod: nasaApodReducer,
 };
 
 const store = configureStore({
