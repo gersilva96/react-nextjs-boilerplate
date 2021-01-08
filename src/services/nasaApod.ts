@@ -4,6 +4,7 @@
  * Interacts with the NasaApod service.
  */
 import axios, { AxiosResponse } from 'axios';
+import axiosHelper, { axiosError, axiosResponse } from '~/utils/axiosHelper';
 
 /**
  * API Client to interact with the service.
@@ -23,15 +24,15 @@ class NasaApod {
   /**
    * Gets a picture by date.
    */
-  async get(date: string): Promise<string> {
+  async get(date: string): Promise<axiosResponse | axiosError> {
     const url = `/apod?date=${date}`;
     let response: AxiosResponse;
     let result;
     try {
       response = await APIClient.get(url);
-      result = response.status === 200 ? response.data.url : '';
+      result = axiosHelper.handleResponse(response);
     } catch (error) {
-      result = '';
+      result = axiosHelper.handleError(error);
     }
     return result;
   }
