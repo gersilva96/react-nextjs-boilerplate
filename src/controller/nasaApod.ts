@@ -17,7 +17,7 @@ const nasaApodController = {
   /**
    * Gets the date value.
    */
-  getDate: (): Date => nasaApodActions.getDate(),
+  getDate: (): string => nasaApodActions.getDate(),
 
   /**
    * Gets the status of loading
@@ -45,7 +45,7 @@ const nasaApodController = {
    * Sets and gets the date value.
    * @param date Date to be setted.
    */
-  setDate: (date: Date): Date => {
+  setDate: (date: string): string => {
     nasaApodActions.setDate(date);
     return nasaApodActions.getDate();
   },

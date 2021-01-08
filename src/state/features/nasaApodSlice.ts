@@ -6,20 +6,20 @@
  */
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-// import moment from 'moment';
+import moment from 'moment';
 import { RootState } from '~/state/store';
 
-// const today = moment().format('YYYY-MM-DD');
+const today = moment().format('YYYY-MM-DD');
 
 type NasaApodState = {
   link: string;
-  date: Date;
+  date: string;
   loading: boolean;
 };
 
 const initialState: NasaApodState = {
   link: '',
-  date: new Date(),
+  date: today,
   loading: false,
 };
 
@@ -30,7 +30,7 @@ const nasaApodSlice = createSlice({
     setImage: (state: NasaApodState, action: PayloadAction<string>) => {
       state.link = action.payload;
     },
-    setDate: (state: NasaApodState, action: PayloadAction<Date>) => {
+    setDate: (state: NasaApodState, action: PayloadAction<string>) => {
       state.date = action.payload;
     },
     setLoading: (state: NasaApodState, action: PayloadAction<boolean>) => {

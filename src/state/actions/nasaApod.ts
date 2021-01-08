@@ -26,7 +26,7 @@ const nasaApodActions = {
   /**
    * Gets the date value.
    */
-  getDate: (): Date => get().date,
+  getDate: (): string => get().date,
 
   /**
    * Gets the status of loading.
@@ -44,7 +44,7 @@ const nasaApodActions = {
   /**
    * Sets and gets the date value.
    */
-  setDate: (date: Date): Date => {
+  setDate: (date: string): string => {
     store.dispatch(nasaApod.setDate(date));
     return nasaApodActions.getDate();
   },
