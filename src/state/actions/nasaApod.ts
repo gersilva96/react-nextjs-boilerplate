@@ -21,7 +21,7 @@ const nasaApodActions = {
   /**
    * Gets the image link.
    */
-  getImage: (): string => get().link,
+  getLink: (): string => get().link,
 
   /**
    * Gets the date value.
@@ -36,9 +36,9 @@ const nasaApodActions = {
   /**
    * Sets and gets a new image.
    */
-  setImage: (img: string): string => {
-    store.dispatch(nasaApod.setImage(img));
-    return nasaApodActions.getImage();
+  setLink: (img: string): string => {
+    store.dispatch(nasaApod.setLink(img));
+    return nasaApodActions.getLink();
   },
 
   /**

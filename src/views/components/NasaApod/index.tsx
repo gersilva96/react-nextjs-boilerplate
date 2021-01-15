@@ -16,7 +16,7 @@ import styles from './index.scss';
 const NasaApod = (): JSX.Element => {
   const { link, date, loading } = useSelector(nasaApodSelector);
   useEffect(() => {
-    nasaApodController.setImage();
+    nasaApodController.setLink();
   }, [date]);
 
   const isYouTubeVideo = /youtube/.test(link);

@@ -27,7 +27,7 @@ const nasaApodSlice = createSlice({
   name: 'nasaApod',
   initialState,
   reducers: {
-    setImage: (state: NasaApodState, action: PayloadAction<string>) => {
+    setLink: (state: NasaApodState, action: PayloadAction<string>) => {
       state.link = action.payload;
     },
     setDate: (state: NasaApodState, action: PayloadAction<string>) => {
@@ -41,6 +41,6 @@ const nasaApodSlice = createSlice({
 
 export const nasaApodSelector = (state: RootState): NasaApodState => state.nasaApod;
 
-export const { setImage, setDate, setLoading } = nasaApodSlice.actions;
+export const { setLink, setDate, setLoading } = nasaApodSlice.actions;
 
 export default nasaApodSlice.reducer;
