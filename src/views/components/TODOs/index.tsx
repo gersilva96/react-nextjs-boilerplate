@@ -23,8 +23,14 @@ const CounterUI = (): JSX.Element => {
         {todos.map((todo, index) => (
           <TODO key={index} index={index} name={todo.name} solved={todo.solved} />
         ))}
-        <button onClick={() => todoController.add()}>+</button>
-        <button onClick={() => todoController.saveInLocalStorage()}>LS</button>
+        <div className={styles.buttonsContainer}>
+          <button className={styles.button} onClick={() => todoController.add()}>
+            +
+          </button>
+          <button className={styles.button} onClick={() => todoController.saveInLocalStorage()}>
+            LS
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -2,56 +2,60 @@
 @use 'scss/variables/fontSizes' as fontSizes;
 @use 'scss/variables/mediaQuerySizes' as mediaQuerySizes;
 
-.container {
-  background-color: #cccccc;
-  border-radius: 15px;
-  box-shadow: 5px 5px rgba(0, 0, 0, 0.4);
-  display: flex;
-  flex-direction: column;
-  margin: 50px auto;
-  padding: 10px;
-  @include containers.set-width(300px);
-}
-
-.counterNumber {
-  background-color: #000;
+@mixin todoContainer {
   border-radius: 5px;
-  color: #ff0000;
-  font-size: fontSizes.$xlarge;
-  margin: 10px auto;
-  padding: 5px;
-  text-align: center;
-  top: 20px;
-  @include containers.set-width(70%);
-}
-
-.singleChangers,
-.amountChangers {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  margin: 5px auto;
-  @include containers.set-width(200px);
+  margin: 2px auto;
+  padding: 10px;
+  @include containers.full-container-width();
+}
+
+.todoSolved {
+  background-color: #99ff99;
+  @include todoContainer;
+}
+
+.todoUnsolved {
+  background-color: #ff9999;
+  @include todoContainer;
+}
+
+.text {
+  flex-grow: 1;
+}
+
+.controlsContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  @include containers.set-width(130px);
+}
+
+.checkboxContainer {
+  margin: 0;
+  @include containers.set-width(45px);
+}
+
+.buttonsContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  @include containers.set-width(90px);
+}
+
+.checkbox {
+  margin: 0px;
+  padding: 1px;
 }
 
 .button {
   border-radius: 10%;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
   cursor: pointer;
-  font-size: fontSizes.$xlarge;
-  margin: auto 5px;
-  padding: 5px;
-  @include containers.set-size(40px);
-}
-
-.amountInput {
-  font-size: fontSizes.$large;
-  max-width: 70%;
-  padding: 2px 5px;
-}
-
-@media #{mediaQuerySizes.$small-mobile} {
-  .container {
-    @include containers.set-width(95%);
-  }
+  font-size: fontSizes.$medium;
+  font-weight: bold;
+  margin: 2px;
+  @include containers.set-size(26px);
 }

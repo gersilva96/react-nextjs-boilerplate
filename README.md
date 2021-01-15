@@ -2,7 +2,13 @@
 
 // TODO: AGREGAR
 https://www.reactandtypescript.dev/examples/react-router#withrouter
+https://medium.com/salesforce-ux/7-things-every-designer-needs-to-know-about-accessibility-64f105f0881b
 https://github.com/thedaviddias/Front-End-Checklist
+https://adhithiravi.medium.com/web-accessibility-and-why-you-should-care-c8b436412ebd
+
+LO DEL JWT EN COOKISE Y NO EN LOCAL STORAGE:
+https://coolgk.medium.com/localstorage-vs-cookie-for-jwt-access-token-war-in-short-943fb23239ca
+OWASPPPP -> https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#local-storage
 
 - [Index](#index)
 - [React Front Template](#react-front-template)

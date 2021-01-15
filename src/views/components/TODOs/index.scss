@@ -1,9 +1,10 @@
+@use 'scss/variables/colors' as colors;
 @use 'scss/utils/containers' as containers;
 @use 'scss/variables/fontSizes' as fontSizes;
 @use 'scss/variables/mediaQuerySizes' as mediaQuerySizes;
 
 .container {
-  background-color: #cccccc;
+  background-color: colors.$background;
   border-radius: 15px;
   box-shadow: 5px 5px rgba(0, 0, 0, 0.4);
   display: flex;
@@ -13,25 +14,20 @@
   @include containers.set-width(300px);
 }
 
-.counterNumber {
-  background-color: #000;
-  border-radius: 5px;
-  color: #ff0000;
+.title {
   font-size: fontSizes.$xlarge;
-  margin: 10px auto;
-  padding: 5px;
+  margin: 5px;
   text-align: center;
-  top: 20px;
-  @include containers.set-width(70%);
 }
 
-.singleChangers,
-.amountChangers {
+.buttonsContainer {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin: 5px auto;
-  @include containers.set-width(200px);
+  margin: 0 auto;
+  padding: 5px;
+  text-align: center;
+  @include containers.set-width(90%);
 }
 
 .button {
@@ -42,16 +38,4 @@
   margin: auto 5px;
   padding: 5px;
   @include containers.set-size(40px);
-}
-
-.amountInput {
-  font-size: fontSizes.$large;
-  max-width: 70%;
-  padding: 2px 5px;
-}
-
-@media #{mediaQuerySizes.$small-mobile} {
-  .container {
-    @include containers.set-width(95%);
-  }
 }

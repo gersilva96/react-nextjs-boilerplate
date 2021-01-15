@@ -1,9 +1,10 @@
+@use 'scss/variables/colors' as colors;
 @use 'scss/utils/containers' as containers;
 @use 'scss/variables/fontSizes' as fontSizes;
 @use 'scss/variables/mediaQuerySizes' as mediaQuerySizes;
 
 .container {
-  background-color: #cccccc;
+  background-color: colors.$background;
   border-radius: 15px;
   box-shadow: 5px 5px rgba(0, 0, 0, 0.4);
   display: flex;

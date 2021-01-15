@@ -4,7 +4,7 @@
  * Contains a wrapper for storages.
  */
 
-import { isNull, isString } from 'lodash';
+import { isArray, isNull, isObject, isString } from 'lodash';
 
 type StorageType = typeof window.localStorage | typeof window.sessionStorage;
 
@@ -105,6 +105,7 @@ export class Storage {
       return false;
     }
     try {
+      this._checkSavingSensitiveInfo(value);
       const jsonValue = JSON.stringify(value);
       this._storage.setItem(key, jsonValue);
     } catch (error) {
@@ -156,6 +157,44 @@ export class Storage {
       this._storage.removeItem(testKey);
     } catch (error) {
       return false;
+    }
+    return true;
+  }
+
+  /**
+   * Shows an error in console if there's some sensitive information to be saved.
+   * @param toBeSaved Thing to be saved.
+   */
+  private _checkSavingSensitiveInfo(toBeSaved: unknown): boolean {
+    if (isString(toBeSaved)) {
+      this._showWarnIfIsJWT(toBeSaved);
+    }
+
+    if (isArray(toBeSaved)) {
+      toBeSaved.forEach((e) => this._checkSavingSensitiveInfo(e));
+    }
+
+    if (isObject(toBeSaved)) {
+      const toControl: Record<string, unknown> = { ...toBeSaved };
+      Object.keys(toBeSaved).forEach((e: string) => {
+        this._checkSavingSensitiveInfo(toControl[e]);
+      });
+    }
+
+    return true;
+  }
+
+  /**
+   * Returns if the the string is a possible JWT.
+   * @param possibleJWT String that could be a JWT.
+   */
+  private _showWarnIfIsJWT(possibleJWT: string): boolean {
+    const isJWT = /^[A-Za-z0-9-_=]+\.[A-Za-z0-9-_=]+\.?[A-Za-z0-9-_.+/=]*$/.test(possibleJWT);
+    if (isJWT) {
+      // eslint-disable-next-line no-console
+      console.error(
+        'Warning! You are probably storing a JWT in a Storage. That is not safe! Please, do not store it here...',
+      );
     }
     return true;
   }
