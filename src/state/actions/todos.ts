@@ -14,7 +14,7 @@ export type TODOsList = TODOType[];
  * Gets the todos result.
  */
 const get = function get() {
-  return store.getState().todos.todos;
+  return store.getState().todos;
 };
 
 /**
