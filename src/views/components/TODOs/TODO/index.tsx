@@ -41,30 +41,30 @@ const ButtonDown = (index: number) => (
  * Contains the TO DO component.
  * @param props Props of the component.
  */
-const TODO = (props: PropsType): JSX.Element => {
-  const { todos } = useSelector(todoSelector);
+const TODO = ({ index, name, solved }: PropsType): JSX.Element => {
+  const todos = useSelector(todoSelector);
   const lastIndex = todos.length - 1;
 
-  const buttonUp = props.index === 0 ? null : ButtonUp(props.index);
-  const buttonDown = props.index === lastIndex ? null : ButtonDown(props.index);
+  const buttonUp = index === 0 ? null : ButtonUp(index);
+  const buttonDown = index === lastIndex ? null : ButtonDown(index);
 
-  const todoClass = props.solved ? styles.todoSolved : styles.todoUnsolved;
+  const todoClass = solved ? styles.todoSolved : styles.todoUnsolved;
 
   return (
     <div className={todoClass}>
-      <div className={styles.text}>{`${props.index + 1}.  ${props.name}`}</div>
+      <div className={styles.text}>{`${index + 1}. ${name}`}</div>
       <div className={styles.controlsContainer}>
         <div className={styles.checkboxContainer}>
           <Checkbox
-            checked={props.solved}
+            checked={solved}
             color="primary"
-            onClick={() => todosController.toggleSolved(props.index)}
+            onClick={() => todosController.toggleSolved(index)}
           />
         </div>
         <div className={styles.buttonsContainer}>
           {buttonUp}
           {buttonDown}
-          <button className={styles.button} onClick={() => todosController.remove(props.index)}>
+          <button className={styles.button} onClick={() => todosController.remove(index)}>
             -
           </button>
         </div>
