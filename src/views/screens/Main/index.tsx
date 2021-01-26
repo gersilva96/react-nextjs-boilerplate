@@ -11,9 +11,9 @@ import styles from './index.scss';
 
 const MainScreen = (): JSX.Element => {
   return (
-    <div className={styles.container}>
-      <div className={styles.title}>{i18n.get('MAIN_TITLE')}</div>
-      <div className={styles.description}>{i18n.get('MAIN_DESCRIPTION')} </div>
+    <div className={styles.container} data-testid="main-container">
+      <h1 className={styles.title}>{i18n.get('MAIN_TITLE')}</h1>
+      <span className={styles.description}>{i18n.get('MAIN_DESCRIPTION')}</span>
     </div>
   );
 };

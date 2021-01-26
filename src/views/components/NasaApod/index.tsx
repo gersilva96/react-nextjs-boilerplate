@@ -7,7 +7,7 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import BeatLoader from 'react-spinners/BeatLoader';
-import internationalization from '~/internationalization';
+import i18n from '~/internationalization';
 import { nasaApodSelector } from '~/state/features/nasaApodSlice';
 import nasaApodController from '~/controller/nasaApod';
 import DateInput from './DateInput';
@@ -22,7 +22,7 @@ const NasaApod = (): JSX.Element => {
   const isYouTubeVideo = /youtube/.test(link);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="nasaapod-container">
       <DateInput />
       <div className={styles.wrapper}>
         <BeatLoader loading={loading} color={'#61DAFA'} />
@@ -31,7 +31,7 @@ const NasaApod = (): JSX.Element => {
           <img className={styles.link} src={link}></img>
         )}
         {!loading && !isYouTubeVideo && link === '' && (
-          <span>{internationalization.get('NASAAPOD_MEDIA_NOT_FOUND')}</span>
+          <span>{i18n.get('NASAAPOD_MEDIA_NOT_FOUND')}</span>
         )}
       </div>
     </div>

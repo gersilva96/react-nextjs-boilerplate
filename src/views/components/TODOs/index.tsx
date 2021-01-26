@@ -14,10 +14,10 @@ import styles from './index.scss';
 import TODO from './TODO';
 
 const CounterUI = (): JSX.Element => {
-  const { todos } = useSelector(todoSelector);
+  const todos = useSelector(todoSelector);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="todos-container">
       <div className={styles.title}>{internationalization.get('TODOS_TITLE')}</div>
       <div className={styles.listContainer}>
         {todos.map((todo, index) => (

@@ -16,7 +16,7 @@ const CounterUI = (): JSX.Element => {
   const [getAmount, setAmount] = useState('0');
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} data-testid="counter-container">
       <div className={styles.counterNumber}>{value}</div>
       <div className={styles.singleChangers}>
         <button className={styles.button} onClick={() => counterController.decrement()}>
