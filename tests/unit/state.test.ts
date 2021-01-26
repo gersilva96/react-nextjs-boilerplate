@@ -76,6 +76,12 @@ describe('TODOs state', () => {
     expect(todosState[0]).toMatchObject({ name: 'Comprar carne', solved: false });
     expect(todosState[1]).toMatchObject({ name: 'Comprar leña', solved: true });
   });
+
+  test('empty action should empty the todos array', () => {
+    store.dispatch(todo.empty());
+    const todosState = store.getState().todos;
+    expect(todosState.length).toBe(0);
+  });
 });
 
 describe('NASA-APOD state', () => {
