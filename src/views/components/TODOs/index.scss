@@ -4,38 +4,37 @@
 @use 'scss/variables/mediaQuerySizes' as mediaQuerySizes;
 
 .container {
-  background-color: colors.$background;
-  border-radius: 15px;
-  box-shadow: 5px 5px rgba(0, 0, 0, 0.4);
+  border: 1px solid colors.$background;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   margin: 50px auto;
   padding: 10px;
   @include containers.set-width(300px);
-}
 
-.title {
-  font-size: fontSizes.$xlarge;
-  margin: 5px;
-  text-align: center;
-}
+  .title {
+    font-size: fontSizes.$xlarge;
+    margin: 10px;
+    text-align: center;
+  }
 
-.buttonsContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 0 auto;
-  padding: 5px;
-  text-align: center;
-  @include containers.set-width(90%);
-}
+  .form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px 0;
+    @include containers.set-width(100%);
 
-.button {
-  border-radius: 10%;
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-  font-size: fontSizes.$xlarge;
-  margin: auto 5px;
-  padding: 5px;
-  @include containers.set-size(40px);
+    .input {
+      @include containers.set-width(80%);
+    }
+
+    .addButton {
+      @include containers.set-width(15%);
+    }
+  }
+
+  .lsButton {
+    margin: 10px 0;
+  }
 }

@@ -6,7 +6,7 @@
  */
 
 import todosActions, { TODOsList } from '~/state/actions/todos';
-import i18n from '~/internationalization';
+// import i18n from '~/internationalization';
 import localStorage from '~/state/storage/localStorage';
 import { TODOType } from '~/types/TODO';
 
@@ -28,9 +28,7 @@ const todosController = {
    * Adds the todo to the list.
    * @param todo TODO to add.
    */
-  add: (): TODOsList => {
-    // eslint-disable-next-line no-alert
-    const name = prompt(i18n.get('TODOS_ASKING_NAME'), '');
+  add: (name: string): TODOsList => {
     if (!name) {
       return todosActions.get();
     }
