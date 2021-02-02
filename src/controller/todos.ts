@@ -7,7 +7,7 @@
 
 import todosActions, { TODOsList } from '~/state/actions/todos';
 // import i18n from '~/internationalization';
-import localStorage from '~/state/storage/localStorage';
+import storages from '~/state/storages';
 import { TODOType } from '~/types/TODO';
 
 /**
@@ -58,13 +58,13 @@ const todosController = {
   /**
    * Saves the content to the local storage.
    */
-  saveInLocalStorage: (): boolean => localStorage.set('TODOS', todosActions.get()),
+  saveInLocalStorage: (): boolean => storages.getLocalStorage().set('TODOS', todosActions.get()),
 
   /**
    * Loads the content from the local storage.
    */
   getFromLocalStorage: (): boolean => {
-    const LSTodos = <TODOType[]>localStorage.get('TODOS', []);
+    const LSTodos = <TODOType[]>storages.getLocalStorage().get('TODOS', []);
     LSTodos.forEach((todo) => todosActions.add(todo));
     return true;
   },
