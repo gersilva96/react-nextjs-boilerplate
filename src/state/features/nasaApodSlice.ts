@@ -14,12 +14,18 @@ const today = moment().format('YYYY-MM-DD');
 type NasaApodState = {
   link: string;
   date: string;
+  title: string;
+  copyright: string;
+  explanation: string;
   loading: boolean;
 };
 
 const initialState: NasaApodState = {
   link: '',
   date: today,
+  title: '',
+  copyright: '-',
+  explanation: '',
   loading: false,
 };
 
@@ -33,6 +39,15 @@ const nasaApodSlice = createSlice({
     setDate: (state: NasaApodState, action: PayloadAction<string>) => {
       state.date = action.payload;
     },
+    setTitle: (state: NasaApodState, action: PayloadAction<string>) => {
+      state.title = action.payload;
+    },
+    setCopyright: (state: NasaApodState, action: PayloadAction<string>) => {
+      state.copyright = action.payload;
+    },
+    setExplanation: (state: NasaApodState, action: PayloadAction<string>) => {
+      state.explanation = action.payload;
+    },
     setLoading: (state: NasaApodState, action: PayloadAction<boolean>) => {
       state.loading = action.payload;
     },
@@ -41,6 +56,13 @@ const nasaApodSlice = createSlice({
 
 export const nasaApodSelector = (state: RootState): NasaApodState => state.nasaApod;
 
-export const { setLink, setDate, setLoading } = nasaApodSlice.actions;
+export const {
+  setLink,
+  setDate,
+  setTitle,
+  setCopyright,
+  setExplanation,
+  setLoading,
+} = nasaApodSlice.actions;
 
 export default nasaApodSlice.reducer;

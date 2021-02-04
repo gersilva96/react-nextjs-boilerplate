@@ -29,6 +29,21 @@ const nasaApodActions = {
   getDate: (): string => get().date,
 
   /**
+   * Gets the title value.
+   */
+  getTitle: (): string => get().title,
+
+  /**
+   * Gets the copyright value.
+   */
+  getCopyright: (): string => get().copyright,
+
+  /**
+   * Gets the explanation value.
+   */
+  getExplanation: (): string => get().explanation,
+
+  /**
    * Gets the status of loading.
    */
   getLoading: (): boolean => get().loading,
@@ -47,6 +62,30 @@ const nasaApodActions = {
   setDate: (date: string): string => {
     store.dispatch(nasaApod.setDate(date));
     return nasaApodActions.getDate();
+  },
+
+  /**
+   * Sets and gets the title value.
+   */
+  setTitle: (title: string): string => {
+    store.dispatch(nasaApod.setTitle(title));
+    return nasaApodActions.getTitle();
+  },
+
+  /**
+   * Sets and gets the copyright value.
+   */
+  setCopyright: (copyright: string): string => {
+    store.dispatch(nasaApod.setCopyright(copyright));
+    return nasaApodActions.getCopyright();
+  },
+
+  /**
+   * Sets and gets the explanation value.
+   */
+  setExplanation: (explanation: string): string => {
+    store.dispatch(nasaApod.setExplanation(explanation));
+    return nasaApodActions.getExplanation();
   },
 
   /**
