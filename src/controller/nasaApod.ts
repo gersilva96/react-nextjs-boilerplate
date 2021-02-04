@@ -19,28 +19,54 @@ const nasaApodController = {
   getDate: (): string => nasaApodActions.getDate(),
 
   /**
+   * Gets the title value.
+   */
+  getTitle: (): string => nasaApodActions.getTitle(),
+
+  /**
+   * Gets the copyright value.
+   */
+  getCopyright: (): string => nasaApodActions.getCopyright(),
+
+  /**
+   * Gets the explanation value.
+   */
+  getExplanation: (): string => nasaApodActions.getExplanation(),
+
+  /**
    * Gets the status of loading
    */
   getLoading: (): boolean => nasaApodActions.getLoading(),
 
   /**
-   * Sets and gets a new image.
+   * Sets the image/video info.
    */
-  setLink: async (): Promise<string> => {
+  setInfo: async (): Promise<void> => {
     try {
       const date = nasaApodController.getDate();
       nasaApodActions.setLoading(true);
       const res = await nasaApodService.get(date);
       if (res.success) {
         nasaApodActions.setLink(res.payload.url);
+        nasaApodActions.setTitle(res.payload.title);
+        // eslint-disable-next-line no-unused-expressions
+        res.payload.copyright
+          ? nasaApodActions.setCopyright(res.payload.copyright)
+          : nasaApodActions.setCopyright('-');
+        nasaApodActions.setExplanation(res.payload.explanation);
       } else {
         nasaApodActions.setLink('');
+        nasaApodActions.setTitle('');
+        nasaApodActions.setCopyright('');
+        nasaApodActions.setExplanation('');
       }
       nasaApodActions.setLoading(false);
     } catch (error) {
       nasaApodActions.setLink('');
+      nasaApodActions.setTitle('');
+      nasaApodActions.setCopyright('');
+      nasaApodActions.setExplanation('');
     }
-    return nasaApodController.getLink();
   },
 
   /**

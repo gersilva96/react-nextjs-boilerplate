@@ -12,7 +12,7 @@ const resources = {
 
       // MAIN SCREEN.
       MAIN_TITLE: 'Pantalla principal',
-      MAIN_DESCRIPTION: 'Esta pantalla cambia de color de fondo si le cambiás el tamaño!',
+      MAIN_DESCRIPTION: '¡Esta pantalla cambia de color de fondo si le cambiás el tamaño!',
 
       // TODOS SCREEN
       TODOS_TITLE: 'Tareas pendientes',
@@ -20,6 +20,7 @@ const resources = {
 
       // NASAAPOD SCREEN
       NASAAPOD_TITLE: 'NASA APOD',
+      NASAAPOD_SELECT_DATE: 'Elegí una fecha',
       NASAAPOD_MEDIA_NOT_FOUND: 'Imagen o video no encontrados',
     },
   },
@@ -38,6 +39,7 @@ const resources = {
 
       // NASAAPOD SCREEN
       NASAAPOD_TITLE: 'NASA APOD',
+      NASAAPOD_SELECT_DATE: 'Pick a date',
       NASAAPOD_MEDIA_NOT_FOUND: 'Image or video not found',
     },
   },

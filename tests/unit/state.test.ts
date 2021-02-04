@@ -101,6 +101,30 @@ describe('NASA-APOD state', () => {
     expect(nasaApodState.date).toMatch('1996-02-28');
   });
 
+  test('setTitle action should set the media title', () => {
+    let nasaApodState = store.getState().nasaApod;
+    expect(nasaApodState.title).toMatch('');
+    store.dispatch(nasaApod.setTitle('I am a title'));
+    nasaApodState = store.getState().nasaApod;
+    expect(nasaApodState.title).toMatch('I am a title');
+  });
+
+  test('setCopyright action should set the media copyright', () => {
+    let nasaApodState = store.getState().nasaApod;
+    expect(nasaApodState.copyright).toMatch('-');
+    store.dispatch(nasaApod.setCopyright('I am a copyright'));
+    nasaApodState = store.getState().nasaApod;
+    expect(nasaApodState.copyright).toMatch('I am a copyright');
+  });
+
+  test('setExplanation action should set the media explanation', () => {
+    let nasaApodState = store.getState().nasaApod;
+    expect(nasaApodState.explanation).toMatch('');
+    store.dispatch(nasaApod.setExplanation('I am a explanation'));
+    nasaApodState = store.getState().nasaApod;
+    expect(nasaApodState.explanation).toMatch('I am a explanation');
+  });
+
   test('setLoading action should set the loading boolean', () => {
     let nasaApodState = store.getState().nasaApod;
     expect(nasaApodState.loading).toBeFalsy();
