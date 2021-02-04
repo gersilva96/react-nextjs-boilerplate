@@ -1,10 +1,13 @@
 // CONTAINERS
 // Contains containers utils to use across all the SASS files.
 
+@use 'scss/variables/mediaQuerySizes' as mediaQuerySizes;
+
 @mixin center-horizontal() {
-  left: 50%;
-  position: absolute;
-  transform: translate(-50%, 0);
+  // left: 50%;
+  // position: absolute;
+  // transform: translate(-50%, 0);
+  margin: 0 auto;
 }
 
 @mixin center-vertical() {
@@ -67,4 +70,34 @@
   top: 0;
   @include full-viewport-width;
   @include full-viewport-height;
+}
+
+@mixin responsive-container {
+  margin: 0 10px;
+  @include set-width(calc(100% - 20px));
+
+  @media #{mediaQuerySizes.$small} {
+    margin: 0 auto;
+    @include set-width(540px);
+  }
+
+  @media #{mediaQuerySizes.$medium} {
+    margin: 0 auto;
+    @include set-width(720px);
+  }
+
+  @media #{mediaQuerySizes.$large} {
+    margin: 0 auto;
+    @include set-width(960px);
+  }
+
+  @media #{mediaQuerySizes.$x-large} {
+    margin: 0 auto;
+    @include set-width(1140px);
+  }
+
+  @media #{mediaQuerySizes.$xx-large} {
+    margin: 0 auto;
+    @include set-width(1320px);
+  }
 }
