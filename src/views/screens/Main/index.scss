@@ -2,44 +2,37 @@
 @use 'scss/variables/fontSizes' as fontSizes;
 @use 'scss/variables/mediaQuerySizes' as mediaQuerySizes;
 
-@media #{mediaQuerySizes.$mobile} {
-  .container {
-    background-color: #ffffcc;
-  }
-}
-
-@media #{mediaQuerySizes.$small-mobile} {
-  .container {
-    background-color: #ffcccc;
-  }
-}
-
-@media #{mediaQuerySizes.$tablet} {
-  .container {
-    background-color: #ccffcc;
-  }
-}
-
-@media #{mediaQuerySizes.$desktop} {
-  .container {
-    background-color: #ccccff;
-  }
-}
-
 .container {
-  @include containers.full-container-size;
-}
+  @include containers.set-height(calc(100vh - 64px));
 
-.title {
-  font-size: fontSizes.$xlarge;
-  margin: 10px 0px;
-  text-align: center;
-  @include containers.full-container-width;
-}
+  .responsiveContainer {
+    @include containers.responsive-container;
+  }
 
-.description {
-  font-size: fontSizes.$large;
-  margin: 10px 0px;
-  text-align: center;
-  @include containers.full-container-width;
+  .title {
+    font-size: fontSizes.$xlarge;
+    padding: 50px 0;
+    text-align: center;
+  }
+
+  .description {
+    font-size: fontSizes.$large;
+    text-align: center;
+  }
+
+  @media #{mediaQuerySizes.$mobile} {
+    background-color: #d1d5db;
+  }
+
+  @media #{mediaQuerySizes.$small-mobile} {
+    background-color: #86efac;
+  }
+
+  @media #{mediaQuerySizes.$tablet} {
+    background-color: #a78bfa;
+  }
+
+  @media #{mediaQuerySizes.$desktop} {
+    background-color: #a5b4fc;
+  }
 }

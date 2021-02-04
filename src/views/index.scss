@@ -1,18 +1,10 @@
 @use 'scss/utils/containers' as containers;
 
-.mainContainer {
-  left: 0;
-  position: absolute;
-  top: 0;
-  @include containers.full-viewport-size;
-}
-
 .header {
-  @include containers.set-height(10vh);
+  @include containers.set-height(64px);
   @include containers.full-container-width;
 }
 
 .body {
-  @include containers.set-height(90vh);
   @include containers.full-container-width;
 }

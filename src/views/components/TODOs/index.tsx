@@ -6,10 +6,8 @@
 
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { useSelector } from 'react-redux';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+import { Button, TextField } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
-
 import { todoSelector } from '~/state/features/todoSlice';
 import todoController from '~/controller/todos';
 import internationalization from '~/internationalization';
@@ -35,6 +33,7 @@ const CounterUI = (): JSX.Element => {
       <div className={styles.title}>{internationalization.get('TODOS_TITLE')}</div>
       <form className={styles.form} onSubmit={handleSubmit}>
         <TextField
+          className={styles.input}
           id="outlined-basic"
           label="Todo"
           onChange={handleInput}

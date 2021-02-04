@@ -1,21 +1,43 @@
 @use 'scss/utils/containers' as containers;
+@use 'scss/variables/fontSizes' as fontSizes;
 
 .container {
   align-items: center;
   display: flex;
   flex-direction: column;
-  @include containers.center-horizontal();
+  @include containers.responsive-container;
 
   .dateInput {
-    margin-bottom: 20px;
+    margin: 30px 0;
   }
 
   .wrapper {
-    @include containers.full-container-height();
+    .spinner {
+      margin-top: 100px;
+    }
+
+    .titleParagraph {
+      margin: 10px 0;
+      text-align: center;
+
+      .title {
+        font-size: fontSizes.$large;
+        font-weight: 500;
+      }
+
+      .copyright {
+        font-weight: 500;
+      }
+    }
 
     .link {
       border: none;
-      @include containers.full-container-size();
+      @include containers.set-width(100%);
+    }
+
+    .explanation {
+      font-size: fontSizes.$large;
+      margin: 25px 0;
     }
   }
 }

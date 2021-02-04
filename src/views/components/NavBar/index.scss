@@ -1,16 +1,59 @@
 @use 'scss/variables/fontSizes' as fontSizes;
 @use 'scss/utils/containers' as containers;
+@use 'scss/variables/mediaQuerySizes' as mediaQuerySizes;
 
-.navbar {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  z-index: 1000;
-  @include containers.full-container-width;
+.drawer {
+  background: #313a46;
+  @include containers.set-height(100%);
+  @include containers.set-width(250px);
+
+  .title {
+    color: white;
+    margin: 30px 0;
+    text-align: center;
+  }
+
+  .drawerLinks {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+
+    .navButton {
+      color: white;
+      margin: 10px 0;
+      text-decoration-line: none;
+    }
+  }
 }
 
-.headerOption {
-  font-size: fontSizes.$large;
-  padding: 15px;
-  // TODO: ADD STYLE
+.appbar {
+  height: 64px;
+
+  .toolbar {
+    height: 100%;
+
+    .navLinks {
+      display: none;
+
+      .navButton {
+        color: white;
+        margin: 0 10px;
+        text-decoration-line: none;
+      }
+    }
+
+    @media #{mediaQuerySizes.$desktop-tablet} {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .menuButton {
+        display: none;
+      }
+
+      .navLinks {
+        display: block;
+      }
+    }
+  }
 }

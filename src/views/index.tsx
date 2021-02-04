@@ -17,30 +17,28 @@ import styles from './index.scss';
 
 const Router: FunctionComponent = () => {
   return (
-    <div className={styles.mainContainer}>
-      <BrowserRouter>
-        <div className={styles.header}>
-          <NavBar />
-        </div>
-        <div className={styles.body}>
-          <Switch>
-            <Route exact path={ROUTES.MAIN}>
-              <MainScreen />
-            </Route>
-            <Route exact path={ROUTES.COUNTER}>
-              <CounterScreen />
-            </Route>
-            <Route exact path={ROUTES.TODOS}>
-              <TODOsScreen />
-            </Route>
-            <Route exact path={ROUTES.NASA_APOD}>
-              <NasaApodScreen />
-            </Route>
-            <Route render={() => <Redirect to={ROUTES.MAIN} />} />
-          </Switch>
-        </div>
-      </BrowserRouter>
-    </div>
+    <BrowserRouter>
+      <header className={styles.header}>
+        <NavBar />
+      </header>
+      <div className={styles.body}>
+        <Switch>
+          <Route exact path={ROUTES.MAIN}>
+            <MainScreen />
+          </Route>
+          <Route exact path={ROUTES.COUNTER}>
+            <CounterScreen />
+          </Route>
+          <Route exact path={ROUTES.TODOS}>
+            <TODOsScreen />
+          </Route>
+          <Route exact path={ROUTES.NASA_APOD}>
+            <NasaApodScreen />
+          </Route>
+          <Route render={() => <Redirect to={ROUTES.MAIN} />} />
+        </Switch>
+      </div>
+    </BrowserRouter>
   );
 };
 
