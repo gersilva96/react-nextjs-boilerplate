@@ -47,7 +47,7 @@ module.exports = {
             options: {
               // Prefer `dart-sass`
               implementation: sass,
-              sassOptions: { includePaths: ['./src'] },
+              sassOptions: { includePaths: [srcPath] },
             },
           },
         ],

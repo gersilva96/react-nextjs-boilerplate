@@ -55,7 +55,7 @@ module.exports = {
               sourceMap: true,
               // Prefer `dart-sass`
               implementation: sass,
-              sassOptions: { includePaths: ['./src'] },
+              sassOptions: { includePaths: [srcPath] },
             },
           },
         ],
@@ -64,13 +64,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, 'dev', 'index.html'),
+      template: path.resolve(__dirname, 'public', 'index.html'),
     }),
   ],
   devServer: {
     compress: true,
     contentBase: path.resolve(__dirname, 'build'),
     historyApiFallback: true,
+    host: '0.0.0.0',
     port: 3000,
   },
   resolve: {
