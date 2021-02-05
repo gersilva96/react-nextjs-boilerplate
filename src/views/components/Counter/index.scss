@@ -3,29 +3,36 @@
 @use 'scss/variables/fontSizes' as fontSizes;
 @use 'scss/variables/mediaQuerySizes' as mediaQuerySizes;
 
-.container {
-  border: 1px solid colors.$background;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  margin: 50px auto;
-  padding: 10px;
+.mainContainer {
+  padding-top: 50px;
+  @include containers.center-horizontal;
   @include containers.set-width(300px);
 
-  .counterNumber {
-    font-size: fontSizes.$giant;
-    margin: 10px auto;
-    padding: 5px;
-    text-align: center;
-    top: 20px;
-    @include containers.set-width(70%);
-  }
-
-  .buttonGroup {
+  .container {
+    align-items: center;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
-    margin: 10px auto;
-    @include containers.set-width(250px);
+    margin-top: 40px;
+    @include containers.full-container-width;
+    @include containers.set-height(300px);
+
+    .counterNumber {
+      font-size: fontSizes.$giant;
+      margin-bottom: 30px;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .buttonGroup {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      @include containers.set-width(100%);
+
+      .inputByAmount {
+        margin: 0 12px;
+      }
+    }
   }
 }

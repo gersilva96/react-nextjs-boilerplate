@@ -22,21 +22,23 @@ const Router = (): JSX.Element => {
         <NavBar />
       </header>
       <div className={styles.body}>
-        <Switch>
-          <Route exact path={ROUTES.MAIN}>
-            <MainScreen />
-          </Route>
-          <Route exact path={ROUTES.COUNTER}>
-            <CounterScreen />
-          </Route>
-          <Route exact path={ROUTES.TODOS}>
-            <TODOsScreen />
-          </Route>
-          <Route exact path={ROUTES.NASA_APOD}>
-            <NasaApodScreen />
-          </Route>
-          <Route render={() => <Redirect to={ROUTES.MAIN} />} />
-        </Switch>
+        <div className={styles.responsiveContainer}>
+          <Switch>
+            <Route exact path={ROUTES.MAIN}>
+              <MainScreen />
+            </Route>
+            <Route exact path={ROUTES.COUNTER}>
+              <CounterScreen />
+            </Route>
+            <Route exact path={ROUTES.TODOS}>
+              <TODOsScreen />
+            </Route>
+            <Route exact path={ROUTES.NASA_APOD}>
+              <NasaApodScreen />
+            </Route>
+            <Route render={() => <Redirect to={ROUTES.MAIN} />} />
+          </Switch>
+        </div>
       </div>
     </BrowserRouter>
   );

@@ -6,7 +6,7 @@
 
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import CircularProgress from '@material-ui/core/CircularProgress';
+import { Typography, CircularProgress } from '@material-ui/core';
 import { Alert } from '@material-ui/lab';
 import i18n from '~/internationalization';
 import { nasaApodSelector } from '~/state/features/nasaApodSlice';
@@ -24,6 +24,9 @@ const NasaApod = (): JSX.Element => {
 
   return (
     <div className={styles.container} data-testid="nasaapod-container">
+      <Typography className={styles.title} variant="h4" align="center">
+        {i18n.get('NASAAPOD_TITLE')}
+      </Typography>
       <DateInput />
       <div className={styles.wrapper}>
         {loading && <CircularProgress className={styles.spinner} />}

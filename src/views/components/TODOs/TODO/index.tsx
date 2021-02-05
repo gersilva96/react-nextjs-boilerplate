@@ -6,7 +6,12 @@
 
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Checkbox from '@material-ui/core/Checkbox';
+import { Checkbox, ListItem, ListItemIcon, ListItemText, IconButton } from '@material-ui/core';
+import {
+  Delete as DeleteIcon,
+  ArrowUpward as ArrowUpwardIcon,
+  ArrowDownward as ArrowDownwardIcon,
+} from '@material-ui/icons';
 
 import { todoSelector } from '~/state/features/todoSlice';
 import todosController from '~/controller/todos';
@@ -22,18 +27,26 @@ export type PropsType = {
  * Button to go up in the list.
  */
 const ButtonUp = (index: number) => (
-  <button className={styles.button} onClick={() => todosController.shift(index, index - 1)}>
-    ↑
-  </button>
+  <IconButton
+    aria-label="up todo"
+    edge="end"
+    onClick={() => todosController.shift(index, index - 1)}
+  >
+    <ArrowUpwardIcon fontSize="small" />
+  </IconButton>
 );
 
 /**
  * Button to go down in the list.
  */
 const ButtonDown = (index: number) => (
-  <button className={styles.button} onClick={() => todosController.shift(index, index + 1)}>
-    ↓
-  </button>
+  <IconButton
+    aria-label="down todo"
+    edge="end"
+    onClick={() => todosController.shift(index, index + 1)}
+  >
+    <ArrowDownwardIcon fontSize="small" />
+  </IconButton>
 );
 
 /**
@@ -47,28 +60,32 @@ const TODO = ({ index, name, solved }: PropsType): JSX.Element => {
   const buttonUp = index === 0 ? null : ButtonUp(index);
   const buttonDown = index === lastIndex ? null : ButtonDown(index);
 
-  const todoClass = solved ? styles.todoSolved : styles.todoUnsolved;
+  const todoClass = solved ? styles.todoSolved : undefined;
 
   return (
-    <div className={todoClass}>
-      <div className={styles.text}>{`${index + 1}. ${name}`}</div>
-      <div className={styles.controlsContainer}>
-        <div className={styles.checkboxContainer}>
-          <Checkbox
-            checked={solved}
-            color="primary"
-            onClick={() => todosController.toggleSolved(index)}
-          />
-        </div>
-        <div className={styles.buttonsContainer}>
-          {buttonUp}
-          {buttonDown}
-          <button className={styles.button} onClick={() => todosController.remove(index)}>
-            -
-          </button>
-        </div>
-      </div>
-    </div>
+    <ListItem
+      key={index}
+      button
+      onClick={() => todosController.toggleSolved(index)}
+      role={undefined}
+    >
+      <ListItemIcon>
+        <Checkbox edge="start" color="primary" checked={solved} tabIndex={-1} />
+      </ListItemIcon>
+      <ListItemText className={todoClass} id={index.toString()} primary={name} />
+      <ListItemIcon>
+        {buttonUp}
+        {buttonDown}
+        <IconButton
+          aria-label="delete todo"
+          color="secondary"
+          edge="end"
+          onClick={() => todosController.remove(index)}
+        >
+          <DeleteIcon fontSize="small" />
+        </IconButton>
+      </ListItemIcon>
+    </ListItem>
   );
 };
 
