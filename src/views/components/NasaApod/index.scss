@@ -5,10 +5,13 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  @include containers.responsive-container;
+
+  .title {
+    padding-top: 50px;
+  }
 
   .dateInput {
-    margin: 30px 0;
+    margin: 40px 0;
   }
 
   .wrapper {

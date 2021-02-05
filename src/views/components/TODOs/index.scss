@@ -1,41 +1,52 @@
-@use 'scss/variables/colors' as colors;
 @use 'scss/utils/containers' as containers;
-@use 'scss/variables/fontSizes' as fontSizes;
-@use 'scss/variables/mediaQuerySizes' as mediaQuerySizes;
 
 .container {
-  border: 1px solid colors.$background;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  margin: 50px auto;
-  padding: 10px;
-  @include containers.set-width(300px);
+  @include containers.center-horizontal;
+  max-width: 400px;
+  min-width: 300px;
 
   .title {
-    font-size: fontSizes.$xlarge;
-    margin: 10px;
-    text-align: center;
+    padding-top: 50px;
   }
 
-  .form {
+  .card {
+    margin-top: 40px;
+    @include containers.full-container-width;
+  }
+
+  .card:last-child {
+    margin-bottom: 50px;
+  }
+
+  .addTodoCardContent {
+    align-items: flex-start;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: 10px 0;
-    @include containers.set-width(100%);
+    flex-direction: column;
 
-    .input {
-      padding-right: 10px;
-      @include containers.set-width(85%);
-    }
+    .form {
+      @include containers.full-container-width;
 
-    .addButton {
-      @include containers.set-width(15%);
+      .input {
+        margin-top: 20px;
+        @include containers.full-container-width;
+      }
+
+      .buttonGroup {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        @include containers.full-container-width;
+
+        .button {
+          margin-top: 30px;
+        }
+      }
     }
   }
 
-  .lsButton {
-    margin: 10px 0;
+  .todoListCardContent {
+    .emptyList {
+      margin-top: 20px;
+    }
   }
 }

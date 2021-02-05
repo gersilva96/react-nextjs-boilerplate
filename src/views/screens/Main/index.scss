@@ -10,14 +10,7 @@
   }
 
   .title {
-    font-size: fontSizes.$xlarge;
-    padding: 50px 0;
-    text-align: center;
-  }
-
-  .description {
-    font-size: fontSizes.$large;
-    text-align: center;
+    padding: 50px;
   }
 
   @media #{mediaQuerySizes.$mobile} {
