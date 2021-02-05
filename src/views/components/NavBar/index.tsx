@@ -4,7 +4,7 @@
  * UI that has the NavBar.
  */
 
-import React, { FunctionComponent, useState, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import {
   AppBar,
@@ -20,7 +20,7 @@ import styles from './index.scss';
 
 const { ROUTES } = CONSTANTS;
 
-const NavBar: FunctionComponent = () => {
+const NavBar = (): JSX.Element => {
   const [opened, setOpened] = useState(false);
 
   const toggleDrawer = () => {
@@ -31,7 +31,9 @@ const NavBar: FunctionComponent = () => {
     <Fragment>
       <SwipeableDrawer anchor={'left'} open={opened} onClose={toggleDrawer} onOpen={toggleDrawer}>
         <div className={styles.drawer} onClick={toggleDrawer} onKeyDown={toggleDrawer}>
-          <h1 className={styles.title}>Template Front</h1>
+          <Link to={ROUTES.MAIN} className={styles.drawerTitle}>
+            Template Front
+          </Link>
           <div className={styles.drawerLinks}>
             <Link className={styles.navButton} to={ROUTES.MAIN}>
               <Button color="primary" size="large" variant="contained">
@@ -67,7 +69,9 @@ const NavBar: FunctionComponent = () => {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6">Template Front</Typography>
+          <Link to={ROUTES.MAIN} className={styles.title}>
+            <Typography variant="h6">Template Front</Typography>
+          </Link>
           <div className={styles.navLinks}>
             <Link className={styles.navButton} to={ROUTES.MAIN}>
               <Button color="inherit" size="large" variant="text">

@@ -7,10 +7,13 @@
   @include containers.set-height(100%);
   @include containers.set-width(250px);
 
-  .title {
+  .drawerTitle {
     color: white;
+    display: block;
+    font-size: fontSizes.$xxlarge;
     margin: 30px 0;
     text-align: center;
+    text-decoration: none;
   }
 
   .drawerLinks {
@@ -31,6 +34,11 @@
 
   .toolbar {
     height: 100%;
+
+    .title {
+      color: white;
+      text-decoration: none;
+    }
 
     .navLinks {
       display: none;

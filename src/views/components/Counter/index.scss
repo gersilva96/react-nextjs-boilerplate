@@ -4,55 +4,28 @@
 @use 'scss/variables/mediaQuerySizes' as mediaQuerySizes;
 
 .container {
-  background-color: colors.$background;
-  border-radius: 15px;
-  box-shadow: 5px 5px rgba(0, 0, 0, 0.4);
+  border: 1px solid colors.$background;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   margin: 50px auto;
   padding: 10px;
   @include containers.set-width(300px);
-}
 
-.counterNumber {
-  background-color: #000;
-  border-radius: 5px;
-  color: #ff0000;
-  font-size: fontSizes.$xlarge;
-  margin: 10px auto;
-  padding: 5px;
-  text-align: center;
-  top: 20px;
-  @include containers.set-width(70%);
-}
+  .counterNumber {
+    font-size: fontSizes.$giant;
+    margin: 10px auto;
+    padding: 5px;
+    text-align: center;
+    top: 20px;
+    @include containers.set-width(70%);
+  }
 
-.singleChangers,
-.amountChangers {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 5px auto;
-  @include containers.set-width(200px);
-}
-
-.button {
-  border-radius: 10%;
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-  font-size: fontSizes.$xlarge;
-  margin: auto 5px;
-  padding: 5px;
-  @include containers.set-size(40px);
-}
-
-.amountInput {
-  font-size: fontSizes.$large;
-  max-width: 70%;
-  padding: 2px 5px;
-}
-
-@media #{mediaQuerySizes.$small-mobile} {
-  .container {
-    @include containers.set-width(95%);
+  .buttonGroup {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 10px auto;
+    @include containers.set-width(250px);
   }
 }

@@ -7,14 +7,14 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { useSelector } from 'react-redux';
 import { Button, TextField } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
+import { Add as AddIcon } from '@material-ui/icons';
 import { todoSelector } from '~/state/features/todoSlice';
 import todoController from '~/controller/todos';
 import internationalization from '~/internationalization';
 import styles from './index.scss';
 import TODO from './TODO';
 
-const CounterUI = (): JSX.Element => {
+const TODOs = (): JSX.Element => {
   const todos = useSelector(todoSelector);
   const [todoInput, setTodoInput] = useState('');
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -60,4 +60,4 @@ const CounterUI = (): JSX.Element => {
   );
 };
 
-export default CounterUI;
+export default TODOs;
