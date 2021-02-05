@@ -7,10 +7,13 @@
 const resources = {
   es: {
     translation: {
-      // BASIC TEXT.
+      // BASIC TEXT
       HELLO_WORLD: 'Hola mundo!',
 
-      // MAIN SCREEN.
+      // COUNTER SCREEN
+      BY_AMOUNT_INPUT_LABEL: 'Por cantidad',
+
+      // MAIN SCREEN
       MAIN_TITLE: 'Pantalla principal',
       MAIN_DESCRIPTION: '¡Esta pantalla cambia de color de fondo si le cambiás el tamaño!',
 
@@ -29,7 +32,10 @@ const resources = {
       // BASIC TEXT
       HELLO_WORD: 'Hello world!',
 
-      // MAIN SCREEN.
+      // COUNTER SCREEN
+      BY_AMOUNT_INPUT_LABEL: 'By amount',
+
+      // MAIN SCREEN
       MAIN_TITLE: 'Main screen',
       MAIN_DESCRIPTION: 'This screen changes its background color if you change its width!',
 

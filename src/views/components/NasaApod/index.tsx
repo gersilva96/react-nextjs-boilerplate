@@ -34,7 +34,9 @@ const NasaApod = (): JSX.Element => {
             {copyright !== '-' && <span className={styles.copyright}>{copyright}</span>}
           </p>
         )}
-        {!loading && isYouTubeVideo && <iframe className={styles.link} src={link}></iframe>}
+        {!loading && isYouTubeVideo && (
+          <iframe className={(styles.link, styles.video)} src={link}></iframe>
+        )}
         {!loading && !isYouTubeVideo && link !== '' && (
           <img className={styles.link} src={link}></img>
         )}

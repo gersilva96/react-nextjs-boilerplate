@@ -4,7 +4,7 @@
  * It shows the views according to the url.
  */
 
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom';
 
 import ROUTES from '~/constants/routes';
@@ -15,7 +15,7 @@ import TODOsScreen from '~/views/screens/TODOs';
 import NasaApodScreen from '~/views/screens/NasaApod';
 import styles from './index.scss';
 
-const Router: FunctionComponent = () => {
+const Router = (): JSX.Element => {
   return (
     <BrowserRouter>
       <header className={styles.header}>

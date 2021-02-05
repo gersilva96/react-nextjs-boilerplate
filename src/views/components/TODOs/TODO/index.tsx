@@ -5,7 +5,6 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import Checkbox from '@material-ui/core/Checkbox';
 
@@ -13,7 +12,7 @@ import { todoSelector } from '~/state/features/todoSlice';
 import todosController from '~/controller/todos';
 import styles from './index.scss';
 
-type PropsType = {
+export type PropsType = {
   index: number;
   name: string;
   solved: boolean;
@@ -71,12 +70,6 @@ const TODO = ({ index, name, solved }: PropsType): JSX.Element => {
       </div>
     </div>
   );
-};
-
-TODO.propTypes = {
-  name: PropTypes.string.isRequired,
-  solved: PropTypes.bool.isRequired,
-  index: PropTypes.number.isRequired,
 };
 
 export default TODO;
