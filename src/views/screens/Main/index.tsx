@@ -12,14 +12,12 @@ import styles from './index.scss';
 const MainScreen = (): JSX.Element => {
   return (
     <div className={styles.container} data-testid="main-container">
-      <div className={styles.responsiveContainer}>
-        <Typography className={styles.title} variant="h4" align="center">
-          {i18n.get('MAIN_TITLE')}
-        </Typography>
-        <Typography className={styles.description} variant="body1" align="center">
-          {i18n.get('MAIN_DESCRIPTION')}
-        </Typography>
-      </div>
+      <Typography className={styles.title} data-testid="main-title" variant="h4" align="center">
+        {i18n.get('MAIN_TITLE')}
+      </Typography>
+      <Typography className={styles.description} variant="h6" align="center">
+        {i18n.get('MAIN_DESCRIPTION')}
+      </Typography>
     </div>
   );
 };

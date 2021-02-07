@@ -63,14 +63,15 @@ const TODO = ({ index, name, solved }: PropsType): JSX.Element => {
   const todoClass = solved ? styles.todoSolved : undefined;
 
   return (
-    <ListItem
-      key={index}
-      button
-      onClick={() => todosController.toggleSolved(index)}
-      role={undefined}
-    >
+    <ListItem key={index} button>
       <ListItemIcon>
-        <Checkbox edge="start" color="primary" checked={solved} tabIndex={-1} />
+        <Checkbox
+          edge="start"
+          color="primary"
+          checked={solved}
+          onClick={() => todosController.toggleSolved(index)}
+          tabIndex={-1}
+        />
       </ListItemIcon>
       <ListItemText className={todoClass} id={index.toString()} primary={name} />
       <ListItemIcon>

@@ -22,7 +22,7 @@ describe('Main Screen', () => {
   });
   it('should has the correct title', () => {
     render(<MainScreen />);
-    expect(screen.getByRole('heading')).toHaveTextContent(i18n.get('MAIN_TITLE'));
+    expect(screen.getByTestId('main-title')).toHaveTextContent(i18n.get('MAIN_TITLE'));
   });
 });
 

@@ -5,27 +5,25 @@
 .container {
   @include containers.set-height(calc(100vh - 64px));
 
-  .responsiveContainer {
-    @include containers.responsive-container;
-  }
-
   .title {
     padding: 50px;
   }
 
-  @media #{mediaQuerySizes.$mobile} {
-    background-color: #d1d5db;
-  }
+  .description {
+    @media #{mediaQuerySizes.$mobile} {
+      color: #01579b;
+    }
 
-  @media #{mediaQuerySizes.$small-mobile} {
-    background-color: #86efac;
-  }
+    @media #{mediaQuerySizes.$small-mobile} {
+      color: #e53935;
+    }
 
-  @media #{mediaQuerySizes.$tablet} {
-    background-color: #a78bfa;
-  }
+    @media #{mediaQuerySizes.$tablet} {
+      color: #43a047;
+    }
 
-  @media #{mediaQuerySizes.$desktop} {
-    background-color: #a5b4fc;
+    @media #{mediaQuerySizes.$desktop} {
+      color: #455a64;
+    }
   }
 }

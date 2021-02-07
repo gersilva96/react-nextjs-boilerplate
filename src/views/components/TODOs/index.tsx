@@ -8,11 +8,12 @@ import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { useSelector } from 'react-redux';
 import { Card, CardContent, Button, TextField, Typography, List } from '@material-ui/core';
 import { AddCircleOutline as AddCircleOutlineIcon } from '@material-ui/icons';
+import Swal from 'sweetalert2';
+import TODO from './TODO';
 import { todoSelector } from '~/state/features/todoSlice';
 import todoController from '~/controller/todos';
 import i18n from '~/internationalization';
 import styles from './index.scss';
-import TODO from './TODO';
 
 const TODOs = (): JSX.Element => {
   const todos = useSelector(todoSelector);
@@ -25,6 +26,20 @@ const TODOs = (): JSX.Element => {
     if (todoInput !== '') {
       todoController.add(todoInput);
       setTodoInput('');
+    }
+  };
+  const handleSaveInLocalStorage = () => {
+    const isSaved = todoController.saveInLocalStorage();
+    if (isSaved) {
+      Swal.fire({
+        icon: 'success',
+        text: i18n.get('TODOS_SAVE_IN_LOCAL_STORAGE_SUCCESS'),
+      });
+    } else {
+      Swal.fire({
+        icon: 'error',
+        text: i18n.get('TODOS_SAVE_IN_LOCAL_STORAGE_ERROR'),
+      });
     }
   };
 
@@ -47,7 +62,7 @@ const TODOs = (): JSX.Element => {
             <div className={styles.buttonGroup}>
               <Button
                 className={styles.button}
-                onClick={todoController.saveInLocalStorage}
+                onClick={handleSaveInLocalStorage}
                 size="small"
                 variant="contained"
               >
