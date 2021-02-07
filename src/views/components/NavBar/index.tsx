@@ -16,6 +16,7 @@ import {
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import CONSTANTS from '~/constants';
+import i18n from '~/internationalization';
 import styles from './index.scss';
 
 const { ROUTES } = CONSTANTS;
@@ -37,22 +38,22 @@ const NavBar = (): JSX.Element => {
           <div className={styles.drawerLinks}>
             <Link className={styles.navButton} to={ROUTES.MAIN}>
               <Button color="primary" size="large" variant="contained">
-                Home
+                {i18n.get('NAVIGATION_HOME')}
               </Button>
             </Link>
             <Link className={styles.navButton} to={ROUTES.COUNTER}>
               <Button color="primary" size="large" variant="contained">
-                Counter
+                {i18n.get('NAVIGATION_COUNTER')}
               </Button>
             </Link>
             <Link className={styles.navButton} to={ROUTES.TODOS}>
               <Button color="primary" size="large" variant="contained">
-                Todos
+                {i18n.get('NAVIGATION_TODO')}
               </Button>
             </Link>
             <Link className={styles.navButton} to={ROUTES.NASA_APOD}>
               <Button color="primary" size="large" variant="contained">
-                Nasa Apod
+                {i18n.get('NAVIGATION_NASAAPOD')}
               </Button>
             </Link>
           </div>
@@ -75,22 +76,22 @@ const NavBar = (): JSX.Element => {
           <div className={styles.navLinks}>
             <Link className={styles.navButton} to={ROUTES.MAIN}>
               <Button color="inherit" size="large" variant="text">
-                Home
+                {i18n.get('NAVIGATION_HOME')}
               </Button>
             </Link>
             <Link className={styles.navButton} to={ROUTES.COUNTER}>
               <Button color="inherit" size="large" variant="text">
-                Counter
+                {i18n.get('NAVIGATION_COUNTER')}
               </Button>
             </Link>
             <Link className={styles.navButton} to={ROUTES.TODOS}>
               <Button color="inherit" size="large" variant="text">
-                Todos
+                {i18n.get('NAVIGATION_TODO')}
               </Button>
             </Link>
             <Link className={styles.navButton} to={ROUTES.NASA_APOD}>
               <Button color="inherit" size="large" variant="text">
-                Nasa Apod
+                {i18n.get('NAVIGATION_NASAAPOD')}
               </Button>
             </Link>
           </div>
