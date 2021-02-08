@@ -7,8 +7,8 @@
 
 .body {
   background: #fafafa;
-  padding-bottom: 50px;
   min-height: calc(100vh - 64px);
+  padding-bottom: 50px;
   @include containers.full-container-width;
 
   .responsiveContainer {
