@@ -33,15 +33,30 @@
       }
     }
 
-    .link {
-      border: none;
+    .image {
       @include containers.set-height(auto);
       @include containers.set-width(100%);
     }
 
+    .videoContainer {
+      height: 0;
+      padding-bottom: 56.25%;
+      position: relative;
+      width: 100%;
+
+      .video {
+        border: none;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
+
     .explanation {
       font-size: fontSizes.$large;
-      margin: 25px 0;
+      margin-top: 15px;
     }
   }
 }

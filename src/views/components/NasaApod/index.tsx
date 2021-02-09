@@ -38,10 +38,12 @@ const NasaApod = (): JSX.Element => {
           </p>
         )}
         {!loading && isYouTubeVideo && (
-          <iframe className={(styles.link, styles.video)} src={link}></iframe>
+          <div className={styles.videoContainer}>
+            <iframe allowFullScreen={true} className={styles.video} src={link}></iframe>
+          </div>
         )}
         {!loading && !isYouTubeVideo && link !== '' && (
-          <img className={styles.link} src={link}></img>
+          <img className={styles.image} src={link}></img>
         )}
         {!loading && link !== '' && <p className={styles.explanation}>{explanation}</p>}
         {!loading && !isYouTubeVideo && link === '' && (
