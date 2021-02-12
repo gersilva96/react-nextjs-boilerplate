@@ -129,7 +129,7 @@ It uses husky to add a hook to git, so it runs eslint and prettier before commit
 
 ## Root Files
 
-- **.eslintrc.json**: Contains all the configuration for [eslintrc]((https://eslint.org/docs/user-guide/configuring).
+- **.eslintrc.json**: Contains all the configuration for [eslintrc](https://eslint.org/docs/user-guide/configuring).
 - **.gitignore**: Contains all the files and directories that won't be upstreamed to git. How to configure: [gitignore](https://git-scm.com/docs/gitignore).
 - **.npmrc**: Contains how npm wil work. How to configure: [npmrc](https://docs.npmjs.com/configuring-npm/npmrc.html).
 - **.pretierrc**: Contains prettier configuration. How to configure: [prettierrc](https://prettier.io/docs/en/configuration.html)
@@ -492,19 +492,19 @@ Axios is an awesome library but:
 
 The file "axiosHelper" will help you get the response with the different information you need in this format, regardless of the status code:
 
-```javascript
+```typescript
 type ServiceResponseType = {
-  statusCode: number,
-  success: boolean,
-  errorCode?: string | undefined,
-  error?: string | undefined,
-  payload?: any,
+  statusCode: number;
+  success: boolean;
+  errorCode?: string | undefined;
+  error?: string | undefined;
+  payload?: any;
 };
 ```
 
 From now on, you can get the format you want like this:
 
-```javascript
+```typescript
   /**
    * Gets something.
    */
