@@ -15,6 +15,7 @@ const resources = {
       NAVIGATION_COUNTER: 'Contador',
       NAVIGATION_TODO: 'Todo',
       NAVIGATION_NASAAPOD: 'NASA APOD',
+      NAVIGATION_FORM: 'Formulario',
 
       // COUNTER SCREEN
       COUNTER_TITLE: 'Contador',
@@ -51,6 +52,7 @@ const resources = {
       NAVIGATION_COUNTER: 'Counter',
       NAVIGATION_TODO: 'Todo',
       NAVIGATION_NASAAPOD: 'NASA APOD',
+      NAVIGATION_FORM: 'Form',
 
       // COUNTER SCREEN
       COUNTER_TITLE: 'Counter',
