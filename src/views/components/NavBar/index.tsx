@@ -56,6 +56,11 @@ const NavBar = (): JSX.Element => {
                 {i18n.get('NAVIGATION_NASAAPOD')}
               </Button>
             </Link>
+            <Link className={styles.navButton} to={ROUTES.FORM}>
+              <Button color="primary" size="large" variant="contained">
+                {i18n.get('NAVIGATION_FORM')}
+              </Button>
+            </Link>
           </div>
         </div>
       </SwipeableDrawer>
@@ -92,6 +97,11 @@ const NavBar = (): JSX.Element => {
             <Link className={styles.navButton} to={ROUTES.NASA_APOD}>
               <Button color="inherit" size="large" variant="text">
                 {i18n.get('NAVIGATION_NASAAPOD')}
+              </Button>
+            </Link>
+            <Link className={styles.navButton} to={ROUTES.FORM}>
+              <Button color="inherit" size="large" variant="text">
+                {i18n.get('NAVIGATION_FORM')}
               </Button>
             </Link>
           </div>

@@ -12,6 +12,7 @@ import CounterScreen from '~/views/screens/Counter';
 import NavBar from '~/views/components/NavBar';
 import MainScreen from '~/views/screens/Main';
 import TODOsScreen from '~/views/screens/TODOs';
+import FormScreen from '~/views/screens/Form';
 import NasaApodScreen from '~/views/screens/NasaApod';
 import styles from './index.scss';
 
@@ -35,6 +36,9 @@ const Router = (): JSX.Element => {
             </Route>
             <Route exact path={ROUTES.NASA_APOD}>
               <NasaApodScreen />
+            </Route>
+            <Route exact path={ROUTES.FORM}>
+              <FormScreen />
             </Route>
             <Route render={() => <Redirect to={ROUTES.MAIN} />} />
           </Switch>

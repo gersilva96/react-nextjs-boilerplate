@@ -8,7 +8,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import MomentUtils from '@date-io/moment';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
-import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
+// import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
 import moment from 'moment';
 import { nasaApodSelector } from '~/state/features/nasaApodSlice';
 import nasaApodController from '~/controller/nasaApod';
@@ -18,7 +18,7 @@ import i18n from '~/internationalization';
 const DateInput = (): JSX.Element => {
   const { date } = useSelector(nasaApodSelector);
   const [startDate, setStartDate] = useState<Date>(new Date(moment(date).format()));
-  const handleDateChange = (changedDate: MaterialUiPickersDate) => {
+  const handleDateChange = (changedDate: any) => {
     const formattedDate = changedDate
       ? changedDate.format('YYYY-MM-DD')
       : moment().format('YYYY-MM-DD');

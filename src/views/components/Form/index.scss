@@ -1,0 +1,10 @@
+@use 'scss/variables/colors' as colors;
+@use 'scss/utils/containers' as containers;
+@use 'scss/variables/fontSizes' as fontSizes;
+@use 'scss/variables/mediaQuerySizes' as mediaQuerySizes;
+
+.mainContainer {
+  padding-top: 50px;
+  @include containers.center-horizontal;
+  @include containers.full-container-width;
+}
