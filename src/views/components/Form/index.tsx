@@ -5,8 +5,15 @@
  */
 
 import React from 'react';
-import { Formik, Form, Field } from 'formik';
-import { Button, LinearProgress, MenuItem, FormControlLabel } from '@material-ui/core';
+import { Formik, Form, Field, FieldArray } from 'formik';
+import {
+  Button,
+  LinearProgress,
+  MenuItem,
+  FormControlLabel,
+  Typography,
+  Grid,
+} from '@material-ui/core';
 import MuiTextField from '@material-ui/core/TextField';
 import { TextField, Switch } from 'formik-material-ui';
 import { TimePicker, DatePicker, DateTimePicker } from 'formik-material-ui-pickers';
@@ -15,6 +22,7 @@ import DateFnsUtils from '@date-io/date-fns';
 import { Autocomplete, AutocompleteRenderInputParams } from 'formik-material-ui-lab';
 import Box from '@material-ui/core/Box';
 import { top100Films } from './data';
+import i18n from '~/internationalization';
 
 import styles from './index.scss';
 
@@ -25,32 +33,31 @@ const FormComponent = (): JSX.Element => {
 
   const ranges = [
     {
-      value: 'none',
-      label: 'None',
+      value: 'None',
     },
     {
       value: '0-20',
-      label: '0 to 20',
     },
     {
       value: '21-50',
-      label: '21 to 50',
     },
     {
       value: '51-100',
-      label: '51 to 100',
     },
   ];
 
+  const emptyItemList = {
+    item: '',
+    amount: 0,
+  };
   return (
     <div className={styles.mainContainer}>
       <Formik
         initialValues={{
           email: '',
-          nombre: 'John',
-          apellido: 'Doe',
+          nombre: 'John Doe',
           password: '',
-          select: 'none',
+          select: 'None',
           tags: [],
           rememberMe: true,
           date: new Date(),
@@ -59,13 +66,14 @@ const FormComponent = (): JSX.Element => {
           toggle: [],
           autocomplete: [],
           freeSoloMultiple: [],
+          itemsList: [emptyItemList],
         }}
         validate={(values) => {
           const errors: Partial<Values> = {};
           if (!values.email) {
-            errors.email = 'Required';
+            errors.email = i18n.get('FORM_REQUIRED');
           } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-            errors.email = 'Invalid email address';
+            errors.email = i18n.get('FORM_EMAIL_INVALID');
           }
           return errors;
         }}
@@ -77,7 +85,7 @@ const FormComponent = (): JSX.Element => {
           }, 500);
         }}
       >
-        {({ submitForm, isSubmitting, touched, errors }) => (
+        {({ submitForm, isSubmitting, errors, values }) => (
           <MuiPickersUtilsProvider utils={DateFnsUtils}>
             <Form>
               <Box margin={1}>
@@ -87,30 +95,8 @@ const FormComponent = (): JSX.Element => {
                   inputlabelprops={{ style: { fontSize: 18 } }}
                   name="email"
                   type="email"
-                  label="Email"
-                  helperText="Please Enter Email"
-                />
-              </Box>
-              <Box margin={1}>
-                <Field
-                  component={TextField}
-                  inputProps={{ style: { fontSize: 25 } }}
-                  inputlabelprops={{ style: { fontSize: 18 } }}
-                  name="nombre"
-                  type="text"
-                  label="Nombre"
-                  helperText="Please Enter Nombre"
-                />
-              </Box>
-              <Box margin={1}>
-                <Field
-                  component={TextField}
-                  inputProps={{ style: { fontSize: 25 } }}
-                  inputlabelprops={{ style: { fontSize: 18 } }}
-                  name="apellido"
-                  type="text"
-                  label="Apellido"
-                  helperText="Please Enter Apellido"
+                  label={i18n.get('FORM_EMAIL')}
+                  helperText={i18n.get('FORM_EMAIL_HELPER')}
                 />
               </Box>
               <Box margin={1}>
@@ -119,7 +105,8 @@ const FormComponent = (): JSX.Element => {
                   inputProps={{ style: { fontSize: 25 } }}
                   inputlabelprops={{ style: { fontSize: 18 } }}
                   type="password"
-                  label="Password"
+                  label={i18n.get('FORM_PASSWORD')}
+                  helperText={i18n.get('FORM_PASSWORD_HELPER')}
                   name="password"
                 />
               </Box>
@@ -134,7 +121,7 @@ const FormComponent = (): JSX.Element => {
                       name="rememberMe"
                     />
                   }
-                  label="Remember Me"
+                  label={i18n.get('FORM_SWITCH')}
                 />
               </Box>
               <Box margin={1}>
@@ -142,10 +129,10 @@ const FormComponent = (): JSX.Element => {
                   component={TextField}
                   type="text"
                   name="select"
-                  label="With Select"
                   select
                   variant="standard"
-                  helperText="Please select Range"
+                  label={i18n.get('FORM_SELECTOR')}
+                  helperText={i18n.get('FORM_SELECTOR_HELPER')}
                   margin="normal"
                   inputlabelprops={{
                     shrink: true,
@@ -153,44 +140,101 @@ const FormComponent = (): JSX.Element => {
                 >
                   {ranges.map((option) => (
                     <MenuItem key={option.value} value={option.value}>
-                      {option.label}
+                      {option.value}
                     </MenuItem>
                   ))}
                 </Field>
               </Box>
 
               <Box margin={1}>
-                <Field component={TimePicker} name="time" label="Time" />
+                <Field component={TimePicker} name="time" label={i18n.get('FORM_TIME')} />
               </Box>
 
               <Box margin={1}>
-                <Field component={DatePicker} name="date" label="Date" />
+                <Field component={DatePicker} name="date" label={i18n.get('FORM_DATE')} />
               </Box>
               <Box margin={1}>
-                <Field component={DateTimePicker} name="dateTime" label="Date Time" />
+                <Field
+                  component={DateTimePicker}
+                  name="dateTime"
+                  label={i18n.get('FORM_DATE_TIME')}
+                />
               </Box>
 
               <Box margin={1}>
                 <Field
                   name="autocomplete"
-                  multiple
+                  // multiple ----> In case you want to allow multiple selections
                   component={Autocomplete}
                   options={top100Films}
                   // eslint-disable-next-line @typescript-eslint/no-explicit-any
                   getOptionLabel={(option: any) => option.title}
                   style={{ width: 300 }}
                   renderInput={(params: AutocompleteRenderInputParams) => (
-                    <MuiTextField
-                      {...params}
-                      error={touched.autocomplete && !!errors.autocomplete}
-                      helperText={touched.autocomplete && errors.autocomplete}
-                      label="Autocomplete"
-                      variant="outlined"
-                    />
+                    <MuiTextField {...params} label={i18n.get('FORM_AUTOCOMPLETE')} />
                   )}
                 />
               </Box>
               {isSubmitting && <LinearProgress />}
+
+              <FieldArray name="itemsList">
+                {({ push, remove }) => (
+                  <React.Fragment>
+                    <Grid item>
+                      <Typography variant="body2">{i18n.get('FORM_ITEM_LIST')}</Typography>
+                    </Grid>
+
+                    {values.itemsList.map((_, index) => (
+                      <Grid container item key={index} spacing={1}>
+                        <Grid item container spacing={2} xs={6}>
+                          <Grid item xs={4}>
+                            <Field
+                              fullWidth
+                              name={`itemsList.${index}.item`}
+                              component={TextField}
+                              label={i18n.get('FORM_ITEM')}
+                            />
+                          </Grid>
+                          <Grid item xs={2}>
+                            <Field
+                              fullWidth
+                              name={`itemsList.${index}.amount`}
+                              component={TextField}
+                              type="number"
+                              label={i18n.get('FORM_AMOUNT')}
+                            />
+                          </Grid>
+                          <Grid item xs>
+                            <Button
+                              disabled={isSubmitting}
+                              variant="contained"
+                              onClick={() => remove(index)}
+                            >
+                              {i18n.get('FORM_DELETE_BUTTON')}
+                            </Button>
+                          </Grid>
+                        </Grid>
+                      </Grid>
+                    ))}
+
+                    <Grid item>
+                      {typeof errors.itemsList === 'string' ? (
+                        <Typography color="error">{errors.itemsList}</Typography>
+                      ) : null}
+                    </Grid>
+
+                    <Grid item>
+                      <Button
+                        disabled={isSubmitting}
+                        variant="contained"
+                        onClick={() => push(emptyItemList)}
+                      >
+                        {i18n.get('FORM_ADD_BUTTON')}
+                      </Button>
+                    </Grid>
+                  </React.Fragment>
+                )}
+              </FieldArray>
 
               <Box margin={1}>
                 <Button
@@ -199,7 +243,7 @@ const FormComponent = (): JSX.Element => {
                   disabled={isSubmitting}
                   onClick={submitForm}
                 >
-                  Submit
+                  {i18n.get('FORM_SUBMIT_BUTTON')}
                 </Button>
               </Box>
             </Form>
