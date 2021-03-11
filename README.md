@@ -1,20 +1,12 @@
-# Index
+# Frontend Template
 
-// TODO: AGREGAR
-https://www.reactandtypescript.dev/examples/react-router#withrouter
-https://medium.com/salesforce-ux/7-things-every-designer-needs-to-know-about-accessibility-64f105f0881b
-https://github.com/thedaviddias/Front-End-Checklist
-https://adhithiravi.medium.com/web-accessibility-and-why-you-should-care-c8b436412ebd
-
-LO DEL JWT EN COOKISE Y NO EN LOCAL STORAGE:
-https://coolgk.medium.com/localstorage-vs-cookie-for-jwt-access-token-war-in-short-943fb23239ca
-OWASPPPP -> https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#local-storage
+## Index
 
 - [Index](#index)
 - [React Front Template](#react-front-template)
 - [Tools](#tools)
-  - [Typescript](#typescript)
-  - [Eslint](#eslint)
+  - [TypeScript](#typescript)
+  - [ESLint](#eslint)
   - [Stylelint](#stylelint)
   - [Prettier](#prettier)
   - [Jest](#jest)
@@ -26,68 +18,61 @@ OWASPPPP -> https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_
   - [Directories in /src](#directories-in-src)
 - [Guide](#guide)
   - [Starting](#starting)
-  - [Application configuration and environment](#application-configuration-and-environment)
+  - [Application configuration](#application-configuration)
   - [Types](#types)
   - [Errors](#errors)
   - [Internationalization](#internationalization)
-  - [Model](#model)
-    - [Guide:](#guide-1)
-    - [Error handling:](#error-handling)
+  - [State](#state)
+    - [State guide](#state-guide)
+  - [Views](#views)
+  - [Styling](#styling)
   - [Controller](#controller)
-  - [API](#api)
-  - [Services (how to use this and others with this template)](#services-how-to-use-this-and-others-with-this-template)
+  - [Services](#services)
   - [Testing](#testing)
     - [Unit testing](#unit-testing)
-    - [Integration testing](#integration-testing)
-      - [Model](#model-1)
-      - [Other layers](#other-layers)
-      - [Testing the API layer](#testing-the-api-layer)
-      - [Testing with third party services or other microservices](#testing-with-third-party-services-or-other-microservices)
   - [Documentation](#documentation)
     - [Testing documentation](#testing-documentation)
     - [Code documentation with TypeDoc](#code-documentation-with-typedoc)
-    - [Swagger](#swagger)
-  - [Developing the service](#developing-the-service)
-  - [Authentication, authorization and permissions](#authentication-authorization-and-permissions)
-    - [API KEY](#api-key)
-    - [JWT](#jwt)
-      - [JWT permissions and roles](#jwt-permissions-and-roles)
-    - [Some recommendations](#some-recommendations)
-  - [Security](#security)
+  - [Developing the application](#developing-the-application)
+  - [Authentication and security recommendations](#authentication-and-security-recommendations)
 - [Scripts](#scripts)
-- [License](#license)
 
-# React Front Template
+## React Front Template
 
 This is the template for React applications.
 
 In the /src-sample dir you will find a complete example on how this system could work.
 Even though you can use /src and /test from the scratch, it would be nice take a look frequently to src-sample and tests-sample. These dirs contains some functional samples on how to use the package.
 
-# Tools
+## Tools
 
-If you are using the Visual Studio Code as your code editor (recommended, you can get it [here](https://code.visualstudio.com/)). You should install and use the associated plugins.
+If you are using the Visual Studio Code as your code editor (recommended, you can get it [here](https://code.visualstudio.com/)), you should install and use the associated plugins.
 
-## Typescript
+### Typescript
 
-As a Javascript superset. All the files should be written in TypeScript in order to make the code cleaner and easier to migrate to Deno in the future.
-Its configuration is set in the .tsconfig file. You can read how to configure it [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
+As a JavaScript superset. All the files should be written in TypeScript in order to make the code cleaner. Its configuration is set in the .tsconfig file. You can read how to configure it [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 
-Read the docs: [Typescript Docs](https://www.typescriptlang.org/).
+Read the docs: [Typescript docs](https://www.typescriptlang.org/).
 
-## Eslint
+### Redux
+
+For state management. With Redux Toolkit (official recommended approach for writing Redux logic), which wraps around the Redux core, and contains packages and functions that are essential for building a Redux app.
+
+Read the docs: [Redux docs](https://redux.js.org/), [Redux Toolkit docs](https://redux-toolkit.js.org/).
+
+### Eslint
 
 For code styling. It ensures you are using the best practices and all the developers are following the same guides. The configuration is set in the .eslintrc file. You can read how to configure it [here](https://eslint.org/docs/user-guide/configuring).
 
 We use the AirBnb style guide for coding: [Guide docs](https://github.com/airbnb/javascript).
 
-Read the docs: [Eslint docs](https://eslint.org/).
+Read the docs: [ESLint docs](https://eslint.org/).
 
 VSCode plugin: [here](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint).
 
-## Stylelint
+### Stylelint
 
-For CSS and SCSS code styling, just like eslint but for styles. Its configuration can be found in .stylelintrc.json. You can read how to configure it [here](https://stylelint.io/user-guide/usage/options).
+For CSS and SCSS code styling, just like ESLint but for styles. Its configuration can be found in .stylelintrc.json. You can read how to configure it [here](https://stylelint.io/user-guide/usage/options).
 
 We use the AirBnb style guide for coding: [Guide docs](https://github.com/airbnb/css).
 
@@ -95,9 +80,9 @@ Read the docs: [Stylelint docs](https://stylelint.io/user-guide/get-started).
 
 VSCode plugin: [here](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint).
 
-## Prettier
+### Prettier
 
-It's an opinionated code formatter used for making the code prettier. Also, this way all the developers will be following the same style guides. It's configured in the .prettierrc file. You can read how to configure it [here](https://prettier.io/docs/en/configuration.html).
+It's an opinionated code formatter used for making the code prettier. Also, by this way all the developers will be following the same style guides. It's configured in the .prettierrc file. You can read how to configure it [here](https://prettier.io/docs/en/configuration.html).
 
 It's recommended to set "formatOnSave" to True in your Code Editor to make this step easier.
 
@@ -105,137 +90,103 @@ Read the docs: [Prettier docs](https://prettier.io/).
 
 VSCode plugin: [here](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
 
-## Jest
+### Jest
 
-For unit testing it uses Jest. It will look for all the files which their names finishes with ".test.ts" in the "/tests" dir and execute them. Jest it's a very powerful tool for testing. Its configuration is set in the jestconfig.json file. You can read how to configure it [here](https://jestjs.io/docs/en/configuration).
+For unit testing it uses Jest. It will look for all the files which their names finishes with ".test.ts" in the "/tests" dir and execute them. Jest is a very powerful tool for testing. Its configuration is set in the jestconfig.json file. You can read how to configure it [here](https://jestjs.io/docs/en/configuration).
 
 Read the docs: [Jest docs](https://jestjs.io/).
 
-## Husky
+### Husky
 
 It uses husky to add a hook to git, so it runs eslint and prettier before commiting every time.
 
-# Folder structure and usage
+## Folder structure and usage
 
-## Root Directories
+### Root Directories
 
 - **build**: Has the compiled code and it's prepared to work. This directory is removed and remade everytime you run "npm run build", so never put something that cannot be erased there.
 - **docs**: Contains the different docs (code and the testings).
-- **node_modules**: It's the standard node_modules folder for node JS.
+- **node_modules**: It's the standard node_modules folder for NodeJS.
 - **package_utils**: It contains some scripts we need at package config.
-- **dev**: Contains some utils needed to develop in the system.
+- **public**: It contains the primary HTML file and static files.
 - **src**: It contains the source of the package. It's the code to be compiled when you run "npm run build".
+- **src-sample**: It contains some functional examples on how to use the package.
 - **tests**: Contains all the different files what will be tested when you use "npm run test". Jest will look for all the files finishing with ".test.ts".
+- **tests-sample**: It contains the unit tests for the src-sample folder examples.
 
-## Root Files
+### Root Files
 
+- **.babelrc**: Contains the configuration for [babelrc](https://babeljs.io/docs/en/configuration).
+- **.browserslistrc**: Contains the queries for specify wich browsers should be supported in this frontend. [Browserslist queries](https://www.npmjs.com/package/browserslist#queries).
 - **.eslintrc.json**: Contains all the configuration for [eslintrc](https://eslint.org/docs/user-guide/configuring).
 - **.gitignore**: Contains all the files and directories that won't be upstreamed to git. How to configure: [gitignore](https://git-scm.com/docs/gitignore).
-- **.npmrc**: Contains how npm wil work. How to configure: [npmrc](https://docs.npmjs.com/configuring-npm/npmrc.html).
-- **.pretierrc**: Contains prettier configuration. How to configure: [prettierrc](https://prettier.io/docs/en/configuration.html)
+- **.npmrc**: Contains how npm will work. How to configure: [npmrc](https://docs.npmjs.com/configuring-npm/npmrc.html).
+- **.pretierrc**: Contains prettier configuration. How to configure: [prettierrc](https://prettier.io/docs/en/configuration.html).
+- **.stylelintrc.json**: Contains Stylelint configuration. How to configure: [stylelintrc](https://stylelint.io/user-guide/configure).
 - **CHANGELOG.md, LICENSE and README.md**: Standard files that have information about how to use the package (this file), the changes in each release and the license.
 - **jestconfig.json**: Contains Jest configuration. How to configure: [jestconfig](https://jestjs.io/docs/en/configuration).
 - **jesthtmlreporter.json**: Contains the configuration for the testings output files.
-- **package.json**: Node Package configuration. How to configure: [npm](https://docs.npmjs.com/creating-a-package-json-file).
+- **package.json**: NodeJS Package configuration. How to configure: [package.json](https://docs.npmjs.com/creating-a-package-json-file).
+- **postcss.config.js**: Contains the configuration for PostCSS. How to configure: [postcss.config](https://postcss.org/).
 - **tsconfig.json**: Contains TypeScript configuration. How to configure: [tsconfig](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
-- **typedoc.json**: Contains the typedoc configuration.
+- **typedoc.json**: Contains the TYPE DOC configuration. How to configure: [typedoc](https://typedoc.org/guides/options/).
+- **webpack.config**: Contains the webpack configuration. How to configure: [webpack.config](https://webpack.js.org/concepts/).
 
-// TODO: ADD WEBPACK, STYLELINT, ETC.
+### Files in /src
 
-## Files in /src
+- **index.tsx**: The compilation starts in this file. It imports the ReactDOM render method and renders the entire React application in a _div_ tag with an id called _root_. Also whitin the App component, Redux Provider component is rendered to have the global state available throughout the entire application.
+- **index.scss**: It contains the styles that are applied to the entire application.
 
-- **index.ts**: The compilation starts in this file. It imports the server and listens to a port. (It's outside the server to allow server.ts to be used in more than one port).
-- **server.ts**: File where the services starts, it creates the server and exports it.
-- **config.ts**: It controls and loads the different environment variables. It's a facade to have all the consts in the same place. It also erases the different contents, to prevent some dependency exporting them.
+### Directories in /src
 
-## Directories in /src
-
-- **api**: This directory contains the routes layer. It's only the API (it doesn't have a view) and the HTTP security.
 - **constants**: Contains all the application constants (configuration that doesn't depend on environment variables).
-- **controller**: Contains the bussiness logic layer. It's the part that executes what the app needs and interact with model.
-- **errors**: Contains all information related to error: error codes and the CodedError class.
+- **controller**: Contains the bussiness logic layer. It's the part that executes what the app needs and interact with the state.
 - **internationalizacion** Contains all the things needed to use the app in different languages (and also contains app strings).
-- **model**: Contains everything related to the application model layer. If it's related with data models or interaction with a database (like mongoDB or SQL), it should be here.
-- **services**: It contains third party services or other microservices. This directory should contain all interactions with other services API.
-- **utils**: Contains some utils, like the logger.
+- **scss**: Contains some SASS/CSS utils and variables needed in many parts of the app.
+- **services**: Contains calls to third party services or APIs. This directory should contain all interactions with any API.
+- **state**: Contains all related to Redux Toolkit state (features, storages, actions, etc.).
 - **types**: Contains all complex or reused types across the application.
+- **utils**: Contains some utils, like the axiosHelper.
+- **views**: Contains all related to React. All components of the application should be here.
 
-**Note**:
-As this is a service template, it doesn't have a view layer. It will only work as an API.
+## Guide
 
-# Guide
+### Starting
 
-## Starting
+To develop a frontend this template follows many code rules: ESLint, Prettier, the AirBnb guide, TypeScript, etc. But this is just for coding. The app design is harder, because we cannot have automated tools and we have to be very thoughtfull as we develop. Accessibility and SEO are also issues to consider.
+Here are the guides and recommendations we want to follow to build:
 
-To develop the service this template follows many code rules: eslint, prettier, the AirBnb guide, typescript, etc. But this is just for coding. The app design is harder, because we cannot have automated tools and we have to be very thoughtfull as we develop.
-Here are the guides we want to follow to build:
-
-- [The Twelve-Factor App](https://12factor.net/): This guide is very useful, as explains some things that are perfect for microservices building and it fits in a docker-compose ecosystem. If something in the app doesn't follow this guide, it's better to change the app design.
-- [Microservices best practices](https://www.nginx.com/blog/microservices-at-netflix-architectural-best-practices/): An nginx published article on how to do microservices based on Netflix architecture.
-- [API REST Guide](https://restfulapi.net/resource-naming/): This guide contains how an API REST should work. As this service works as an API REST, it must follow this guide.
-- [Security guidelines](https://medium.com/@nodepractices/were-under-attack-23-node-js-security-best-practices-e33c146cb87d): This publication has some of the main security practices in Node. There are SO MANY security practices to take into account.
+- [React and TypeScript](https://www.reactandtypescript.dev/): Here are some recommendations and examples for using React with TypeScript.
+- [React+TypeScript Cheatsheets](https://github.com/typescript-cheatsheets/react): Here is a cheatsheet with a lot of recommendations for using React with TypeScript.
+- [Accesibility](https://medium.com/salesforce-ux/7-things-every-designer-needs-to-know-about-accessibility-64f105f0881b): A medium post with 7 things to consider about accesibility
+- [Accesibility](https://adhithiravi.medium.com/web-accessibility-and-why-you-should-care-c8b436412ebd): Another medium post with some recommendations about accesibility.
+- [Frontend Checklist](https://frontendchecklist.io/): A checklist with a lot of recommendations for a frontend application. [Here](https://github.com/thedaviddias/Front-End-Checklist) is the Github repo for this checklist.
 - [OWASP](https://owasp.org/): This site contains a lot of information on security practices. It's updated very often, so it's good to keep an eye on it.
 
 You will find the template has some examples on how it could be used. You can delete the files or modify them to your needs.
 
-## Application configuration and environment
+### Application configuration
 
-The application starts at /src/index.ts. This script should start the server and expose the app.
-The app.ts file should start every service needed and end it gracefully. For example, if you need to connect to a database (vg: connect to mongoose), start some process (vg: cronjobs), set some configuration to a specific files (vg: some service configuration), it should be done here.
+The application starts at /src/index.tsx. Here the ReactDOM render method is imported and renders the entire React application in a _div_ tag with an id called _root_. Also whitin the App component, Redux Provider component is rendered to have the global state available throughout the entire application.
 
-So, application starts at:
+Constants will have configuration inside the app (mainly things that are used in many places, but they won't be modified from outside, like an specific route).
 
-- **index.ts**: Starts the server and listen to a port.
-- **app.ts**: Connects to database, set some main settings, notifies errors, gracefully stops services, etc.
-- **config.ts**: Gets the information from the environment and deletes it.
-- **constants/**: Contains all the app configuration settings and constants that do not depend on the environment (vg: paths, model names, etc.).
+**Note**: Some dependencies added in package.json, specially UI libraries, are not necessary. You can remove them if you want.
 
-You will see app.ts has this format:
+### Types
 
-```javascript
-start(){
-  // Connects to databases, etc.
-}
-end(){
-  // Grafecully stops services, closes databases, etc.
-}
-process.on('exit', end);
-start();
-```
-
-So, once you have this done, your app should start and end gracefully.
-Then, you must set how the databases or services will work. They should always be set from the environment (as databases or services depends on things outside the app, they should be configured in the environment.)
-You will have to store or get configuration from two places: constants and config.
-
-Constants will have configuration inside the app (mainly things that are used in many places, but they won't be modified from outside, like an specific URL for the API). In the other hand, config must get things from the environment, for example, database URLs.
-
-**How to know if a variable should be in the environment or in constants?**: If it's something you should want to configure from OUTSIDE the app, like the database host, credentials, services URLs, etc. it should be in the environment. If it's something you just want to have in some place to prevent magic numbers or strings, or the reuse the same value in different places, it should be in constants.
-
-**Why does it use config.ts instead of just using process.env?**: It's dangerous to have all the information inside process.env. If one of your dependencies, for example, is compromised and it sends a JSON.stringify(process.env) to some specific URL, someone could steal all your information. Also, it makes sure you have the environment variables you need. It requires all of them (or set a default) in the same place at the beggining, so you can control the app is starting with all the information it needs.
-
-**Note**: Some dependencies added in package.json, specially database drivers, are not necessary. You can remove them if you want.
-
-## Types
-
-The /types dir contains all the different types that could be reused in different parts of the application. For example, you might find a type (like UserType) that will be needed in model, controller and API layers, even in the /services dir. Also, you could find different files inside the same layer that use this type. It's not a good practice to rewrite this type in every file (if you have to modify something, you will have to do it in a lot of files), so it's better to have them in a specific dir.
+The /types dir contains all the different types that could be reused in different parts of the application. For example, you might find a type that will be needed in state, controller and views layers. Also, you could find different files inside the same layer that use this type. It's not a good practice to rewrite this type in every file (if you have to modify something, you will have to do it in a lot of files), so it's better to have them in a specific dir.
 
 **Some guides**:
 
 - If the type it's a TypeScript built-in, like "Record<string, string>", it's better NOT to include it in "types". The idea of /types it's to simplify TypeScript usage, not to have all the types in the same place.
-- If the type it's too layer specific, maybe it shouldn't be here, because you could reuse that type in another layer when you shouldn't. For example, mongoose types shouldn't be here, as you don't want a mongoose document type going through all the application. This would break concerns separation: if controller uses some model specific types, then model it's not a module, and you cannot replace without changing the controller layer too.
-- Layers should expose only types that DO NOT depend on specific tools. For example, model should convert all sequelize or mongoose database results to arrays and objects before exposing them.
+- If the type it's too layer specific, maybe it shouldn't be here, because you could reuse that type in another layer when you shouldn't. This would break concerns separation: if controller uses some state specific types, then state it's not a module, and you cannot replace without changing the controller layer too.
 
-## Errors
+### Errors
 
-If you have some error in the application, it's better to use another approach rather than just "throw new Error". Errors have two main parts: error codes (every error in the application should have an error code, like "API_METHOD_NOT_FOUND") and the class CodedError (an error that is raised with a code instead of a message).
+In a Frontend application, errors are usually not from the application, but from what an API call can return. For this, we recommend using an AxiosHelper for error handling. Then, you should develop the way the UI displays them.
 
-So everytime you have a new possible error, you should add it to error codes and throw it in the application with CodedError.
-
-**Why are error codes needed?**: Errors with messages have a description, but it cannot be used in other contexts. For example, if I consume a service and it returns an error with a message, I can only rethrow that error description or give a generic one. But if the error comes with a code, I can manage errors differently accoring to it, and I can also give my own error description. We also know errors support error codes natively, but in this way, you can use typescript to force code usage.
-
-**Why not use number codes?**: Error number codes are useful, but they do not have a meaning. It's easier to develop and manage an error called "API_METHOD_NOT_FOUND" than an error referenced with "3".
-
-## Internationalization
+### Internationalization
 
 If the app will be needed in more than one language, this directory comes to the rescue.
 Every app description or string that will be seen by the final user should be here. This way, you will find every text in the same place.
@@ -243,262 +194,107 @@ Also, internationalization lets you use more than one language. You can specify 
 
 So:
 
-- If the string can be seen by the user, like an error description, it should be added here.
-- If the string will only be seen by the developer or app crew, it's ok to have hard-coded descriptions in the code (like "Database not connected!").
+- If the string can be seen by the user, like a title, it should be added here.
 - Every string should be written in the default language, but you can also have more than one.
-- You can add error descriptions here by its code. For example, if the error is coded "API_METHOD_NOT_FOUND", you can use "API_METHOD_NOT_FOUND":"We cannot find the method you are looing for...".
+- You can add error descriptions here by its code. For example, if the error is coded "MEDIA_NOT_FOUND", you can use "MEDIA_NOT_FOUND": "We cannot find the media you are looking for...".
 
-## Model
+### State
 
-This layer works as a module to interact with data persistency. If something in the app must be persisted or includes a database, it should be here.
-Anyway, this layer should never be accessed directly (vg: the API using the model directly). If any part of the app needs to use it, it should access it through the controller layer. This is in order to prevent the model being accessed without control, and having a security layer on it (for example, if you need specific conditions on the bussiness logic to edit the model, this could be bypassed using the model directly).
+This layer works as a module to interact with the global application state. For state management we use Redux, specifically with Redux Toolkit, which is a much simpler way of writing Redux logic.
 
-The /model directory contains three main parts:
+Basically Redux Toolkit avoids separating Actions and Reducers, putting them together in a single place called Slices and another advantages such as allowing state mutability in reducers, a replacement of the createStore function, etc.
 
-- **db**: This dir contains database connections. For example, if you have to connect to mongo or sqlite, it contains mongoose or sequelize. All the model layer can have the database connection by this dir.
-- **orm**: It contains the different ORM data models. For example, if your app will need books, the model Book must be stablished here (as a sequelize.model or mongoose.model).
-- **actions**: Every action needed on the model (like CRUD actions, count, etc.) should be here. It works as an abstraction layer on ORM to modularize model. So, the main part to interact with the model should be in state/actions.
+This layer should never be accessed directly. If any part of the app needs to update the state, it should access it through the actions layer.
 
-Also, you will se a file:
+The /state directory contains three main parts:
 
-- **handleError**: Handles the model errors.
+- **features**: This dir contains different RTK Slices for different features of the app.
+- **actions**: Every action needed on the state should be here. It works as an abstraction layer on state. So, the main part to interact with the state should be in state/actions.
+- **storages**: It contains different methods to access to localStorage or sessionStorage.
 
-### Guide:
+Also, you will see two files:
 
-- If you need a database connection: SQL Server, SQLite, MariaDB, MongoDB, PostgreSQL, Redis, etc. It should be added to "db".
-- You should never use a raw query to database, unless it's the only option. Using raw queries make the layer too database dependent. For example, if you use a raw query for PostgreSQL, then you cannot change to SQLite without having to change that query.
-- Every interaction with the database should be done using "ORM". This abstraction layer prevents security issues and it's a lot tidier than raw queries.
-- All the model names and table/collection names must be in the /constants dir. Do NOT hardcode the model names or tables/collections. This is because we want to modify their names before testings.
+- **store.ts**: It exports the application store.
+- **index.ts**: It exports the application store, the storages and Redux actions.
 
-We should save each model table or collection name like:
+#### State guide
 
-```javascript
-MODEL:{
-  MY_MODEL:{
-    NAME: 'SomeModel',
-    TABLE_OR_COLLECTION_NAME: 'some_model',
-  }
-}
-```
+For Redux Toolkit usage we recommend to read the [official documentation](https://redux-toolkit.js.org/). Is good to know that any application feature that needs to be in the global state, is necessary add a representative-name file into a /features folder, where a Slice must be created that includes the name of the feature, the initial state and the corresponding reducers. Then the feature selector, all the actions and reducer should be exported.
 
-- The validation should be done INSIDE the ORM. Every ORM has validation methods, even including the possibility to add customs. Vg: [Mongoose](https://mongoosejs.com/docs/validation.html) and [Sequelize](https://sequelize.org/master/manual/validations-and-constraints.html) validation methods. If something will be rejected by the model, it should be rejected here, not in actions.
-- Every action on the model that the app will need should be added in "actions". The app should NEVER interact with the ORM if it's not through "actions".
-- The actions should not expose database specific types (like mongoose.Types.ObjectID or sequelize.Model). This layer must convert all these results to plain javascript objects before returning them. Otherwise, other parts of the app could be working with database specific types, making it impossible to change the model layer without editing other layers.
-- Specific database type declarations should be declared inside the "/model" and not inside "/types", in order to prevent this types flowing outside the model layer (and breaking separation of concerns).
-- The model layer should never be used directly. **Use the controller layer!!**
-- All the data must be controlled by the application. The model cannot rely in nothing outside the app (not even in database structure). Databases should be pluggable, and the application controls the data models.
-- Try to keep one service <-> one database. If you need to control more than one MariaDB, for example, it could mean you are not following a microservices design.
+To subscribe a component to a part of the application state, you must pass the feature selector as a parameter to the React-Redux useSelector hook. Then when the state is updated the view will also do it and vice versa.
 
-**Sometimes the controller layer just returns the model layer methods without any control. Why not using model actions directly?**: Using the model directly will let you modify the database without control. Model must be "dumb" and only know how to use database and validate models. If in the future you will need some rule like "do not modify the database in this condition", you cannot add it here, because you will be inserting bussiness logic things inside the model layer. And, if you access model directly in different parts of the app, you could forget one when you add the new rule and have some actions controlled and others not. It's better to have a "dumb" method in controller just passing the model layer method and add bussiness logic things there in the future, than having to control the model actions everywhere in the app.
+**Note**: It is important to note that non-serializable values should not be put in State or Actions. [Read more](https://redux.js.org/style-guide/style-guide#do-not-put-non-serializable-values-in-state-or-actions).
 
-**If I want the database to start with some information, can I do it outside the service?**: No. It the service need some starting information in the database, it should insert it itself at script starting. If something of the model relies in the database and not in the service, then if you want to change the database (vg: from mysql to postgresql), then you should modify the database container or database instead of the ORM dialect. It's harder. Databases should be pluggable, not having any information.
+We recommend to read the [Redux best practices post](https://redux.js.org/style-guide/style-guide).
 
-**Can the model interact with more than one database, vg 2 SQL databases?**: No. One service <-> One database.
+### Views
 
-### Error handling:
+All React components should be here only, not anywhere else. Inside the index.tsx file in this folder there must be the necessary React-Router components with their respective screens, which brings us to the /screens folder. Inside this you must put the different TSX files for each application screen.
 
-If you use sequelize or mongoose, you will se they have custom validations like:
+The /components folder contains all the application components. The best way to organize the components is to create a folder with the representative name of the component with Upper Camel Case as the naming convention. Inside each folder there should be an index.tsx file which contains the React component and an index.scss file which contains the component styles. For example, for a component called Counter, in another component or view it is imported as _~/views/components/Counter_, which makes the import more readable and less repetitive.
 
-```javascript
-  minlength: [30, 'Here your custom error'],
-```
+**Note**: It is important to note that everything related to React must only be in the /views folder, nowhere else.
 
-But these is not the error you will handle when you use catch(error).
+### Styling
 
-Both ORMS give complicated errors when they are thrown, so, in order to have a better error control (using it with a code, for example).
+For styling we decided to use SASS as a CSS Preprocessor. Inside the /scss folder should be CSS utils and variables like font sizes, media query values, colors, etc. that are needed in different parts of the application styles.
 
-- Sequelize throws errors as an array of objects like [error1, error2, error3], where each error has its message.
-- Mongoose throws errors as anmap of objects like {error1, error2, error3}, where each error has its message.
+### Controller
 
-So, to make easier the use of models, wherever you add or update something in a model (where the validation functions are used), you should use the **handleError.ts** file. This files controls the thrown error and returns a CodedError.
+This layer has the app bussiness logic. Whatever the app needs to do or execute, it should be done here. This is the intermediate between state layer and views layer.
 
-So, for example:
-
-```javascript
-import handleError from '~/state/handleError';
-
-// CODE...
-
-let result: Record<string, unknown>;
-try {
-  const newSomething = new SomethingModel.Sample({ someInfo });
-  await newSample.save();
-  result = newSample.toObject();
-} catch (error) {
-  return handleError(error);
-}
-return result;
-```
-
-With this method:
-
-- If the thrown error ir a coded error, it rethrows it.
-- If it's a sequelize or mongoose error, it takes the first error and throws a Coded Error with the message in its code.
-- If it's none of the previous cases, throws a not defined coded error.
-
-## Controller
-
-This layer has the app bussiness logic. Whatever the app needs to do or execute, it should be done here. For example, if the app were a book services app, and you have to add one, you should have here a books.add(book: Book) method. If your app just extract texts from files, here you must have the extractor.extract(file: File) method.
-
-This is obvious in methods that do NOT interact with the database. But if the method interact with the database, this layer must be used to access it, even if the methods have this format:
-
-```javascript
-controller.add(book){
-  return model.add(book);
-}
-```
-
-This is in order to prevent the model being accessed without control. Also, if in the future you need to add some bussiness logic rule to prevent database accessing, it can be added here (which is much tidier than inserting bussiness logic things in model layer).
-
-```javascript
-controller.add(book){
-  if (!canEditModel()){
-    return false;
-  }
-  return model.add(book);
-}
-```
-
-This is very important for consistency. If in the future you will have cronjobs, or you will be able to access it via CLI, a task from a quere, or an API consumption, etc., it would be dangerous to do it without business logic contol.
+This is in order to prevent the state being accessed without control. Also, if in the future you need to add some bussiness logic rule, it can be added here (which is much tidier than inserting bussiness logic things in state layer).
 
 **Guide**:
 
-- Every model (vg: userModel) should be accessed by one controller (userController). Avoid using more than one model by controller.
-- If a controller file needs more than one model, use the other controller to access it. Vg: if userController needs to know about permissions, do not access permissionModel directly, access permissionsController instead.
-- Do NOT add here API requests to other URLs or services. These should be added to /services directory, and controllers must use them.
+- Every state feature (vg: Counter) should be accessed by one controller (counterController). Avoid using more than one state feature by controller.
+- If a controller file needs more than one state feature, use the other controller to access it.
+- Do NOT add here API requests to other URLs. These should be added to /services directory, and controllers must use them.
 
-**Why can't a controller access more than one model?**: It's for separation of concerns. Imagine you want to add one new control over permissions. You intuitivelly will add it to permissionsController. If userController also has access to permissionModel, you might forget updating it when you need to change the module.
+### Services
 
-## API
-
-This directory handles the http requests. So this layer must:
-
-- Receive http requests.
-- Apply security control (even though the application should be behind a reverse proxy, it must have it's own security too).
-- Validate client input.
-- Executes whatever it's required (in the controller layer).
-- Returns the response.
-
-You will find main components inside this directory:
-
-**Files**:
-
-- **index.ts**: Receives the https and applies security controls: headers security (with helmet), prevent DDOS and brute force (with express-rate-limit and express-slow-down), returns documentation (with Swagger) and parses the JSON body (with body-parser).
-- **apiUtils.ts**: It contains some methods that could be used in every script inside the api layer, for example: it centralizes the error handling and success responses, saves information in req for other handlers to use and returns responses as files.
-- **auth.ts**: It contains JWT middleware, how to authenticate with this service and some role controls.
-- **routes.ts**: Contains the different routes the API has, like: "/users/{id}" or "/users/{id}permissions". It assign a handler function to every route it can use. It also controls errors and 404. Whenever you want to add a new API route, you must add in "routes" and add the handler in the "handlers" directory.
-
-**Directories**:
-
-- **swagger**: It contains the API documentation using OPEN API 3.0. You should add documentation here, using this: [OPEN API Specification](https://swagger.io/specification/).
-- **schemas**: It contains different JSON schemas that will be received by the client. API requests will be protected using the [ajv library](https://github.com/ajv-validator/ajv).
-- **handlers**: Has the different handlers for the different API requests. Any API method should have a handler.
-
-**Guides**:
-
-Everytime you add a new API, you should:
-
-1. Add a function handler for the request: it must always have (req, res, next). If one is missing, you are not handling the request correctly.
-2. Add the expected json schema in /schemas (add it to schemas/validations/paths and then in schemas/validations/index.ts). You can use: [JSON to Schema](https://www.liquid-technologies.com/online-json-to-schema-converter) to do the json schema.
-3. Validate user input using ajv with the expected schema.
-4. Do whatever you need in the API.
-5. Handle errors: errors should be handled with "next(error)", so express can control it.
-6. Return the result to the user.
-7. Document in /swagger the new API added.
-
-Every handler should look like this:
-
-```javascript
-// routes.ts
-api.post('/api/do-something', APIHandler);
-```
-
-```javascript
-// handlers/handler.ts
-import { Request, Response, NextFunction } from 'express';
-
-/**
- *  Some info about the handler.
- */
-async function APIHandler(req: Resquest, res: Response, next: NextFunction): Promise<boolean> {
-  let result;
-  try {
-    await schemas.validate(req.body, 'schemaName');
-    result = await controller.doSomething();
-  } catch (error) {
-    next(error);
-    return false;
-  }
-  return apiUtils.sendResponse(res, result);
-}
-```
-
-The API response should be something like:
-
-```javascript
-const succesResponse = {
-  success: true,
-  payload: {
-    whatever1: '',
-    whatever2: '',
-    whatever3: 1,
-  },
-};
-
-const errorResponse = {
-  success: false,
-  error: 'Some error description',
-  errorCode: 'ERROR_CODE',
-};
-```
-
-**Why all the routes in the same file?**: It's more tidy. You can see all the routes in the same place. Also, if you want to add some control in the middle, you can do it in this file. For example, if you need in the future to add some control, the routes should be like:
-
-```javascript
-api.get(ROUTES.SOME_METHOD, apiHandler.someMethod);
-
-api.all('*', controller.controlSomeThing);
-
-api.get(ROUTES.SOME_METHOD2, apiHandler.someMethod2);
-```
-
-**Security issues**: You can control the application security using tools like the [Mozilla Observatory](https://observatory.mozilla.org/). Also you can check security like SSL with (ssllab)[https://www.ssllabs.com/].
-
-## Services (how to use this and others with this template)
-
-This directory contains all the services consumed that do not depend on this service.
+This directory contains all the services consumed such as external APIs or backend application.
 By default, any request to other server or another service should be here.
-
-In general, the credentials to use these services should come from environment variables (for example, an API KEY or credential to use a third party service). This have to be this way because you want to plug and unplug services from outside this service itself.
 
 This template have a sample on how to use other services and also how to use this one, with this template response format. It works using the [axios](https://www.npmjs.com/package/axios) package.
 
 ```javascript
 const APIClient = axios.create({
-  baseURL: 'HERE THE URL' // Should come from an environment variable.
+  baseURL: 'HERE THE URL'
   timeout: 10000,
   headers: {
-    'X-API-KEY': 'SOME API KEY', // Algo from env, like CONFIG.SERVICES.SOME_SERVICE.API_KEY
+    'X-API-KEY': 'SOME API KEY',
+  },
+  params: {
+    some_param: 'SOME PARAM',
   },
 });
 ```
 
-Also, there's a file called "axiosHelper" which will help you handling axios responses.
+Also, in /utils dir you can find a file called "axiosHelper" which will help you handling axios responses.
 Axios is an awesome library but:
 
 - Take any status code different than 2xx as an error (not what we wanted in REST).
 - This errors have the response as an object and it's verbose to take that on every method.
-- It's very verbose to use with typescript (and you have to use "any").
+- It's very verbose to use with TypeScript (and you have to use "any").
 
 The file "axiosHelper" will help you get the response with the different information you need in this format, regardless of the status code:
 
 ```typescript
-type ServiceResponseType = {
+type axiosResponse = {
+  success: true;
   statusCode: number;
-  success: boolean;
-  errorCode?: string | undefined;
-  error?: string | undefined;
-  payload?: any;
+  payload: any;
+};
+
+type axiosError = {
+  success: false;
+  error: {
+    message: string;
+    code?: number;
+    url?: string;
+    method?: string;
+  };
 };
 ```
 
@@ -508,42 +304,36 @@ From now on, you can get the format you want like this:
   /**
    * Gets something.
    */
-  async getSomething(): Promise<string> {
+  async getSomething(): Promise<axiosResponse | axiosError> {
     const url = '/something';
     let result;
     try {
       const response = await APIClient.get(url);
-      result = axiosHelper.handleResponse(url, response);
+      result = axiosHelper.handleResponse(response);
     } catch (error) {
-      result = axiosHelper.handleError(url, error);
+      result = axiosHelper.handleError(error);
     }
-    if (!result.success) {
-      throw new CodedError('OTHER_SERVICE_ERROR', [], { response: result });
-    }
-    return result.payload;
+    return result;
   }
 };
 ```
 
 In both cases, if the response is valid (a JSON), it will return the object with that information.
 
-## Testing
+### Testing
 
-It's very important to add tests in order to know the service is working correctly.
-We will use Jest for that. It contains an extensive documentation on how to do it: [docs](https://jestjs.io/docs/en/getting-started).
+It's very important to add tests in order to know the application is working correctly.
+We will use Jest for that. It contains an extensive documentation on how to do it: [docs](https://jestjs.io/docs/en/getting-started). Also for React components tests, we use [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
 
-If we have time, it's always a good practice to have unit testing for everything and integration testing in your app/service.
-But, as we never have enough time, at least (worst scenario) there must be an API integration testing.
+If we have time, it's always a good practice to have unit testing for everything.
 
 All the tests are in the /tests directory with the suffix "test.ts". If they don't say ".test", they are not tested by Jest.
-Before any test, Jest will use the "prepareTests.js" script which should change all the models tables/collections for another name for testing.
+Before any test, Jest will use the "prepareTests.js" script.
 
-**Why changing model names?**: We don't want to mock, because if we want to test integration with databases, we want to use databases... Also, we don't want to destroy all the information in the testing databases. So, in order to test and keep the information stored outside tests at the same time, we create different collections and tables for testing and then we drop them, without using the collections with the original names. As the databases content and models should rely on application logic, it would be the same... If it's not, there's a problem with separation of concerns.
-
-### Unit testing
+#### Unit testing
 
 Unit testing is very simple when you have modules you want to test and they always return the same output.
-We should do unit testing for every module or script that do not use third party dependencies or other services (like a DB).
+We should do unit testing for every module or script that do not use third party dependencies or other services.
 The process is very simple and you can follow Jest documentation.
 
 ```javascript
@@ -558,101 +348,23 @@ Always remember:
 - Unit testing should test only ONE thing.
 - They should be stateless (always make sure the unit testing does not expect a previous state, or, if they do, they should initialize it inside the function).
 
-This documentation has nice good practices (for C#, bue they also apply for javascript): [docs](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices),
+This documentation has nice good practices (for C#, but they also apply for JavaScript): [docs](https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices),
 
-### Integration testing
+### Documentation
 
-#### Model
+We use two main tools to document the application: Jest HTML reporter for tests and TYPE DOC for code documentation.
 
-When the modules includes a data layer, you need an external service, mainly a database.
-We prefer testing with real databases, and not with mocks.
-Always remember the database should be stable and predictable for every test, so, it very important to:
-
-- Be sure you are in a testing database.
-- Create a new collection/table for every test (changing the model names achieves that, it's done in prepareTests.js).
-- Empty the database or initialize with the required data for every test.
-- Drop the collection/table after having finished.
-- Close the database.
-
-With Jest you can do it like:
-
-```javascript
-beforeAll(async () => {
-  await database.connect(URL);
-  await initializeData();
-});
-
-beforeEach(async () => dataBase.empty());
-// Or
-beforeEach(dataBase.empty);
-
-afterAll(async () => {
-  await dataBase.drop();
-  await dataBase.close();
-});
-```
-
-**Note**: As we change model names, it's very important to never hardcode or keep tables/collection names in a different part of the code.
-
-#### Other layers
-
-Other layers usually uses model layer, which means they interact with the database. So, when testing these modules, it's better to use a bottom -> up approach. It means, when you have tested the model layer, you can test upper layers, like controller, API, CLI, etc.
-
-As with the model, it's very important to remember connecting, starting, emptying and closing the database. Otherwise, you will finish your tests with connections opened.
-
-**Note**: Remember to run this tests "in band". Database must be predictable, so, if many tests runs at the same time, they can collide each other. It's better to run them one by one.
-
-#### Testing the API layer
-
-The API layer is the upper layer in this microservice. Testing them could include from the top layer to the bottom layer (maybe the model).
-We can use [supertest](https://www.npmjs.com/package/supertest) for this.
-
-It's very important to have some considerations using supertest:
-
-- Remember to import the application and not the server (we need the request handler, like "app = express()" and not the "server.listen()").
-- Be sure the application is working before sending them some requests to test (otherwise you will receive an internal server error). There are two scenarios you can find. First, the service can interact with a database or some external service that needs time, and you might send a request before it started. You can prevent that using the "started" event, so you can wait for that before starting tests
-
-```javascript
-decribe('Testing the api...' , () =>
-  beforeAll(async (done) => {
-    return new Promise(() => app.on('started', done));
-  });
-```
-
-In the other hand, you could have a service that starts pretty fast, because it doesn't have to wait for anything. In that case, waiting for the "started" event will block everything, because it will be already send when your tests start. If you are in the second case, do not wait for anything, just use the tester.
-
-- You must also remember closing the database connection when the tests are finished.
-- You must increase the Jest Timeout (because integration tests are slow, you can have a timeout before receiving the first response):
-
-```javascript
-jest.setTimeout(30000);
-```
-
-Remember that while unit testing should be small and concerned with business logic, integration testing can do more checking related to the database and other APIs working correctly.
-
-#### Testing with third party services or other microservices
-
-As we cannot test with production environments, we need to mock.
-There are many options to mock APIs, like: [proxyquire](https://www.npmjs.com/package/proxyquire).
-
-This way we can mock the API result and know our code works well.
-
-## Documentation
-
-We use three main tools to document the microservice: Jest HTML reporter, Swagger with OpenAPI 3.0 for APIs and Typedoc for code documentation.
-
-This template will generate three different folders for documentation in different times inside /docs.
+This template will generate two different folders for documentation in different times inside /docs.
 
 - **code**: It will be added running npm run generate-docs with typedoc.
 - **tests**: It will be added by Jest when the testings are finished and it gets the report.
-- **api**: It contains some files from the swagger UI. Its content is generated running "npm run generate-docs".
 
-### Testing documentation
+#### Testing documentation
 
 We use [Jest HTML Reporter](https://www.npmjs.com/package/jest-html-reporter) for document unit testing.
 Just do unit and integration testings and it will save the results in the specified file.
 
-### Code documentation with TypeDoc
+#### Code documentation with TypeDoc
 
 We use [TypeDoc](https://typedoc.org/). This documentation is done by using "npm run generate-docs". It reads file by file and generates a new documentation in "/docs". But in order to be tidy there must be some considerations:
 
@@ -703,180 +415,44 @@ class ExampleClass {
 - If the file is an index and it's just an access to other objects, it's better to put "@hidden" on it, because it could appear empty on the docs.
 - You can follow [TSDocs](https://github.com/microsoft/tsdoc) for notation.
 
-**Note**: It's a good practice to watch documentation often, so you will see what the outpu is.
+**Note**: It's a good practice to watch documentation often, so you will see what the output is.
 
-### Swagger
+### Developing the application
 
-Considering this is a microservice, it's very important to have the API docs. Swagger is a very nice tool that lets you use a very intuitive doc online based on a YAML/JSON. It also provides a very nice platform that shows you the results in real time.
-
-To use it for this microservice:
-
-1. Add an API request.
-2. Open the file src/api/swagger/swagger.yml
-3. Read the docs on how to edit this: [docs](https://swagger.io/docs/specification/about/).
-4. Copy the content in the swagger editor: [editor](https://editor.swagger.io). It's very nice, it shows you the result in real time and also shows where the errors are.
-5. If you want to use some code variable (like, ERROR_CODES.NOT_FOUND, ROUTES... etc.), use it like "\${ERROR_CODES.NOT_FOUND}". The system will replace them in runtime.
-
-```yaml
-openapi: 3.0.0
-info: ...
-paths:
-  '${ROUTES.MONGO.SAMPLE}': ...
-```
-
-6. When you finish, copy and paste it again in src/api/swagger/swagger.yml.
-7. Check it's OK in your-site.com/docs.
-
-You will see paths in Express are like "/path/:param1/:param2/something" and in Swagger they are like "/path/{param1}/{param2}/something". Don't worry, the method "npm run generate-docs" will change them for you before making the final swagger docs.
-
-**Note**: Maybe in the online editor you will find some errors about the structure. If you use "\${ROUTES.SOME.PATH}" it will say it's an invalid format. It's normal, it will be replaced at running npm run generate-docs.
-
-## Developing the service
-
-This template is written in typescript, which means it has to be compiled before running.
+This template is written in TypeScript, which means it has to be compiled before running.
 There's a tool that hot reloads the new code and compiles the modified files in real time, so you don't have to wait for an entire compilation before developing new things. This template uses a package calles "tsc-watch", which uses tsc with "watch" mode.
 
-When running "npm run dev", the package does this 3 things:
+When running "npm run dev", the package basically gets the webpack dev server up and allows access through the same device with which it's being used to develop and any other device that is connected to the same network.
 
-- Cleans the /build dir.
-- Copies the files that aren't copied by the typescript compiler.
-- Compiles the code and keeps watching for changes to recompile those files.
-
-This way, it's possible to change code in the typescript files and see the changes in real time.
+This way, it's possible to change code in the TypeScript files and see the changes in real time.
 
 But, this system is not perfect, and it can fail in some scenarios, in which you should run "npm run dev" again:
 
-- If you add files that are not ".ts": the "watch" mode only looks for javascript/typescript files, so it will ignore other files.
+- If you add files that are not ".ts" or ".tsx": the "watch" mode only looks for JavaScript/TypeScript files, so it will ignore other files.
 - If you change files names: it compiles files with the new name, but it won't delete the compiled file with the previous name, so both will exist.
-- If you change a file for a folder. For example, "script.ts" now will be "script/index.ts". The copiler will create "script/index.js" without deleting "script.js" so they both will exist. It will fail in runtime because it will load the old "script.js" instead of the new "script" dir.
+- If you change a file for a folder. For example, "script.ts" now will be "script/index.ts". The compiler will create "script/index.js" without deleting "script.js" so they both will exist. It will fail in runtime because it will load the old "script.js" instead of the new "script" dir.
 
-## Authentication, authorization and permissions
+### Authentication and security recommendations
 
-The system MUST have an authentication/authorization system, for security reasons. Otherwise, it could be used by anyone.
-It has two options: JWT or API KEY, and it can be configured in the environment variables.
+Following the [OWASP](https://owasp.org/) guidelines, it is not recommended to store access tokens or any sensitive information in LocalStorage or SessionStorage, mainly because they are accessible through JavaScript by XSS attack.
 
-### API KEY
+Here are some recommendations from OWASP and a Medium post that explain why you should store access tokens and sensitive information in cookies with httpOnly flag instead of LocalStorage/SessionStorage.
 
-This system is the best option if the service:
+- [OWASP cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#local-storage)
+- [Medium post](https://coolgk.medium.com/localstorage-vs-cookie-for-jwt-access-token-war-in-short-943fb23239ca)
 
-- Doesn't need specific controls for methods. Every method can be used by any client.
-- Won't be reached by users. If an user will use this service, it's better to authenticate with a JWT, not with API key. These are better for service-to-service communications.
-- Will only be consumed by other services.
-
-If you choose API KEY, you must set the API_KEY in the environment variable. Then, every request should send the API key in the header like:
-
-```
-X-API-KEY: here-the-very-long-api-key-for-security-reasons.
-```
-
-This way, the system rejects not authenticated consumers.
-
-### JWT
-
-Docs abouts JWT: [JWT](https://jwt.io).
-This system is the best option if the service:
-
-- Has specific permissions for specific users.
-- There must be a specific control on every or some methods.
-- Can be reached by users (otherwise, if you have an attack or you need control, you can't know who it is!).
-
-If you choose JWT, you must also set the JWT_SECRET and the JWT_ALGORITHM (HS256, HS512, etc.).
-
-If you use JWT, the most probable scenario is that you are behind an API Gateway that uses another service or signs itself the user identity.
-In this case, this service will receive a header like:
-
-```
-Authorization: Bearer here.the.JWT
-```
-
-The service can open the JWT if it has the same algorithm and secret that the signer. This means that if you have another service that signs the JWT (probably a users/permissions microservice), you will need those environment variables for this microservice too.
-
-#### JWT permissions and roles
-
-There are many ways to control permissions. Maybe you want to control all the access in the Gateway. Maybe you want to control the roles in the service.
-
-In case you want the service itself to control permissions and roles (and not another service like the API Gateway), you can do it with this guide:
-
-If you choose JWT, it's a standard to set the user roles in an array in the JWT payload, like:
-
-```javascript
-{
-  "user":"some-user-id",
-  "mail":"mail@mail.com",
-  "role":["SOME_ROLE","OTHER_ROLE","ANOTHER_ROLE"]
-}
-```
-
-This allows you to control every user and its permissions by just looking at "role".
-If you have a more complicated permissions system, maybe you will need to consume another service that returns true or false.
-
-There are two methods in auth that will help you:
-
-**auth.hasAnyRole** will let you control everywhere if the user has one of the specific roles:
-
-```javascript
-someMethod(req: Request, res: Response, next: NextFunction){
-  const allowedRoles = ['USER', 'ADMIN', 'GOD'];
-  if (!auth.hasAnyRole(req, allowedRoles){
-    // Throw error with next(error) because he/she can't do this.
-  }
-}
-```
-
-**auth.stopRequestsWithoutAnyRole** will let you control from a specific point in the router to prevent not allowed users. It uses the hasAnyRole method but for every request, and returns NOT AUTHORIZED error if it's not allowed:
-
-```javascript
-router.get('/something', something);
-router.get('/other-something', something2);
-
-const allowedRoles = ['USER', 'ADMIN', 'GOD'];
-router.use(auth.stopRequestsWithoutAnyRole(allowedRoles))
-
-router.get('/protected-method', something3);
-router.post('/another-protected-method', something4);
-}
-```
-
-### Some recommendations
-
-In order to have a secure authentication/authorization:
-
-- JWT secrets and API keys should be long. You can use tools like: [Password Generator](https://passwordsgenerator.net/). Otherwise they could be broken by a brute force attack.
-- Secrets and API Keys should be changed "frequently". Every some weeks (not everyday).
-- If you have an user system, you should have a Gateway that prevents the usage of revoked tokens (to allow logout, ban users, etc.). All that stuff should be done in the gateway with an users service.
-
-## Security
-
-Even though this system should work behind an API Gateway, reverse proxy, etc., everything inside the app (all the services) should be protected.
-Some things to take into account:
-
-- The system can be used without SSL, but it's not recommended (if someone enters to the network, will see the messages sent between services).
-- The service MUST use an authentication system (otherwise, if it's exposed, anyone could use it!). That's why it uses JWT or API KEY.
-- The system should ALWAYS use a rate limiter and a slowdown limiter. It can be very high, but it must exist (to prevent a DOS attack).
-
-By default, this system has a very high rate limit and slow down limit. You should change them in /constants/security according to this system chracteristics.
-
-# Scripts
+### Scripts
 
 You can use the following commands:
 | Command | Description |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | npm run \_clean | Deletes the /build dir. |
-| npm run \_copy-files | Copy all the files that will not be copied by tsc from /src to /build. |
-| npm run \_control | Runs lint, format and test. |
-| npm run install-globals | Installs globally dependencies like eslint and prettier. I know globals are bad, but this way you can use the scripts in any OS (if you use windows, these scripts will work with this). |
-| rpm run lint | Runs eslint in the /src directory. |
+| npm run \_control | Runs lint, format and unit tests. |
+| rpm run lint | Runs eslint and stylelint in the /src directory. |
 | npm run format | Runs prettier in the /src directory. |
-| npm run dev | Compiles the TypeScript project and watches for TypeScript differences (only wacthes TypeScript files since the first compile!). |
 | npm run test:unit | Runs Jest for all the test in the /tests/unit directory. |
 | npm run test:integration | Runs Jest for all the test in the /tests/integration directory. |
+| npm run dev | Gets the webpack dev server up. |
 | npm run compile | Compiles all the files in the /src directory to the /build directory. Also it copies all the files. |
 | npm run build | Runs npm run lint, format, test, compile and generate docs. |
-| npm run start | Starts the script with node loading the environment variables from the .env file. |
-| npm run pm2 | Starts the script with pm2, loading the variables from the .env file. |
-| npm run start-from-docker | Starts the script considering it comes from docker. |
 | npm run generate-docs | Generate the docs once the code is running. |
-
-# License
-
-MIT © [Matías Puig](https://www.github.com/matipuig)
