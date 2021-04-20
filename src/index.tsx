@@ -14,15 +14,13 @@ import store from '~/state/store';
 import './index.scss';
 import Views from './views';
 
-const App = () => {
-  return (
-    <Provider store={store}>
-      <StrictMode>
-        <Views />
-      </StrictMode>
-    </Provider>
-  );
-};
+const App = () => (
+  <Provider store={store}>
+    <StrictMode>
+      <Views />
+    </StrictMode>
+  </Provider>
+);
 
 /**
  * Starts the app.

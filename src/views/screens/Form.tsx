@@ -7,8 +7,6 @@
 import React from 'react';
 import FormComponent from '~/views/components/Form';
 
-const FormScreen = (): JSX.Element => {
-  return <FormComponent />;
-};
+const FormScreen = (): JSX.Element => <FormComponent />;
 
 export default FormScreen;

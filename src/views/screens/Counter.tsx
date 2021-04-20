@@ -7,8 +7,6 @@
 import React from 'react';
 import Counter from '~/views/components/Counter';
 
-const CounterScreen = (): JSX.Element => {
-  return <Counter />;
-};
+const CounterScreen = (): JSX.Element => <Counter />;
 
 export default CounterScreen;
