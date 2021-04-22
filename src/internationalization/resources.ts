@@ -42,6 +42,7 @@ const resources = {
       NASAAPOD_MEDIA_NOT_FOUND: 'Imagen o video no encontrados',
 
       // FORM SCREEN
+      FORM_TITLE: 'Formulario',
       FORM_REQUIRED: 'Requerido',
       FORM_EMAIL: 'Email',
       FORM_EMAIL_REQUIRED: 'El email es obligatorio',
@@ -103,6 +104,7 @@ const resources = {
       NASAAPOD_MEDIA_NOT_FOUND: 'Image or video not found',
 
       // FORM SCREEN
+      FORM_TITLE: 'Form',
       FORM_REQUIRED: 'Required',
       FORM_EMAIL: 'Email',
       FORM_EMAIL_REQUIRED: 'Email is required',
