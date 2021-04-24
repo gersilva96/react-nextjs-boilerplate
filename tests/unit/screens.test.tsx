@@ -58,14 +58,15 @@ describe('NasaApod Screen', () => {
     );
     expect(screen.getByTestId('nasaapod-container')).toBeInTheDocument();
   });
+});
 
-  describe('Form Screen', () => {
-    it('should render correctly', () => {
-      render(
-        <Provider store={store}>
-          <FormScreen />
-        </Provider>,
-      );
-      expect(screen.getByTestId('form-container')).toBeInTheDocument();
-    });
+describe('Form Screen', () => {
+  it('should render correctly', () => {
+    render(
+      <Provider store={store}>
+        <FormScreen />
+      </Provider>,
+    );
+    expect(screen.getByTestId('form-container')).toBeInTheDocument();
+  });
 });
