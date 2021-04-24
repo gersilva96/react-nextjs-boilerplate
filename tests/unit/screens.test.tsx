@@ -14,6 +14,7 @@ import MainScreen from '../../src/views/screens/Main';
 import CounterScreen from '../../src/views/screens/Counter';
 import TODOsScreen from '../../src/views/screens/TODOs';
 import NasaApodScreen from '../../src/views/screens/NasaApod';
+import FormScreen from '../../src/views/screens/Form';
 
 describe('Main Screen', () => {
   it('should render correctly', () => {
@@ -57,4 +58,14 @@ describe('NasaApod Screen', () => {
     );
     expect(screen.getByTestId('nasaapod-container')).toBeInTheDocument();
   });
+
+  describe('Form Screen', () => {
+    it('should render correctly', () => {
+      render(
+        <Provider store={store}>
+          <FormScreen />
+        </Provider>,
+      );
+      expect(screen.getByTestId('form-container')).toBeInTheDocument();
+    });
 });

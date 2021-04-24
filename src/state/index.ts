@@ -7,6 +7,7 @@
 import counterActions from './actions/counter';
 import todosActions from './actions/todos';
 import nasaApodActions from './actions/nasaApod';
+import formActions from './actions/form';
 import tmpStorages from './storages';
 
 import reduxStore from './store';
@@ -14,6 +15,7 @@ import reduxStore from './store';
 export const counter = counterActions;
 export const todos = todosActions;
 export const nasaApod = nasaApodActions;
+export const form = formActions;
 export const store = reduxStore;
 export const storages = tmpStorages;
 
@@ -36,6 +38,11 @@ const actions = {
    * NasaApod actions.
    */
   nasaApod,
+
+  /**
+   * Form actions.
+   */
+  form,
 };
 
 export default { actions, storages, store };

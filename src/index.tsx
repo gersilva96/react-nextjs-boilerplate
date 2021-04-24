@@ -8,7 +8,8 @@ import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 
-import todos from './controller/todos';
+import todosController from './controller/todos';
+import formController from './controller/form';
 import store from '~/state/store';
 
 import './index.scss';
@@ -29,7 +30,8 @@ const start = async function start() {
   // TODO: Can do something async here.
 
   // TODO: Initialization of the app.
-  todos.getFromLocalStorage();
+  todosController.getFromLocalStorage();
+  formController.getMostUsedWordsFromLocalStorage();
 
   ReactDOM.render(<App />, document.getElementById('root'));
 };

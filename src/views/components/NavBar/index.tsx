@@ -61,11 +61,6 @@ const NavBar = (): JSX.Element => {
                 {i18n.get('NAVIGATION_FORM')}
               </Button>
             </Link>
-            <Link className={styles.navButton} to={ROUTES.FORMIK}>
-              <Button color="primary" size="large" variant="contained">
-                FORMIK
-              </Button>
-            </Link>
           </div>
         </div>
       </SwipeableDrawer>
@@ -107,11 +102,6 @@ const NavBar = (): JSX.Element => {
             <Link className={styles.navButton} to={ROUTES.FORM}>
               <Button color="inherit" size="large" variant="text">
                 {i18n.get('NAVIGATION_FORM')}
-              </Button>
-            </Link>
-            <Link className={styles.navButton} to={ROUTES.FORMIK}>
-              <Button color="inherit" size="large" variant="text">
-                FORMIK
               </Button>
             </Link>
           </div>
