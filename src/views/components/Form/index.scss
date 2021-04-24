@@ -4,10 +4,10 @@
 @use 'scss/variables/mediaQuerySizes' as mediaQuerySizes;
 
 .mainContainer {
-  padding-top: 50px;
-  @include containers.center-horizontal;
   max-width: 400px;
   min-width: 300px;
+  padding-top: 50px;
+  @include containers.center-horizontal;
 
   .container {
     margin-top: 40px;
