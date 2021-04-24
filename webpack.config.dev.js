@@ -13,7 +13,6 @@ module.exports = {
   },
   mode: 'development',
   devtool: 'inline-source-map',
-
   module: {
     rules: [
       {
@@ -53,7 +52,6 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
-              // Prefer `dart-sass`
               implementation: sass,
               sassOptions: { includePaths: [srcPath] },
             },
@@ -66,6 +64,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public', 'index.html'),
       favicon: path.resolve(__dirname, 'public', 'images', 'favicon.png'),
+      inject: 'body',
     }),
   ],
   devServer: {

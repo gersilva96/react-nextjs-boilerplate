@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 const sass = require('sass');
 
@@ -17,16 +18,17 @@ module.exports = {
       {
         test: /\.(j|t)sx?/i,
         exclude: /node_modules/,
-        use: { loader: 'ts-loader' },
+        use: { loader: 'ts-loader', options: { sourceMap: true } },
       },
       {
         test: /\.css$/i,
         use: [
-          'style-loader',
+          { loader: 'style-loader' },
           {
             loader: 'css-loader',
             options: {
               modules: true,
+              sourceMap: false,
             },
           },
         ],
@@ -39,13 +41,17 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: true,
+              sourceMap: false,
             },
           },
-          'postcss-loader',
+          {
+            loader: 'postcss-loader',
+            options: { sourceMap: false },
+          },
           {
             loader: 'sass-loader',
             options: {
-              // Prefer `dart-sass`
+              sourceMap: false,
               implementation: sass,
               sassOptions: { includePaths: [srcPath] },
             },
@@ -54,6 +60,13 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'public', 'index.html'),
+      favicon: path.resolve(__dirname, 'public', 'images', 'favicon.png'),
+      inject: 'body',
+    }),
+  ],
   resolve: {
     alias: {
       '~': srcPath,
