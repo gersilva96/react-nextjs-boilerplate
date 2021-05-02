@@ -7,6 +7,8 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import MomentUtils from '@date-io/moment';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 
 import todosController from './controller/todos';
 import formController from './controller/form';
@@ -18,7 +20,9 @@ import Views from './views';
 const App = () => (
   <Provider store={store}>
     <StrictMode>
-      <Views />
+      <MuiPickersUtilsProvider utils={MomentUtils}>
+        <Views />
+      </MuiPickersUtilsProvider>
     </StrictMode>
   </Provider>
 );
