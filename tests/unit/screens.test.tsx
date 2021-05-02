@@ -7,6 +7,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
+import MomentUtils from '@date-io/moment';
+import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import '@testing-library/jest-dom/extend-expect';
 import i18n from '../../src/internationalization';
 import { store } from '../../src/state';
@@ -53,7 +55,9 @@ describe('NasaApod Screen', () => {
   it('should render correctly', () => {
     render(
       <Provider store={store}>
-        <NasaApodScreen />
+        <MuiPickersUtilsProvider utils={MomentUtils}>
+          <NasaApodScreen />
+        </MuiPickersUtilsProvider>
       </Provider>,
     );
     expect(screen.getByTestId('nasaapod-container')).toBeInTheDocument();
@@ -64,7 +68,9 @@ describe('Form Screen', () => {
   it('should render correctly', () => {
     render(
       <Provider store={store}>
-        <FormScreen />
+        <MuiPickersUtilsProvider utils={MomentUtils}>
+          <FormScreen />
+        </MuiPickersUtilsProvider>
       </Provider>,
     );
     expect(screen.getByTestId('form-container')).toBeInTheDocument();
