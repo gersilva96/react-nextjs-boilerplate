@@ -29,7 +29,6 @@ import {
   Grid,
 } from '@material-ui/core';
 import {
-  MuiPickersUtilsProvider,
   KeyboardDatePicker,
   KeyboardTimePicker,
   KeyboardDateTimePicker,
@@ -43,13 +42,12 @@ import {
 } from '@material-ui/icons';
 import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
 import moment from 'moment';
-import DateFnsAdapter from '@date-io/date-fns';
 import Swal from 'sweetalert2';
 import { noop } from 'lodash';
 import { useSelector } from 'react-redux';
 import { formSelector } from '~/state/features/formSlice';
 import formController from '~/controller/form';
-import { WordsOptionType, ItemListType, FormValuesType } from '~/types/form';
+import { WordsOptionType, ItemListType, FormValuesType, SetFieldValueType } from '~/types/form';
 import i18n from '~/internationalization';
 import styles from './index.scss';
 
@@ -132,6 +130,7 @@ const initialValues: FormValuesType = {
   datetime: moment().format('DD/MM/YYYY HH:mm'),
   include: [],
   itemsList: [emptyItemList],
+  rememberme: false,
 };
 
 const FormComponent = (): JSX.Element => {
@@ -147,22 +146,25 @@ const FormComponent = (): JSX.Element => {
     setShowingPassword(!showingPassword);
   };
 
-  const handleDateChange = (dateToChange: Date | null, setFieldValue: any) => {
+  const handleDateChange = (dateToChange: any, setFieldValue: SetFieldValueType) => {
     setDate(dateToChange);
     setFieldValue('date', moment(dateToChange).format('DD/MM/YYYY'), true);
   };
 
-  const handleTimeChange = (timeToChange: Date | null, setFieldValue: any) => {
+  const handleTimeChange = (timeToChange: any, setFieldValue: SetFieldValueType) => {
     setTime(timeToChange);
     setFieldValue('time', moment(timeToChange).format('HH:mm'), true);
   };
 
-  const handleDateTimeChange = (dateTimeToChange: Date | null, setFieldValue: any) => {
+  const handleDateTimeChange = (dateTimeToChange: any, setFieldValue: SetFieldValueType) => {
     setDateTime(dateTimeToChange);
     setFieldValue('datetime', moment(dateTimeToChange).format('DD/MM/YYYY HH:mm'), true);
   };
 
-  const handleIncludeChange = (includeArray: (WordsOptionType | string)[], setFieldValue: any) => {
+  const handleIncludeChange = (
+    includeArray: (WordsOptionType | string)[],
+    setFieldValue: SetFieldValueType,
+  ) => {
     const includeWords = includeArray.map((word) => {
       if (typeof word === 'string') {
         return word;
@@ -430,91 +432,89 @@ const FormComponent = (): JSX.Element => {
                   <FormLabel className={styles.formLabel}>
                     {i18n.get('FORM_DATE_AND_TIME_PICKERS_LABEL')}
                   </FormLabel>
-                  <MuiPickersUtilsProvider utils={DateFnsAdapter}>
-                    <Field
-                      id="date"
-                      name="date"
-                      validate={(value: string) => validationFunction('date', value)}
-                    >
-                      {({ field, meta }: FieldProps) => (
-                        <Fragment>
-                          <KeyboardDatePicker
-                            {...field}
-                            className={styles.formElement}
-                            inputVariant="outlined"
-                            invalidDateMessage={meta.error}
-                            variant="dialog"
-                            format="dd/MM/yyyy"
-                            id="datepicker"
-                            label={i18n.get('FORM_DATE_PICKER_LABEL')}
-                            value={date}
-                            onChange={(fecha) => {
-                              handleDateChange(fecha, setFieldValue);
-                            }}
-                            KeyboardButtonProps={{
-                              'aria-label': 'change date',
-                            }}
-                          />
-                        </Fragment>
-                      )}
-                    </Field>
-                    <Field
-                      id="time"
-                      name="time"
-                      validate={(value: string) => validationFunction('time', value)}
-                    >
-                      {({ field, meta }: FieldProps) => (
-                        <Fragment>
-                          <KeyboardTimePicker
-                            {...field}
-                            className={styles.formElement}
-                            ampm={false}
-                            inputVariant="outlined"
-                            invalidDateMessage={meta.error}
-                            variant="dialog"
-                            format="HH:mm"
-                            id="timepicker"
-                            label={i18n.get('FORM_TIME_PICKER_LABEL')}
-                            value={time}
-                            onChange={(hora) => {
-                              handleTimeChange(hora, setFieldValue);
-                            }}
-                            KeyboardButtonProps={{
-                              'aria-label': 'change time',
-                            }}
-                          />
-                        </Fragment>
-                      )}
-                    </Field>
-                    <Field
-                      id="datetime"
-                      name="datetime"
-                      validate={(value: string) => validationFunction('datetime', value)}
-                    >
-                      {({ field, meta }: FieldProps) => (
-                        <Fragment>
-                          <KeyboardDateTimePicker
-                            {...field}
-                            className={styles.formElement}
-                            ampm={false}
-                            inputVariant="outlined"
-                            invalidDateMessage={meta.error}
-                            variant="dialog"
-                            format="dd/MM/yyyy HH:mm"
-                            id="datetimepicker"
-                            label={i18n.get('FORM_DATETIME_PICKER_LABEL')}
-                            value={dateTime}
-                            onChange={(fechahora) => {
-                              handleDateTimeChange(fechahora, setFieldValue);
-                            }}
-                            KeyboardButtonProps={{
-                              'aria-label': 'change datetime',
-                            }}
-                          />
-                        </Fragment>
-                      )}
-                    </Field>
-                  </MuiPickersUtilsProvider>
+                  <Field
+                    id="date"
+                    name="date"
+                    validate={(value: string) => validationFunction('date', value)}
+                  >
+                    {({ field, meta }: FieldProps) => (
+                      <Fragment>
+                        <KeyboardDatePicker
+                          {...field}
+                          className={styles.formElement}
+                          inputVariant="outlined"
+                          invalidDateMessage={meta.error}
+                          variant="dialog"
+                          format="DD/MM/yyyy"
+                          id="datepicker"
+                          label={i18n.get('FORM_DATE_PICKER_LABEL')}
+                          value={date}
+                          onChange={(fecha) => {
+                            handleDateChange(fecha, setFieldValue);
+                          }}
+                          KeyboardButtonProps={{
+                            'aria-label': 'change date',
+                          }}
+                        />
+                      </Fragment>
+                    )}
+                  </Field>
+                  <Field
+                    id="time"
+                    name="time"
+                    validate={(value: string) => validationFunction('time', value)}
+                  >
+                    {({ field, meta }: FieldProps) => (
+                      <Fragment>
+                        <KeyboardTimePicker
+                          {...field}
+                          className={styles.formElement}
+                          ampm={false}
+                          inputVariant="outlined"
+                          invalidDateMessage={meta.error}
+                          variant="dialog"
+                          format="HH:mm"
+                          id="timepicker"
+                          label={i18n.get('FORM_TIME_PICKER_LABEL')}
+                          value={time}
+                          onChange={(hora) => {
+                            handleTimeChange(hora, setFieldValue);
+                          }}
+                          KeyboardButtonProps={{
+                            'aria-label': 'change time',
+                          }}
+                        />
+                      </Fragment>
+                    )}
+                  </Field>
+                  <Field
+                    id="datetime"
+                    name="datetime"
+                    validate={(value: string) => validationFunction('datetime', value)}
+                  >
+                    {({ field, meta }: FieldProps) => (
+                      <Fragment>
+                        <KeyboardDateTimePicker
+                          {...field}
+                          className={styles.formElement}
+                          ampm={false}
+                          inputVariant="outlined"
+                          invalidDateMessage={meta.error}
+                          variant="dialog"
+                          format="DD/MM/yyyy HH:mm"
+                          id="datetimepicker"
+                          label={i18n.get('FORM_DATETIME_PICKER_LABEL')}
+                          value={dateTime}
+                          onChange={(fechahora) => {
+                            handleDateTimeChange(fechahora, setFieldValue);
+                          }}
+                          KeyboardButtonProps={{
+                            'aria-label': 'change datetime',
+                          }}
+                        />
+                      </Fragment>
+                    )}
+                  </Field>
                 </FormControl>
                 <FormControl className={styles.formBox}>
                   <Field id="include" name="include">
@@ -530,6 +530,7 @@ const FormComponent = (): JSX.Element => {
                           noop(e);
                           handleIncludeChange(includeArray, setFieldValue);
                         }}
+                        ChipProps={{ color: 'primary' }}
                         getOptionLabel={(option) => {
                           // Value selected with enter, right from the input
                           if (typeof option === 'string') {
