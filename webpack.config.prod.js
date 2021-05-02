@@ -9,16 +9,21 @@ module.exports = {
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'index.js',
+    filename: '[name].js',
   },
   mode: 'production',
-
+  devtool: false,
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
   module: {
     rules: [
       {
         test: /\.(j|t)sx?/i,
         exclude: /node_modules/,
-        use: { loader: 'ts-loader', options: { sourceMap: true } },
+        use: { loader: 'ts-loader' },
       },
       {
         test: /\.css$/i,
