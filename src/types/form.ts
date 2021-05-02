@@ -25,4 +25,7 @@ export type FormValuesType = {
   datetime: string;
   include: string[];
   itemsList: ItemListType[];
+  rememberme: boolean;
 };
+
+export type SetFieldValueType = (field: string, value: unknown, shouldValidate?: boolean) => void;
