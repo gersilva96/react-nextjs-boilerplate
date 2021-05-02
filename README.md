@@ -6,6 +6,7 @@
 - [React Front Template](#react-front-template)
 - [Tools](#tools)
   - [TypeScript](#typescript)
+  - [Redux](#redux)
   - [ESLint](#eslint)
   - [Stylelint](#stylelint)
   - [Prettier](#prettier)
@@ -25,6 +26,7 @@
   - [State](#state)
     - [State guide](#state-guide)
   - [Views](#views)
+    - [Form control](#form-control)
   - [Styling](#styling)
   - [Controller](#controller)
   - [Services](#services)
@@ -58,7 +60,7 @@ Read the docs: [Typescript docs](https://www.typescriptlang.org/).
 
 For state management. With Redux Toolkit (official recommended approach for writing Redux logic), which wraps around the Redux core, and contains packages and functions that are essential for building a Redux app.
 
-Read the docs: [Redux docs](https://redux.js.org/), [Redux Toolkit docs](https://redux-toolkit.js.org/).
+Read the docs: [Redux docs](https://redux.js.org/), [Redux Toolkit docs](https://redux-toolkit.js.org/), [React Redux](https://react-redux.js.org/).
 
 ### Eslint
 
@@ -161,6 +163,7 @@ Here are the guides and recommendations we want to follow to build:
 - [Accesibility](https://medium.com/salesforce-ux/7-things-every-designer-needs-to-know-about-accessibility-64f105f0881b): A medium post with 7 things to consider about accesibility
 - [Accesibility](https://adhithiravi.medium.com/web-accessibility-and-why-you-should-care-c8b436412ebd): Another medium post with some recommendations about accesibility.
 - [Frontend Checklist](https://frontendchecklist.io/): A checklist with a lot of recommendations for a frontend application. [Here](https://github.com/thedaviddias/Front-End-Checklist) is the Github repo for this checklist.
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse): An open-source, automated tool for improving the quality of web pages. It has audits for performance, accessibility, progressive web apps, SEO and more.
 - [OWASP](https://owasp.org/): This site contains a lot of information on security practices. It's updated very often, so it's good to keep an eye on it.
 
 You will find the template has some examples on how it could be used. You can delete the files or modify them to your needs.
@@ -234,6 +237,10 @@ All React components should be here only, not anywhere else. Inside the index.ts
 The /components folder contains all the application components. The best way to organize the components is to create a folder with the representative name of the component with Upper Camel Case as the naming convention. Inside each folder there should be an index.tsx file which contains the React component and an index.scss file which contains the component styles. For example, for a component called Counter, in another component or view it is imported as _~/views/components/Counter_, which makes the import more readable and less repetitive.
 
 **Note**: It is important to note that everything related to React must only be in the /views folder, nowhere else.
+
+#### Form control
+
+There are many React form libraries. You will notice that in this template we have used [Formik](https://formik.org/), which is one of them, but we also recommend the use of [React Hook Form](https://react-hook-form.com/). Both are similar, having components necessary to build solid and easy-to-validate forms, also allowing the use of UI libraries such as [Material-UI](https://material-ui.com/) being completely independent of them.
 
 ### Styling
 
