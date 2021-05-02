@@ -11,7 +11,7 @@ import { RootState } from '~/state/store';
 
 const today = moment().format('YYYY-MM-DD');
 
-type NasaApodState = {
+export type NasaApodStateType = {
   link: string;
   date: string;
   title: string;
@@ -20,7 +20,7 @@ type NasaApodState = {
   loading: boolean;
 };
 
-const initialState: NasaApodState = {
+const initialState: NasaApodStateType = {
   link: '',
   date: today,
   title: '',
@@ -33,28 +33,28 @@ const nasaApodSlice = createSlice({
   name: 'nasaApod',
   initialState,
   reducers: {
-    setLink: (state: NasaApodState, action: PayloadAction<string>) => {
+    setLink: (state: NasaApodStateType, action: PayloadAction<string>) => {
       state.link = action.payload;
     },
-    setDate: (state: NasaApodState, action: PayloadAction<string>) => {
+    setDate: (state: NasaApodStateType, action: PayloadAction<string>) => {
       state.date = action.payload;
     },
-    setTitle: (state: NasaApodState, action: PayloadAction<string>) => {
+    setTitle: (state: NasaApodStateType, action: PayloadAction<string>) => {
       state.title = action.payload;
     },
-    setCopyright: (state: NasaApodState, action: PayloadAction<string>) => {
+    setCopyright: (state: NasaApodStateType, action: PayloadAction<string>) => {
       state.copyright = action.payload;
     },
-    setExplanation: (state: NasaApodState, action: PayloadAction<string>) => {
+    setExplanation: (state: NasaApodStateType, action: PayloadAction<string>) => {
       state.explanation = action.payload;
     },
-    setLoading: (state: NasaApodState, action: PayloadAction<boolean>) => {
+    setLoading: (state: NasaApodStateType, action: PayloadAction<boolean>) => {
       state.loading = action.payload;
     },
   },
 });
 
-export const nasaApodSelector = (state: RootState): NasaApodState => state.nasaApod;
+export const nasaApodSelector = (state: RootState): NasaApodStateType => state.nasaApod;
 
 export const {
   setLink,

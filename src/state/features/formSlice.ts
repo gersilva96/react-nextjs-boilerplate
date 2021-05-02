@@ -8,11 +8,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '~/state/store';
 import { WordsOptionType } from '~/types/form';
 
-type FormState = {
+export type FormStateType = {
   mostUsedWords: WordsOptionType[];
 };
 
-const initialState: FormState = {
+const initialState: FormStateType = {
   mostUsedWords: [],
 };
 
@@ -20,13 +20,13 @@ const formSlice = createSlice({
   name: 'form',
   initialState,
   reducers: {
-    addMostUsedWord: (state: FormState, action: PayloadAction<WordsOptionType>) => {
+    addMostUsedWord: (state: FormStateType, action: PayloadAction<WordsOptionType>) => {
       state.mostUsedWords.push(action.payload);
     },
   },
 });
 
-export const formSelector = (state: RootState): FormState => state.form;
+export const formSelector = (state: RootState): FormStateType => state.form;
 
 export const { addMostUsedWord } = formSlice.actions;
 
