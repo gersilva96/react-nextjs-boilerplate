@@ -86,7 +86,7 @@ VSCode plugin: [here](https://marketplace.visualstudio.com/items?itemName=stylel
 
 It's an opinionated code formatter used for making the code prettier. Also, by this way all the developers will be following the same style guides. It's configured in the .prettierrc file. You can read how to configure it [here](https://prettier.io/docs/en/configuration.html).
 
-It's recommended to set "formatOnSave" to True in your Code Editor to make this step easier.
+It's recommended to set **formatOnSave** to **true** in your Code Editor to make this step easier.
 
 Read the docs: [Prettier docs](https://prettier.io/).
 
@@ -199,7 +199,7 @@ So:
 
 - If the string can be seen by the user, like a title, it should be added here.
 - Every string should be written in the default language, but you can also have more than one.
-- You can add error descriptions here by its code. For example, if the error is coded "MEDIA_NOT_FOUND", you can use "MEDIA_NOT_FOUND": "We cannot find the media you are looking for...".
+- You can add error descriptions here by its code. For example, if the error is coded "MEDIA_NOT_FOUND", you can use MEDIA_NOT_FOUND = 'We cannot find the media you are looking for...'.
 
 ### State
 
@@ -212,7 +212,7 @@ This layer should never be accessed directly. If any part of the app needs to up
 The /state directory contains three main parts:
 
 - **features**: This dir contains different RTK Slices for different features of the app.
-- **actions**: Every action needed on the state should be here. It works as an abstraction layer on state. So, the main part to interact with the state should be in state/actions.
+- **actions**: Every action needed on the state should be here. It works as an abstraction layer on state. So, the main part to interact with the state should be in state/actions. Be careful, don't confuse this abstraction layer with Redux actions, it's just an abstraction layer.
 - **storages**: It contains different methods to access to localStorage or sessionStorage.
 
 Also, you will see two files:
