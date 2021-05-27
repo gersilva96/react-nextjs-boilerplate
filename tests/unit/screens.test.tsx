@@ -7,7 +7,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import MomentUtils from '@date-io/moment';
+import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
 import '@testing-library/jest-dom/extend-expect';
 import i18n from '../../src/internationalization';
@@ -55,7 +55,7 @@ describe('NasaApod Screen', () => {
   it('should render correctly', () => {
     render(
       <Provider store={store}>
-        <MuiPickersUtilsProvider utils={MomentUtils}>
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
           <NasaApodScreen />
         </MuiPickersUtilsProvider>
       </Provider>,
@@ -68,7 +68,7 @@ describe('Form Screen', () => {
   it('should render correctly', () => {
     render(
       <Provider store={store}>
-        <MuiPickersUtilsProvider utils={MomentUtils}>
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
           <FormScreen />
         </MuiPickersUtilsProvider>
       </Provider>,

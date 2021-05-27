@@ -6,10 +6,11 @@
  */
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import moment from 'moment';
+// import { format } from 'date-fns';
 import { RootState } from '~/state/store';
 
-const today = moment().format('YYYY-MM-DD');
+// const today = format(new Date(), 'yyyy-MM-dd');
+const today = new Date().toString();
 
 export type NasaApodStateType = {
   link: string;

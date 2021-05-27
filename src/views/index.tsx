@@ -13,7 +13,7 @@ import styles from './index.scss';
 
 const MainScreen = lazy(() => import('~/views/screens/Main'));
 const CounterScreen = lazy(() => import('~/views/screens/Counter'));
-const TODOsScreen = lazy(() => import('~/views/screens/Main'));
+const TODOsScreen = lazy(() => import('~/views/screens/TODOs'));
 const NasaApodScreen = lazy(() => import('~/views/screens/NasaApod'));
 const FormScreen = lazy(() => import('~/views/screens/Form'));
 

@@ -4,7 +4,7 @@
  * It has the unit tests for the app state.
  */
 
-import moment from 'moment';
+import { format } from 'date-fns';
 import { store } from '../../src/state';
 import * as counter from '../../src/state/features/counterSlice';
 import * as todo from '../../src/state/features/todoSlice';
@@ -95,7 +95,7 @@ describe('NASA-APOD state', () => {
 
   test('setDate action should set the date string', () => {
     let nasaApodState = <nasaApod.NasaApodStateType>store.getState().nasaApod;
-    expect(nasaApodState.date).toMatch(moment().format('YYYY-MM-DD'));
+    expect(nasaApodState.date).toMatch(format(new Date(), 'yyyy-MM-dd'));
     store.dispatch(nasaApod.setDate('1996-02-28'));
     nasaApodState = <nasaApod.NasaApodStateType>store.getState().nasaApod;
     expect(nasaApodState.date).toMatch('1996-02-28');

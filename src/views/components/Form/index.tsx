@@ -41,7 +41,7 @@ import {
   Delete as DeleteIcon,
 } from '@material-ui/icons';
 import Autocomplete, { createFilterOptions } from '@material-ui/lab/Autocomplete';
-import moment from 'moment';
+import { format } from 'date-fns';
 import Swal from 'sweetalert2';
 import { noop } from 'lodash';
 import { useSelector } from 'react-redux';
@@ -125,9 +125,9 @@ const initialValues: FormValuesType = {
   range: '',
   position: '',
   languages: [],
-  date: moment().format('DD/MM/YYYY'),
-  time: moment().format('HH:mm'),
-  datetime: moment().format('DD/MM/YYYY HH:mm'),
+  date: format(new Date(), 'dd/MM/yyyy'),
+  time: format(new Date(), 'HH:mm'),
+  datetime: format(new Date(), 'dd/MM/yyyy HH:mm'),
   include: [],
   itemsList: [emptyItemList],
   rememberme: false,
@@ -137,9 +137,9 @@ const FormComponent = (): JSX.Element => {
   const { mostUsedWords: words } = useSelector(formSelector);
 
   const [showingPassword, setShowingPassword] = useState<boolean>(false);
-  const [date, setDate] = useState<Date | null>(new Date(moment().format()));
-  const [time, setTime] = useState<Date | null>(new Date(moment().format()));
-  const [dateTime, setDateTime] = useState<Date | null>(new Date(moment().format()));
+  const [date, setDate] = useState<Date | null>(new Date());
+  const [time, setTime] = useState<Date | null>(new Date());
+  const [dateTime, setDateTime] = useState<Date | null>(new Date());
   const [clearAutocomplete, setClearAutocomplete] = useState<number>(1);
 
   const handleShowingPassword = (): void => {
@@ -148,17 +148,17 @@ const FormComponent = (): JSX.Element => {
 
   const handleDateChange = (dateToChange: any, setFieldValue: SetFieldValueType) => {
     setDate(dateToChange);
-    setFieldValue('date', moment(dateToChange).format('DD/MM/YYYY'), true);
+    setFieldValue('date', format(dateToChange, 'dd/MM/yyyy'), true);
   };
 
   const handleTimeChange = (timeToChange: any, setFieldValue: SetFieldValueType) => {
     setTime(timeToChange);
-    setFieldValue('time', moment(timeToChange).format('HH:mm'), true);
+    setFieldValue('time', format(timeToChange, 'HH:mm'), true);
   };
 
   const handleDateTimeChange = (dateTimeToChange: any, setFieldValue: SetFieldValueType) => {
     setDateTime(dateTimeToChange);
-    setFieldValue('datetime', moment(dateTimeToChange).format('DD/MM/YYYY HH:mm'), true);
+    setFieldValue('datetime', format(dateTimeToChange, 'dd/MM/yyyy HH:mm'), true);
   };
 
   const handleIncludeChange = (
@@ -179,9 +179,9 @@ const FormComponent = (): JSX.Element => {
 
   const handleResetForm = () => {
     setShowingPassword(false);
-    setDate(new Date(moment().format()));
-    setTime(new Date(moment().format()));
-    setDateTime(new Date(moment().format()));
+    setDate(new Date());
+    setTime(new Date());
+    setDateTime(new Date());
     setClearAutocomplete(clearAutocomplete === 1 ? 0 : 1);
   };
 
@@ -445,7 +445,7 @@ const FormComponent = (): JSX.Element => {
                           inputVariant="outlined"
                           invalidDateMessage={meta.error}
                           variant="dialog"
-                          format="DD/MM/yyyy"
+                          format="dd/MM/yyyy"
                           id="datepicker"
                           label={i18n.get('FORM_DATE_PICKER_LABEL')}
                           value={date}
@@ -501,7 +501,7 @@ const FormComponent = (): JSX.Element => {
                           inputVariant="outlined"
                           invalidDateMessage={meta.error}
                           variant="dialog"
-                          format="DD/MM/yyyy HH:mm"
+                          format="dd/MM/yyyy HH:mm"
                           id="datetimepicker"
                           label={i18n.get('FORM_DATETIME_PICKER_LABEL')}
                           value={dateTime}

@@ -4,6 +4,7 @@
  * Interacts with the NasaApod state.
  */
 
+import { format } from 'date-fns';
 import nasaApodActions from '~/state/actions/nasaApod';
 import nasaApodService from '~/services/nasaApod';
 
@@ -43,7 +44,7 @@ const nasaApodController = {
    */
   setInfo: async (): Promise<void> => {
     try {
-      const date = nasaApodController.getDate();
+      const date = format(new Date(nasaApodController.getDate()), 'yyyy-MM-dd');
       nasaApodActions.setLoading(true);
       const res = await nasaApodService.get(date);
       if (res.success) {
