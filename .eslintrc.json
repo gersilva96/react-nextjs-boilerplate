@@ -23,8 +23,9 @@
     "import/extensions": "off", //Doesn't matter, it won't compile.
     "func-style": ["error", "expression"],
     "no-useless-catch": "off", //Needed for the try{}catch{} of async functions.
-    "no-use-before-define": "off",  //Solve the "no use before define" React issue
-    "@typescript-eslint/no-use-before-define": ["error"]
+    "no-use-before-define": "off", //Solve the "no use before define" React issue
+    "@typescript-eslint/no-use-before-define": ["error"],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }]
   },
   "settings": {
     "import/resolver": {
