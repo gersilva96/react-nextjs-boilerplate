@@ -5,10 +5,11 @@
  */
 
 import { format } from 'date-fns';
+
 import { store } from '../../src/state';
 import * as counter from '../../src/state/features/counterSlice';
-import * as todo from '../../src/state/features/todoSlice';
 import * as nasaApod from '../../src/state/features/nasaApodSlice';
+import * as todo from '../../src/state/features/todoSlice';
 
 describe('Counter state', () => {
   test('increment action should increment counter state by 1', () => {
@@ -95,10 +96,12 @@ describe('NASA-APOD state', () => {
 
   test('setDate action should set the date string', () => {
     let nasaApodState = <nasaApod.NasaApodStateType>store.getState().nasaApod;
-    expect(nasaApodState.date).toMatch(format(new Date(), 'yyyy-MM-dd'));
-    store.dispatch(nasaApod.setDate('1996-02-28'));
+    const date = format(new Date(nasaApodState.date), 'yyyy-MM-dd HH:mm');
+    expect(date).toMatch(format(new Date(), 'yyyy-MM-dd HH:mm'));
+    const newDate = new Date('1996-02-28').toString();
+    store.dispatch(nasaApod.setDate(newDate));
     nasaApodState = <nasaApod.NasaApodStateType>store.getState().nasaApod;
-    expect(nasaApodState.date).toMatch('1996-02-28');
+    expect(nasaApodState.date).toMatch(newDate);
   });
 
   test('setTitle action should set the media title', () => {

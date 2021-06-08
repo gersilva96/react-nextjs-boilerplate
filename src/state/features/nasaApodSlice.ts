@@ -6,6 +6,7 @@
  */
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 // import { format } from 'date-fns';
 import { RootState } from '~/state/store';
 
@@ -57,13 +58,6 @@ const nasaApodSlice = createSlice({
 
 export const nasaApodSelector = (state: RootState): NasaApodStateType => state.nasaApod;
 
-export const {
-  setLink,
-  setDate,
-  setTitle,
-  setCopyright,
-  setExplanation,
-  setLoading,
-} = nasaApodSlice.actions;
+export const { setLink, setDate, setTitle, setCopyright, setExplanation, setLoading } = nasaApodSlice.actions;
 
 export default nasaApodSlice.reducer;

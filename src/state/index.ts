@@ -5,11 +5,10 @@
  */
 
 import counterActions from './actions/counter';
-import todosActions from './actions/todos';
-import nasaApodActions from './actions/nasaApod';
 import formActions from './actions/form';
+import nasaApodActions from './actions/nasaApod';
+import todosActions from './actions/todos';
 import tmpStorages from './storages';
-
 import reduxStore from './store';
 
 export const counter = counterActions;

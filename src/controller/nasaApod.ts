@@ -5,8 +5,9 @@
  */
 
 import { format } from 'date-fns';
-import nasaApodActions from '~/state/actions/nasaApod';
+
 import nasaApodService from '~/services/nasaApod';
+import nasaApodActions from '~/state/actions/nasaApod';
 
 const nasaApodController = {
   /**
@@ -51,9 +52,7 @@ const nasaApodController = {
         nasaApodActions.setLink(res.payload.url);
         nasaApodActions.setTitle(res.payload.title);
         // eslint-disable-next-line no-unused-expressions
-        res.payload.copyright
-          ? nasaApodActions.setCopyright(res.payload.copyright)
-          : nasaApodActions.setCopyright('-');
+        res.payload.copyright ? nasaApodActions.setCopyright(res.payload.copyright) : nasaApodActions.setCopyright('-');
         nasaApodActions.setExplanation(res.payload.explanation);
       } else {
         nasaApodActions.setLink('');

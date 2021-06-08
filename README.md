@@ -5,6 +5,7 @@
 - [Index](#index)
 - [React Front Template](#react-front-template)
 - [Tools](#tools)
+  - [Next.js](#next.js)
   - [TypeScript](#typescript)
   - [Redux](#redux)
   - [ESLint](#eslint)
@@ -15,7 +16,6 @@
 - [Folder structure and usage](#folder-structure-and-usage)
   - [Root Directories](#root-directories)
   - [Root Files](#root-files)
-  - [Files in /src](#files-in-src)
   - [Directories in /src](#directories-in-src)
 - [Guide](#guide)
   - [Starting](#starting)
@@ -50,17 +50,30 @@ Even though you can use /src and /test from the scratch, it would be nice take a
 
 If you are using the Visual Studio Code as your code editor (recommended, you can get it [here](https://code.visualstudio.com/)), you should install and use the associated plugins.
 
+### Next.js
+
+We use Next.js due to different advantages:
+
+- Better user experience
+- Data security
+- SEO efficiency
+- Incremental Static Generation
+- Better performance than a SPA, but with the browsing experience of this
+- Better scores in the Core Web Vitals
+
+Read the docs: [Next.js docs](https://nextjs.org/docs)
+
 ### Typescript
 
 As a JavaScript superset. All the files should be written in TypeScript in order to make the code cleaner. Its configuration is set in the .tsconfig file. You can read how to configure it [here](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 
-Read the docs: [Typescript docs](https://www.typescriptlang.org/).
+Read the docs: [Typescript docs](https://www.typescriptlang.org/docs).
 
 ### Redux
 
 For state management. With Redux Toolkit (official recommended approach for writing Redux logic), which wraps around the Redux core, and contains packages and functions that are essential for building a Redux app.
 
-Read the docs: [Redux docs](https://redux.js.org/), [Redux Toolkit docs](https://redux-toolkit.js.org/), [React Redux](https://react-redux.js.org/).
+Read the docs: [Redux docs](https://redux.js.org/introduction/getting-started), [Redux Toolkit docs](https://redux-toolkit.js.org/introduction/getting-started), [React Redux docs](https://react-redux.js.org/introduction/getting-started).
 
 ### Eslint
 
@@ -118,38 +131,32 @@ It uses husky to add a hook to git, so it runs eslint and prettier before commit
 
 ### Root Files
 
-- **.babelrc**: Contains the configuration for [babelrc](https://babeljs.io/docs/en/configuration).
 - **.browserslistrc**: Contains the queries for specify wich browsers should be supported in this frontend. [Browserslist queries](https://www.npmjs.com/package/browserslist#queries).
-- **.eslintrc.json**: Contains all the configuration for [eslintrc](https://eslint.org/docs/user-guide/configuring).
+- **.eslintrc**: Contains all the configuration for [eslintrc](https://eslint.org/docs/user-guide/configuring).
+- **.eslintignore**: Contains the folders/files that will be ignored by eslint.
 - **.gitignore**: Contains all the files and directories that won't be upstreamed to git. How to configure: [gitignore](https://git-scm.com/docs/gitignore).
 - **.npmrc**: Contains how npm will work. How to configure: [npmrc](https://docs.npmjs.com/configuring-npm/npmrc.html).
 - **.pretierrc**: Contains prettier configuration. How to configure: [prettierrc](https://prettier.io/docs/en/configuration.html).
-- **.stylelintrc.json**: Contains Stylelint configuration. How to configure: [stylelintrc](https://stylelint.io/user-guide/configure).
+- **.stylelintrc**: Contains Stylelint configuration. How to configure: [stylelintrc](https://stylelint.io/user-guide/configure).
 - **CHANGELOG.md, LICENSE and README.md**: Standard files that have information about how to use the package (this file), the changes in each release and the license.
-- **jestconfig.json**: Contains Jest configuration. How to configure: [jestconfig](https://jestjs.io/docs/en/configuration).
-- **jesthtmlreporter.json**: Contains the configuration for the testings output files.
+- **jest.config.js**: Contains Jest configuration. How to configure: [jestconfig](https://jestjs.io/docs/en/configuration).
+- **jesthtmlreporter.config.json**: Contains the configuration for the testings output files.
 - **package.json**: NodeJS Package configuration. How to configure: [package.json](https://docs.npmjs.com/creating-a-package-json-file).
-- **postcss.config.js**: Contains the configuration for PostCSS. How to configure: [postcss.config](https://postcss.org/).
 - **tsconfig.json**: Contains TypeScript configuration. How to configure: [tsconfig](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
 - **typedoc.json**: Contains the TYPE DOC configuration. How to configure: [typedoc](https://typedoc.org/guides/options/).
-- **webpack.config**: Contains the webpack configuration. How to configure: [webpack.config](https://webpack.js.org/concepts/).
-
-### Files in /src
-
-- **index.tsx**: The compilation starts in this file. It imports the ReactDOM render method and renders the entire React application in a _div_ tag with an id called _root_. Also whitin the App component, Redux Provider component is rendered to have the global state available throughout the entire application.
-- **index.scss**: It contains the styles that are applied to the entire application.
 
 ### Directories in /src
 
+- **components**: Contains the components for the entire application.
 - **constants**: Contains all the application constants (configuration that doesn't depend on environment variables).
 - **controller**: Contains the bussiness logic layer. It's the part that executes what the app needs and interact with the state.
 - **internationalizacion** Contains all the things needed to use the app in different languages (and also contains app strings).
-- **scss**: Contains some SASS/CSS utils and variables needed in many parts of the app.
+- **pages**: Contains the Next.js pages folder. Each file in this folder will be a route in the application.
+- **scss**: Contains global styles and some SASS/CSS utils and variables needed in many parts of the app.
 - **services**: Contains calls to third party services or APIs. This directory should contain all interactions with any API.
 - **state**: Contains all related to Redux Toolkit state (features, storages, actions, etc.).
 - **types**: Contains all complex or reused types across the application.
 - **utils**: Contains some utils, like the axiosHelper.
-- **views**: Contains all related to React. All components of the application should be here.
 
 ## Guide
 
@@ -161,9 +168,11 @@ Here are the guides and recommendations we want to follow to build:
 - [React and TypeScript](https://www.reactandtypescript.dev/): Here are some recommendations and examples for using React with TypeScript.
 - [React+TypeScript Cheatsheets](https://github.com/typescript-cheatsheets/react): Here is a cheatsheet with a lot of recommendations for using React with TypeScript.
 - [Accesibility](https://medium.com/salesforce-ux/7-things-every-designer-needs-to-know-about-accessibility-64f105f0881b): A medium post with 7 things to consider about accesibility
+- [Next.js examples](https://github.com/vercel/next.js/tree/canary/examples): Here are many examples on how to use different libraries or settings in Next.js.
 - [Accesibility](https://adhithiravi.medium.com/web-accessibility-and-why-you-should-care-c8b436412ebd): Another medium post with some recommendations about accesibility.
 - [Frontend Checklist](https://frontendchecklist.io/): A checklist with a lot of recommendations for a frontend application. [Here](https://github.com/thedaviddias/Front-End-Checklist) is the Github repo for this checklist.
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse): An open-source, automated tool for improving the quality of web pages. It has audits for performance, accessibility, progressive web apps, SEO and more.
+- [web.dev](https://web.dev): A Google resource to learn, create, and solve on the web.
 - [OWASP](https://owasp.org/): This site contains a lot of information on security practices. It's updated very often, so it's good to keep an eye on it.
 
 You will find the template has some examples on how it could be used. You can delete the files or modify them to your needs.

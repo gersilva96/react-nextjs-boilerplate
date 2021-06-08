@@ -5,6 +5,7 @@
  */
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { RootState } from '~/state/store';
 import { WordsOptionType } from '~/types/form';
 

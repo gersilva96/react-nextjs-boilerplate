@@ -5,10 +5,11 @@
  */
 
 import { configureStore } from '@reduxjs/toolkit';
+
 import counterReducer from '~/state/features/counterSlice';
-import todosReducer from '~/state/features/todoSlice';
-import nasaApodReducer from '~/state/features/nasaApodSlice';
 import formReducer from '~/state/features/formSlice';
+import nasaApodReducer from '~/state/features/nasaApodSlice';
+import todosReducer from '~/state/features/todoSlice';
 
 const reducer = {
   counter: counterReducer,

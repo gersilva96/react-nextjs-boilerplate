@@ -8,5 +8,5 @@ export default {
   /**
    * Contains the default language.
    */
-  DEFAULT_LANGUAGE: 'es',
+  DEFAULT_LANGUAGE: `es`,
 };

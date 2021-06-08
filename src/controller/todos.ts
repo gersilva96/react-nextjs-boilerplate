@@ -52,8 +52,7 @@ const todosController = {
    * @param firstIndex Index to move.
    * @param secondIndex Index to move.
    */
-  shift: (firstIndex: number, secondIndex: number): TODOsList =>
-    todosActions.shift(firstIndex, secondIndex),
+  shift: (firstIndex: number, secondIndex: number): TODOsList => todosActions.shift(firstIndex, secondIndex),
 
   /**
    * Saves the content to the local storage.

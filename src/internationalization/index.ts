@@ -5,8 +5,8 @@
  */
 import i18n from 'i18next';
 
-import CONSTANTS from '~/constants';
 import resources from './resources';
+import CONSTANTS from '~/constants';
 
 const someLanguage = resources.es.translation;
 

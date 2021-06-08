@@ -4,19 +4,19 @@
  * It has the unit tests for the app screens.
  */
 
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { Provider } from 'react-redux';
 import DateFnsUtils from '@date-io/date-fns';
 import { MuiPickersUtilsProvider } from '@material-ui/pickers';
+import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
+
 import '@testing-library/jest-dom/extend-expect';
+import CounterScreen from '../../src/components/Counter';
+import FormScreen from '../../src/components/Form';
+import MainScreen from '../../src/components/Home';
+import NasaApodScreen from '../../src/components/NasaApod';
+import TODOsScreen from '../../src/components/TODOs';
 import i18n from '../../src/internationalization';
 import { store } from '../../src/state';
-import MainScreen from '../../src/views/screens/Main';
-import CounterScreen from '../../src/views/screens/Counter';
-import TODOsScreen from '../../src/views/screens/TODOs';
-import NasaApodScreen from '../../src/views/screens/NasaApod';
-import FormScreen from '../../src/views/screens/Form';
 
 describe('Main Screen', () => {
   it('should render correctly', () => {

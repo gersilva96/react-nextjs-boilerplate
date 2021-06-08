@@ -5,6 +5,7 @@
  */
 
 import { isUndefined } from 'lodash';
+
 import Storage from './Storage';
 
 type StorageType = Storage | undefined;
@@ -54,9 +55,7 @@ export class Storages {
    */
   private _checkWindowExists(): boolean {
     if (isUndefined(window)) {
-      throw new Error(
-        "'Window' doesn't exist. Are you trying to execute this in server side rendering?",
-      );
+      throw new Error("'Window' doesn't exist. Are you trying to execute this in server side rendering?");
     }
     return true;
   }

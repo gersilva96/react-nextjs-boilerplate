@@ -1,33 +1,64 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "checkJs": false,
-    "target": "es5",
-    "module": "commonjs",
-    "outDir": "./build",
-    "jsx": "react",
-    "declaration": true,
-    "lib": ["es6", "dom", "es2017"],
-    "noImplicitAny": true,
-    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "alwaysStrict": true,
     "baseUrl": "./",
-    "paths": {
-      "~/*": ["src/*"],
-    },
-    "typeRoots": ["node_modules/@types", "src/types"],
-    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
     "esModuleInterop": true,
-    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "preserve",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "experimentalDecorators": true,
-    "noFallthroughCasesInSwitch": true
+    "paths": {
+      "~/*": [
+        "./src/*"
+      ]
+    },
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "target": "es5",
+    "typeRoots": [
+      "node_modules/@types",
+      "src/types"
+    ],
+    "isolatedModules": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "tests", "dist", "build", "docs"],
+  "exclude": [
+    "node_modules",
+    "docs",
+    "build",
+    "dist",
+    "out",
+    "tests",
+    "next.config.js"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
   "watchOptions": {
-    "watchFile": "useFsEvents",
+    "fallbackPolling": "dynamicPriority",
     "watchDirectory": "useFsEvents",
-    "fallbackPolling": "dynamicPriority"
+    "watchFile": "useFsEvents"
   }
 }
