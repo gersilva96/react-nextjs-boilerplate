@@ -162,7 +162,10 @@ It uses husky to add a hook to git, so it runs eslint and prettier before commit
 
 ### Starting
 
-To develop a frontend this template follows many code rules: ESLint, Prettier, the AirBnb guide, TypeScript, etc. But this is just for coding. The app design is harder, because we cannot have automated tools and we have to be very thoughtfull as we develop. Accessibility and SEO are also issues to consider.
+To develop a frontend this template follows many code rules: ESLint, Stylelint, Prettier, the AirBnb guide, TypeScript, etc. But this is just for coding. The app design is harder, because we cannot have automated tools and we have to be very thoughtfull as we develop. Accessibility, performance and SEO are also issues to consider.
+
+Before starting to develop is necessary to execute the `npm run prepare` command, because it installs the husky.
+
 Here are the guides and recommendations we want to follow to build:
 
 - [React and TypeScript](https://www.reactandtypescript.dev/): Here are some recommendations and examples for using React with TypeScript.
@@ -462,13 +465,16 @@ Here are some recommendations from OWASP and a Medium post that explain why you 
 You can use the following commands:
 | Command | Description |
 | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| npm run \_clean | Deletes the /build dir. |
-| npm run \_control | Runs lint, format and unit tests. |
-| rpm run lint | Runs eslint and stylelint in the /src directory. |
-| npm run format | Runs prettier in the /src directory. |
+| npm run prepare | Installs the husky. |
+| npm run \_clean | Deletes the **.next**, **out** and **build** dirs. |
+| npm run \_control | Runs linters, formatter, type checker, unit tests and audits the production packages |
+| rpm run lint | Runs eslint and stylelint in the **src** directory. |
+| npm run format | Runs prettier in the **src** directory. |
+| npm run type-check | Checks types. |
 | npm run test:unit | Runs Jest for all the test in the /tests/unit directory. |
 | npm run test:integration | Runs Jest for all the test in the /tests/integration directory. |
-| npm run dev | Gets the webpack dev server up. |
-| npm run compile | Compiles all the files in the /src directory to the /build directory. Also it copies all the files. |
-| npm run build | Runs npm run lint, format, test, compile and generate docs. |
-| npm run generate-docs | Generate the docs once the code is running. |
+| npm run dev | Gets the Next.js dev server up. |
+| npm run build-stats | Builds the project with bundles analyzer enabled. |
+| npm run build | Runs npm run \_clean and generates the production build. |
+| npm run export | Exports the app to static HTML to the **out** dir. |
+| npm start | Gets the Next.js production server up. |
