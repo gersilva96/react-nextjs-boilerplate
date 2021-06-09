@@ -5,7 +5,7 @@
 - [Index](#index)
 - [React Front Template](#react-front-template)
 - [Tools](#tools)
-  - [Next.js](#next.js)
+  - [Next.js](#nextjs)
   - [TypeScript](#typescript)
   - [Redux](#redux)
   - [ESLint](#eslint)
@@ -43,14 +43,13 @@
 
 This is the template for React applications.
 
-In the /src-sample dir you will find a complete example on how this system could work.
-Even though you can use /src and /test from the scratch, it would be nice take a look frequently to src-sample and tests-sample. These dirs contains some functional samples on how to use the package.
+In the **src** dir you will find a complete example on how this system could work. You can add or remove the files you need.
 
 ## Tools
 
 If you are using the Visual Studio Code as your code editor (recommended, you can get it [here](https://code.visualstudio.com/)), you should install and use the associated plugins.
 
-### Next.js
+### Nextjs
 
 We use Next.js due to different advantages:
 
@@ -124,10 +123,8 @@ It uses husky to add a hook to git, so it runs eslint and prettier before commit
 - **node_modules**: It's the standard node_modules folder for NodeJS.
 - **package_utils**: It contains some scripts we need at package config.
 - **public**: It contains the primary HTML file and static files.
-- **src**: It contains the source of the package. It's the code to be compiled when you run "npm run build".
-- **src-sample**: It contains some functional examples on how to use the package.
-- **tests**: Contains all the different files what will be tested when you use "npm run test". Jest will look for all the files finishing with ".test.ts".
-- **tests-sample**: It contains the unit tests for the src-sample folder examples.
+- **src**: It contains the source of the package with some functional examples on how to use the template. It's the code that will be compiled when you run "npm run build".
+- **tests**: Contains all the different files (and some examples) that will be tested when you use "npm run test". Jest will look for all the files finishing with ".test.ts".
 
 ### Root Files
 
