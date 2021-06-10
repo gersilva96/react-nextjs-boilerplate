@@ -12,8 +12,8 @@ export type axiosError = {
   error: {
     message: string;
     code?: number;
-    url?: string;
-    method?: string;
+    url?: string | undefined;
+    method?: string | undefined;
   };
 };
 
