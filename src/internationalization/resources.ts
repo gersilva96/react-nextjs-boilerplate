@@ -13,7 +13,7 @@ const resources = {
       // NAVIGATION TITLES
       NAVIGATION_HOME: 'Inicio',
       NAVIGATION_COUNTER: 'Contador',
-      NAVIGATION_TODO: 'Todo',
+      NAVIGATION_TODO: 'To Do',
       NAVIGATION_NASAAPOD: 'NASA APOD',
       NAVIGATION_FORM: 'Formulario',
 
@@ -37,7 +37,7 @@ const resources = {
       TODOS_TODO_LIST_EMPTY: 'Nada por hacer',
 
       // NASAAPOD SCREEN
-      NASAAPOD_TITLE: 'NASA APOD',
+      NASAAPOD_TITLE: 'NASA - Astronomy Picture of the Day',
       NASAAPOD_SELECT_DATE: 'Elegí una fecha',
       NASAAPOD_MEDIA_NOT_FOUND: 'Imagen o video no encontrados',
 
