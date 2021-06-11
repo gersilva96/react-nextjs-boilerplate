@@ -7,6 +7,7 @@
 import { useState } from 'react';
 
 import { KeyboardDatePicker } from '@material-ui/pickers';
+import { format } from 'date-fns';
 import { useSelector } from 'react-redux';
 
 import styles from '../index.module.scss';
@@ -18,8 +19,12 @@ const DateInput = (): JSX.Element => {
   const { date } = useSelector(nasaApodSelector);
   const [startDate, setStartDate] = useState<Date | null>(new Date(date));
   const handleDateChange = (changedDate: any) => {
-    setStartDate(changedDate);
-    nasaApodController.setDate(new Date(changedDate).toString());
+    const actualDate = format(new Date(date), 'yyyy-MM-dd');
+    const newDate = format(changedDate, 'yyyy-MM-dd');
+    if (actualDate !== newDate) {
+      setStartDate(changedDate);
+      nasaApodController.setDate(new Date(changedDate).toString());
+    }
   };
 
   return (
